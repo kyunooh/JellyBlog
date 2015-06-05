@@ -1,6 +1,12 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
+
 
 class Category(models.Model):
+	def __str__(self):
+		return self.category_name
 	category_id = models.AutoField(primary_key=True)
 	category_parent_id = models.IntegerField(null=True)
 	category_name = models.CharField(max_length=20)
@@ -8,8 +14,10 @@ class Category(models.Model):
 
 
 class Document(models.Model):
+	def __str__(self):
+		return self.choice_text
 	document_id = models.AutoField(primary_key=True)
-	category_id = models.ForeignKey(Category)
+	category = models.ForeignKey(Category)
 	document_title = models.CharField(max_length=100)
 	document_content = models.TextField()
 	document_time = models.DateTimeField()
