@@ -13,9 +13,10 @@ class Category(models.Model):
 
 
 
+
 class Document(models.Model):
 	def __str__(self):
-		return self.choice_text
+		return self.document_title
 	document_id = models.AutoField(primary_key=True)
 	category = models.ForeignKey(Category)
 	document_title = models.CharField(max_length=100)
