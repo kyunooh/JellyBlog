@@ -1,0 +1,13 @@
+{% extends "jellyblog/base.html" %}
+{% block content %}
+    {% if document %}
+        <div class="col-lg-12">
+            <span><h1>{{ document.document_title }}</h1></span>
+            <span>{{  document.document_content }}</span>
+        </div>
+    {% else %}
+        There is no content
+    {% endif %}
+    {# document #}
+{% endblock %}
+{#content#}
