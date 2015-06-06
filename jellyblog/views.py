@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Category, Document
 
@@ -11,10 +11,7 @@ def index(request):
 
 
 def detail(request, document_id):
-    try:
-        document = Document.objects.get(pk=document_id)
-    except Document.DoesNotExist:
-        raise Http404("Document isn't exist")
+    document = get_object_or_404(Document, pk=document_id)
     return render(request, 'jellyblog/detail.html', {'document': document})
 
 
