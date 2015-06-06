@@ -1,11 +1,15 @@
 from django.http import HttpResponse
+from django.template import RequestContext, loader
 
 from .models import Category, Document
 
 def index(request):
 	latest_document_list = Document.objects.order_by('-document_id')[:5]
-	output = ', '.join([p.document_title for p in latest_document_list])
-	return HttpResponse(output)
+	template = loader.get_template('jellyblog/index.html')
+	context = RequestContext(request, {
+		'latest_document_list' : latest_document_list,
+	})
+	return HttpResponse(template.render(context))
 
 
 def detail(request, document_id):

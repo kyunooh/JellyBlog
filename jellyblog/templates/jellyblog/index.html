@@ -1,0 +1,17 @@
+{% extends "jellyblog/base.html" %}
+{% block content %}
+{% if latest_document_list %}
+		{% for document in latest_document_list %}
+			<div class="col-lg-12">
+				<span><a href="/{{document.document_id}}"><h1>{{document.document_title}}</h1></a></span>
+				<span>{{document.document_content}}</span>
+			</div>
+		{% endfor %}
+
+{% else %}
+	<p>There is no document</p>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
