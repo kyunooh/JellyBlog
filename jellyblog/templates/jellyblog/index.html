@@ -3,8 +3,8 @@
 {% if latest_document_list %}
 		{% for document in latest_document_list %}
 			<div class="col-md-12">
-				<span><a href="/{{document.document_id}}"><h1>{{document.document_title}}</h1></a></span>
-				<span>{{document.document_content}}</span>
+				<span><h1><a href="/{{ document.document_id }}">{{ document.document_title }}</a></h1></span>
+                <span>{{ document.document_content }}</span>
 			</div>
 		{% endfor %}
 
