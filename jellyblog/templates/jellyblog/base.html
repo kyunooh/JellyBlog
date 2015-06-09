@@ -32,7 +32,19 @@
         {% endblock %}
         <!-- block navbar -->
     </nav>
-    <div id="content" class="container">{% block content %}{% endblock %}</div>
+    <div id="content" class="row">
+        <div id="left-sidebar" class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                {% if category_list %}
+                    {% for category in category_list %}
+                        <li role="presentation"><a href="{{ category.category_id }}">{{ category.category_name }}</a></li>
+
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div id="inner-content" class="col-md-10">{% block content %}{% endblock %}</div>
+    </div>
 	
 	<!-- script import -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>

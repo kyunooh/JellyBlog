@@ -2,8 +2,9 @@
 {% if document %}
 {% block title %}{{ document.document_title }}{% endblock %}
 {% block content %}
-        <div class="col-lg-12">
-            <span><h1>{{ document.document_title }}</h1></span>
+        <div class="col-md-12">
+            <span><h1>{{ document.document_title }}</h1></span>r
+            <hr>
             <span>{{  document.document_content }}</span>
         </div>
 {% endblock %}
