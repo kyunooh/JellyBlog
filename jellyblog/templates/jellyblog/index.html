@@ -1,12 +1,16 @@
 {% extends "jellyblog/base.html" %}
 {% block content %}
-{% if latest_document_list %}
-		{% for document in latest_document_list %}
+{% if document_list %}
+
 			<div class="col-md-12">
+                {% for document in document_list %}
 				<span><h1><a href="/{{ document.document_id }}">{{ document.document_title }}</a></h1></span>
+                <hr class="title-line">
                 <span>{{ document.document_content }}</span>
+                <hr class="document-line">
+                {% endfor %}
 			</div>
-		{% endfor %}
+
 
 {% else %}
 	<p>There is no document</p>

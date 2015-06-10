@@ -18,11 +18,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">젤리의 망상</a>
+                <a class="navbar-brand" href="/">젤리의 망상</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -37,7 +37,7 @@
             <ul class="nav nav-pills nav-stacked">
                 {% if category_list %}
                     {% for category in category_list %}
-                        <li role="presentation"><a href="{{ category.category_id }}">{{ category.category_name }}</a></li>
+                        <li role="presentation"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
 
                     {% endfor %}
                 {% endif %}

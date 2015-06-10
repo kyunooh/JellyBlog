@@ -6,7 +6,7 @@ category_list = Category.objects.all()
 
 def index(request):
     latest_document_list = Document.objects.order_by('-document_id')[:5]
-    context = {'latest_document_list': latest_document_list,'category_list' : category_list }
+    context = {'document_list': latest_document_list,'category_list' : category_list }
     return render(request, 'jellyblog/index.html', context)
 
 
@@ -17,6 +17,8 @@ def detail(request, document_id):
 
 def category(request, category_id):
     document = get_object_or_404(Category, pk=category_id)
-    return render(request, 'jellyblog/category.html',{'category_list':category_list})
+    return render(request, 'jellyblog/category.html',{'category_list': category_list})
 
-
+def category_detail(request, category_id):
+    document_list = Document.objects.all().filter(category=category_id).order_by('-document_id')[:5]
+    return render(request, 'jellyblog/index.html',{'document_list': document_list,'category_list': category_list})
