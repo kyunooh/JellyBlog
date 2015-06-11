@@ -1,13 +1,16 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'jellyblog/css/jelly-custom.css' %}">
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
-<body>
+<body ng-app="JellyBlog">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         {% block navbar %}
         <div class="container">
@@ -20,11 +23,11 @@
                 </button>
                 <a class="navbar-brand" href="/">젤리의 망상</a>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
+            <div id="navbar" class="collapse navbar-collapse" ng-controller="NavActiveController">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li ng-class="{ active : isActive('')}"><a href="/">Home</a></li>
+                    <li ng-class="{ active : isActive('#about')}"><a href="#about">About</a></li>
+                    <li ng-class="{ active : isActive('#contact')}"><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -34,10 +37,10 @@
     </nav>
     <div id="content" class="row">
         <div id="left-sidebar" class="col-md-2">
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills nav-stacked" ng-controller="SideActiveController" >
                 {% if category_list %}
                     {% for category in category_list %}
-                        <li role="presentation"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
+                        <li role="presentation" ng-class="{ active : isActive('/category/{{ category.category_id  }}/') }"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
 
                     {% endfor %}
                 {% endif %}
@@ -45,10 +48,15 @@
         </div>
         <div id="inner-content" class="col-md-10">{% block content %}{% endblock %}</div>
     </div>
-	
+    <div ng-view></div>
 	<!-- script import -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>
+    <script src="{% static 'jellyblog/js/angular/jellyblog-app.js' %}"></script>
+    <script src="{% static 'jellyblog/js/angular/jellyblog-controller.js' %}"></script>
 </body>
 
 </html>
