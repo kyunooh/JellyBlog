@@ -7,10 +7,3 @@ function ActiveController($scope, $location) {
         return viewLocation === $location.path();
     };
 };
-app.controller("SideActiveController",['$scope','$location',SideActiveController]);
-
-function SideActiveController($scope, $location) {
-    $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
-};

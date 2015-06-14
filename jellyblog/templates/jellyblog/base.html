@@ -26,8 +26,11 @@
             <div id="navbar" class="collapse navbar-collapse" ng-controller="NavActiveController">
                 <ul class="nav navbar-nav">
                     <li ng-class="{ active : isActive('')}"><a href="/">Home</a></li>
-                    <li ng-class="{ active : isActive('#about')}"><a href="#about">About</a></li>
-                    <li ng-class="{ active : isActive('#contact')}"><a href="#contact">Contact</a></li>
+                    {% if category_list %}
+                        {% for category in category_list %}
+                            <li role="presentation" ng-class="{ active : isActive('/category/{{ category.category_id  }}/') }"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -37,14 +40,7 @@
     </nav>
     <div id="content" class="row">
         <div id="left-sidebar" class="col-md-2">
-            <ul class="nav nav-pills nav-stacked" ng-controller="SideActiveController" >
-                {% if category_list %}
-                    {% for category in category_list %}
-                        <li role="presentation" ng-class="{ active : isActive('/category/{{ category.category_id  }}/') }"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
 
-                    {% endfor %}
-                {% endif %}
-            </ul>
         </div>
         <div id="inner-content" class="col-md-10">{% block content %}{% endblock %}</div>
     </div>
