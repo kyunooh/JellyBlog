@@ -6,7 +6,7 @@ class Category(models.Model):
 		return self.category_name
 
 	category_id = models.AutoField(primary_key=True)
-	category_parent_id = models.IntegerField(null=True)
+	category_parent_id = models.ForeignKey('self')
 	category_name = models.CharField(max_length=20)
 
 
