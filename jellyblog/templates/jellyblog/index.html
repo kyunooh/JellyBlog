@@ -4,9 +4,9 @@
 
 			<div class="col-md-12">
                 {% for document in document_list %}
-				<span><h1><a href="/{{ document.document_id }}">{{ document.document_title }}</a></h1></span>
+				<span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
                 <hr class="title-line">
-                <span>{{ document.document_content }}</span>
+                <span>{{ document.content }}</span>
                 <hr class="document-line">
                 {% endfor %}
 			</div>

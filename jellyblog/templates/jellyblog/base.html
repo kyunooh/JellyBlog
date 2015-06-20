@@ -28,7 +28,25 @@
                     <li ng-class="{ active : isActive('')}"><a href="/">Home</a></li>
                     {% if category_list %}
                         {% for category in category_list %}
-                            <li role="presentation" ng-class="{ active : isActive('/category/{{ category.category_id  }}/') }"><a href="/category/{{ category.category_id }}">{{ category.category_name }}</a></li>
+                            {% if category.children %}
+                                <li class="dropdown">
+                                <a href="/category/{{ category.id }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {{ category.name }}<span class="caret"></span>
+                                </a>
+
+                                    <ul class="dropdown-menu">
+                                        {% for child in category.children %}
+                                            <li><a href="/category/{{ child.id }}">{{  child.name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li role="presentation" ng-class="{ active : isActive('/category/{{ category.id  }}/') }">
+                                    <a href="/category/{{ category.id }}">{{ category.name }}</a>
+                                </li>
+                            {% endif %}
+
+
                         {% endfor %}
                     {% endif %}
                 </ul>
