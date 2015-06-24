@@ -1,5 +1,7 @@
 {% extends "jellyblog/base.html" %}
+{% block meta_tag %}{{ document.meta_tag }}{% endblock %}
 {% block content %}
+
 {% if document_list %}
 
 			<div class="col-md-12">

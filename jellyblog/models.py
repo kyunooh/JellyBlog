@@ -1,5 +1,5 @@
 from django.db import models
-from pip.cmdoptions import editable
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -8,12 +8,12 @@ class Category(models.Model):
         self.children = []
 
     def __str__(self):
-        return str(self.id)
+        return self.name
 
     id = models.AutoField(primary_key=True)
-    parent = models.IntegerField()
+    parent = models.ForeignKey('self')
     name = models.CharField(max_length=20)
-    is_child = models.BooleanField()
+
 
 
 class Document(models.Model):
@@ -23,6 +23,7 @@ class Document(models.Model):
     id = models.AutoField(primary_key=True)
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=100)
-    content = models.TextField()
+    content = RichTextField()
     time = models.DateTimeField(auto_now=True)
+    meta_tag = models.CharField(max_length=150)
     view_count = models.IntegerField(default=0, editable=False)

@@ -27,8 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 # Application definition
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -38,7 +40,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jellyblog',
+    'ckeditor',
+    'ckeditor.fields',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -72,8 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blogadmin.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
 
 DATABASES = {
     'default': {

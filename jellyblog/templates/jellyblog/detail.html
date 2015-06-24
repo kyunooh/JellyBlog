@@ -3,6 +3,17 @@
 {% block title %}{{ document.title }}{% endblock %}
 {% block content %}
         <div class="col-md-12">
+            {% if document.category.parent != 1 %}
+                <span>
+                    <h6>
+                        <a href="/">Home</a> > 
+                        <a href="/category/{{ document.category.parent.id }}">{{ document.category.parent.name }}</a> > <a
+                            href="/category/{{ document.category.id }}">{{ document.category.name }}</a>
+                    </h6>
+                </span>
+            {% else %}
+            <span><h6><a href="/">Home</a> > <a href="/category/{{ document.category.id }}"> {{ document.category.name }} </a></h6></span>
+            {% endif %}
             <span><h1>{{ document.title }}</h1></span>
             <hr>
             <span>{{  document.content }}</span><br>

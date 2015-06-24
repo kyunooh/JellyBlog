@@ -1,31 +1,25 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Category, Document
-
-
 
 
 def sorted_category():
     return_category = list(Category.objects.all())
-    print(return_category)
+    childList = []
     for category in return_category:
         print(category)
-        if(category.is_child == False):
-            print("in if category : " + str(category) + ", category id: "+ str(category.id))
+        if(category.parent.id == 1):
+            print("in if: "+ category.name)
             continue
         else:
-            parent_index = return_category.index(find_parent(return_category,category))
-            print(parent_index)
+            parent_index = return_category.index(category.parent)
             return_category[parent_index].children.append(category)
-            return_category.remove(category)
-    print(return_category)
+            childList.append(category)
+
+    for child in childList:
+        return_category.remove(child)
+
     return return_category
-
-def find_parent(category_list, category):
-    for child in category_list:
-        if(child.id == category.parent):
-            return child
-
-
 
 categoryList = sorted_category()
 
@@ -43,10 +37,14 @@ def detail(request, document_id):
     return render(request, 'jellyblog/detail.html', {'document': document, 'category_list': categoryList})
 
 
-def category(request, category_id):
-    document = get_object_or_404(Category, pk=category_id)
-    return render(request, 'jellyblog/category.html',{'category_list': categoryList})
 
 def category_detail(request, category_id):
-    document_list = Document.objects.all().filter(category=category_id).order_by('-id')[:5]
+    selectedCategory = Category.objects.get(id=category_id)
+    document_list = []
+    if(selectedCategory.parent == categoryList[0]):
+        children = Category.objects.all().filter(parent=selectedCategory.id)
+        for child in children:
+            document_list += Document.objects.all().filter(category_id=child.id).order_by('-id')[:5]
+    else:
+        document_list += Document.objects.all().filter(category=category_id).order_by('-id')[:5]
     return render(request, 'jellyblog/index.html',{'document_list': document_list,'category_list': categoryList })

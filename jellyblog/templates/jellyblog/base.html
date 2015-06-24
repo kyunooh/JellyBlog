@@ -4,14 +4,14 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <meta name="description" content="{% block meta_tag %}젤리의 망상{% endblock %}" />
+    <link rel="stylesheet" href="{% static 'jellyblog/css/bootstrap/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" href="{% static 'jellyblog/css/jelly-custom.css' %}">
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
 <body ng-app="JellyBlog">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar navbar-fixed-top">
         {% block navbar %}
         <div class="container">
             <div class="navbar-header">
@@ -25,7 +25,6 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse" ng-controller="NavActiveController">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active : isActive('')}"><a href="/">Home</a></li>
                     {% if category_list %}
                         {% for category in category_list %}
                             {% if category.children %}
@@ -39,6 +38,10 @@
                                             <li><a href="/category/{{ child.id }}">{{  child.name }}</a></li>
                                         {% endfor %}
                                     </ul>
+                                </li>
+                            {% elif category.id == 1 %}
+                                <li role="presentation" ng-class="{ active : isActive('') }">
+                                    <a href="/">{{ category.name }}</a>
                                 </li>
                             {% else %}
                                 <li role="presentation" ng-class="{ active : isActive('/category/{{ category.id  }}/') }">
