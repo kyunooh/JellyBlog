@@ -13,23 +13,22 @@
             {% endfor %}
         </div>
 
-
         <div class="row">
             <div class="col-md-8 col-md-offset-3">
                 <ul class="pagination ">
                     {% if documents.has_previous %}
                         <li>
-                            <a href="/page/{{ documents.previous_page_number }}" aria-label="Previous">
+                            <a href="/category/{{ category_id }}/page/{{ documents.previous_page_number }}" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
                         </li>
                     {% endif %}
                     {% for number in page_range %}
-                        <li><a href="/page/{{ number }}">{{ number }}</a></li>
+                        <li><a href="/category/{{ category_id }}/page/{{ number }}">{{ number }}</a></li>
                     {% endfor %}
                     {% if documents.has_next %}
                         <li>
-                            <a href="/page/{{ documents.next_page_number }}" aria-label="Next">
+                            <a href="/category/{{ category_id }}/page/{{ documents.next_page_number }}" aria-label="Next">
                                 <span aria-hidden="true">&gt;</span>
                             </a>
                         </li>
@@ -43,7 +42,6 @@
                 </span>
             </div>
         </div>
-
     {% else %}
         <p>There is no document</p>
     {% endif %}
