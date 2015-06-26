@@ -1,6 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Category, Document
+from django.db import connection
+
+
+is_empty = len(Category.objects.all()) == 0
+if  is_empty:
+    category = connection.cursor()
+    category.execute('insert into jellyblog_category (name,parent_id) VALUES ("Home",1)')
+
 
 
 def sorted_category():
