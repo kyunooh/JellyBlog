@@ -4,7 +4,7 @@
     {% block title %}{{ document.title }} | 젤리의 망상{% endblock %}
     {% block content %}
         <div class="col-md-12">
-            {% if document.category.parent != 1 %}
+            {% if document.category.parent.id != 1 %}
                 <span>
                     <h6>
                         <a href="/">Home</a> >
