@@ -4,11 +4,11 @@
 
     {% if documents %}
 
-        <div class="col-md-12">
+        <div class="col-md-11">
             {% for document in documents %}
                 <span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
                 <hr class="title-line">
-                <span>{{ document.content | truncatewords_html:40 | safe }}</span>
+                <span>{{ document.content | truncatewords_html:70 | safe }}</span>
                 <hr class="document-line">
             {% endfor %}
         </div>
