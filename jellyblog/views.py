@@ -68,7 +68,6 @@ def get_documents(paginator, page):
 
 
 def get_page_number_range(paginator, page):
-    print(paginator.num_pages)
     if (paginator.num_pages < 11):
         return range(1, paginator.num_pages+1)
     elif (page.number - 5 > 1):
