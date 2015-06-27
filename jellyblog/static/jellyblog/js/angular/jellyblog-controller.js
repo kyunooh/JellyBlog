@@ -1,4 +1,7 @@
-//Created by Jelly Choi on 2015-06-11.
+/**
+ * 액티브 기능설정을 위하여 만들어 둠 전체적인 수정 필요
+ */
+
 
 app.controller("NavActiveController",['$scope','$location',ActiveController]);
 

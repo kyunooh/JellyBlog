@@ -27,11 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#django-ckeditor configuration
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
-# Application definition
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+# Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
 )
 
 ROOT_URLCONF = 'blogadmin.urls'
@@ -109,3 +111,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Append slash setting
+APPEND_SLASH = False

@@ -1,4 +1,4 @@
 /**
- * Created by Jelly Choi on 2015-06-11.
+ * 추후 기능 추가를 위해 생성해 둠
  */
 app = angular.module("JellyBlog",[]);

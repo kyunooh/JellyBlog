@@ -1,10 +1,10 @@
 {% extends "jellyblog/base.html" %}
-{% if document %}
-    {% block meta_tag %}{{ document.meta_tag }}{% endblock %}
-    {% block title %}{{ document.title }} | 젤리의 망상{% endblock %}
+{% if document %} {# 정상적인 접근인지 확인하기 위함  #}
+    {% block meta_tag %}{{ document.meta_tag }}{% endblock %} {# 해당 글에 검색을 위한 메타태그 적용 #}
+    {% block title %}{{ document.title }} | 젤리의 망상{% endblock %} {# 타이틀 적용 #}
     {% block content %}
         <div class="col-md-12">
-            {% if document.category.parent.id != 1 %}
+            {% if document.category.parent.id != 1 %} {# 해당글의 카테고리 표시를 위함 (Home > parent > child)와 같은 방식으로표시 #}
                 <span>
                     <h6>
                         <a href="/">Home</a> >
@@ -12,15 +12,15 @@
                         <a href="/category/{{ document.category.id }}">{{ document.category.name }}</a>
                     </h6>
                 </span>
-            {% else %}
+            {% else %} {# 상위 카테고리인 글의 경우 #}
                 <span><h6><a href="/">Home</a> > <a
                         href="/category/{{ document.category.id }}"> {{ document.category.name }} </a></h6></span>
-            {% endif %}
-            <span><h1>{{ document.title }}</h1></span>
-            <hr>
-            <span>{% autoescape off %}{{ document.content }}{% endautoescape %}</span><br>
+            {% endif %} {# if document.category.parent.id != 1 #}
+            <span><h1>{{ document.title }}</h1></span> {# 글 제목 #}
+            <hr> <!-- 글 구분선 -->
+            <span>{% autoescape off %}{{ document.content }}{% endautoescape %}</span><br>{#  #}
 
-            <p style="text-align: right !important; margin-right: 20px">[Views: {{ document.view_count }}]</p>
+            <p style="text-align: right !important; margin-right: 20px">[Views: {{ document.view_count }}]</p> {# 조회수 표시  #}
         </div>
 
     {% endblock %}

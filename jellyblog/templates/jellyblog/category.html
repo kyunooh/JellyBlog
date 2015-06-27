@@ -1,14 +1,14 @@
 {% extends "jellyblog/base.html" %}
-{% block meta_tag %}{{ document.meta_tag }}{% endblock %}
+{% block meta_tag %}{{ category_name }} | 젤리의 망상{% endblock %} {# 카테고리 페이지의 검색용 메타태그 #}
+{% block title %}{{ category_name }} | 젤리의 망상{% endblock %} {# 카테고리 페이지의 타이틀 #}
 {% block content %}
 
-    {% if documents %}
-
+    {% if documents %}{# docuemnts 존재 확인 #}
         <div class="col-md-11">
-            {% for document in documents %}
+            {% for document in documents %} {# 페이지의 리스트 불러오기 #}
                 <span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
                 <hr class="title-line">
-                <span>{{ document.content | truncatewords_html:70 | safe }}</span>
+                <span>{{ document.content | truncatewords_html:70 | safe }}</span> {# 해당 문서의 내용을 태그가 적용된 상태로 70단어까지 보여주도록 함 #}
                 <hr class="document-line">
             {% endfor %}
         </div>
@@ -16,33 +16,33 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-3">
                 <ul class="pagination ">
-                    {% if documents.has_previous %}
+                    {% if documents.has_previous %} {# 앞 페이지가 존재할경우 "<" 버튼 생성 #}
                         <li>
                             <a href="/category/{{ category_id }}/page/{{ documents.previous_page_number }}" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
                         </li>
-                    {% endif %}
-                    {% for number in page_range %}
+                    {% endif %} {# if documents.has_previous #}
+                    {% for number in page_range %} {# 페이지 범위 만큼 페이지네이션 #}
                         <li><a href="/category/{{ category_id }}/page/{{ number }}">{{ number }}</a></li>
                     {% endfor %}
-                    {% if documents.has_next %}
+                    {% if documents.has_next %} {# 뒷 페이지가 존재할 경우 ">" 버튼 생성 #}
                         <li>
                             <a href="/category/{{ category_id }}/page/{{ documents.next_page_number }}" aria-label="Next">
                                 <span aria-hidden="true">&gt;</span>
                             </a>
                         </li>
-                    {% endif %}
+                    {% endif %} {#if document.has_next #}
                 </ul>
 
             </div>
-            <div class="col-md-2 col-md-offset-10">
+            <div class="col-md-2 col-md-offset-10"> <!-- 전체 페이지수와 현제 페이지 번호를 보여주기 위함 -->
                 <span class="current">
                     Page <b> {{ documents.number }}</b> of {{ documents.paginator.num_pages }}.
                 </span>
             </div>
         </div>
-    {% else %}
-        <p>There is no document</p>
-    {% endif %}
+    {% else %}{# if documents #}
+        <p>There is no document</p> {# documents가 존재하지 않을경우 호출 #}
+    {% endif %} {# if documents #}
 {% endblock %}
