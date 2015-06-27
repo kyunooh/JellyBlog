@@ -3,12 +3,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Category, Document
 from django.db import connection
 
-
 is_empty = len(Category.objects.all()) == 0
-if  is_empty:
+if is_empty:
     category = connection.cursor()
     category.execute('insert into jellyblog_category (name,parent_id) VALUES ("Home",1)')
-
 
 
 def sorted_category():
@@ -61,7 +59,7 @@ def category_with_page(request, category_id, page):
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
     context = {'documents': documents, 'category_list': categoryList, 'category_id': category_id,
-               'page_range': get_page_number_range(paginator, documents)}
+               'page_range': get_page_number_range(paginator, documents),'category_name' : selectedCategory.name}
     return render(request, 'jellyblog/category.html', context)
 
 
@@ -77,14 +75,15 @@ def get_documents(paginator, page):
 
 def get_page_number_range(paginator, page):
     if (paginator.num_pages < 11):
-        return range(1, paginator.num_pages+1)
+        return range(1, paginator.num_pages + 1)
     elif (page.number - 5 > 1):
         if (page.number + 4 < paginator.num_pages):
             return range(page.number - 5, page.number + 5)
         else:
             return range(page.number - 5, paginator.num_pages + 1)
     else:
-        return range(1,11)
+        return range(1, 11)
+
 
 def detail(request, document_id):
     document = get_object_or_404(Document, pk=document_id)
