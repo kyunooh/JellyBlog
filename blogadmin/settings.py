@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#django-ckeditor configuration
+# django-ckeditor configuration
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -43,8 +43,8 @@ INSTALLED_APPS = (
     'jellyblog',
     'ckeditor',
     'ckeditor.fields',
+    'compressor',
 )
-
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,7 +55,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
+    'django.middleware.gzip.GZipMiddleware',
+    'htmlmin.middleware.HtmlMinifyMiddleware',
 )
 
 ROOT_URLCONF = 'blogadmin.urls'
@@ -78,15 +79,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogadmin.wsgi.application'
 
-
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'jellyblog',
         'USER': 'root',
-        'PASSWORD' : 'JellymsBl0g',
+        'PASSWORD': 'JellymsBl0g',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -112,5 +110,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Append slash setting
+# Append slash setting
 APPEND_SLASH = False

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Category, Document
 from django.db import connection
-
+from htmlmin.decorators import minified_response
 
 """
 최초 접속시 Home 카테고리를 생성하기 위함.
@@ -55,6 +55,7 @@ def get_documents(paginator, page):
         documents = paginator.page(paginator.num_pages)
     return documents
 
+
 def get_page_number_range(paginator, page):
     #페이지네이션의 범위를 반환해주는 함수
     if (paginator.num_pages < 11): # 총 페이지 수가 10개 이하일 경우 1 ~ (총 페이지 수) 보여줌
@@ -74,7 +75,7 @@ def get_page_number_range(paginator, page):
 def index(request):
     return index_with_page(request,1)
 
-
+@minified_response 
 def index_with_page(request, page):
     """
     모든 문서를 가져와 리스트형태로 바꾼뒤 페이지네이션하여
@@ -92,7 +93,7 @@ def index_with_page(request, page):
 def category_detail(request, category_id):
     return category_with_page(request,category_id,1)
 
-
+@minified_response
 def category_with_page(request, category_id, page):
     """
     선택된 카테고리에 대한 문서를 가져온뒤 페이지네이하여
@@ -113,7 +114,7 @@ def category_with_page(request, category_id, page):
                'page_range': get_page_number_range(paginator, documents),'category_name' : selectedCategory.name}
     return render(request, 'jellyblog/category.html', context)
 
-
+@minified_response
 def detail(request, document_id):
     """
     document_id에 해당하는 문서를 가져오고, 해당 문서가 존재하지 않을경우 404페이지를 반환한다.
