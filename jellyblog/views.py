@@ -75,7 +75,7 @@ def get_page_number_range(paginator, page):
 def index(request):
     return index_with_page(request,1)
 
-@minified_response 
+@minified_response
 def index_with_page(request, page):
     """
     모든 문서를 가져와 리스트형태로 바꾼뒤 페이지네이션하여
