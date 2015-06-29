@@ -1,12 +1,14 @@
-{% load staticfiles %}
+{% load compress %}
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="{% block meta_tag %}젤리의 망상{% endblock %}" />{# 검색을 위한 메타태그 적용 #}
-    <link rel="stylesheet" href="{% static 'jellyblog/css/bootstrap/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'jellyblog/css/jelly-custom.css' %}">
+    {% compress css %}
+    <link rel="stylesheet" href="/static/jellyblog/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/jellyblog/css/jelly-custom.css">
+    {% endcompress %}
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
@@ -69,8 +71,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>
-    <script src="{% static 'jellyblog/js/angular/jellyblog-app.js' %}"></script>
-    <script src="{% static 'jellyblog/js/angular/jellyblog-controller.js' %}"></script>
+    {% compress js%}
+    <script src="/static/jellyblog/js/angular/jellyblog-app.js"></script>
+    <script src="/static/jellyblog/js/angular/jellyblog-controller.js"></script>
+    {% endcompress %}
 </body>
 
 </html>
