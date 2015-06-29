@@ -113,10 +113,26 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter'
+]
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+]
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+GZIP_CONTENT_TYPES = (
+    'text/css',
+    'application/javascript',
+    'application/x-javascript',
+    'text/javascript'
+)
 STATIC_URL = '/static/'
 COMPRESS_ROOT = '.jellyblog/static/'
 COMPRESS_ENABLED = True
-COMPRESS_REBUILD_TIMEOUT = 31536000
+COMPRESS_REBUILD_TIMEOUT = 2592000
+COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE_TIMEOUT = 3153600
 
 # Append slash setting
 APPEND_SLASH = False
