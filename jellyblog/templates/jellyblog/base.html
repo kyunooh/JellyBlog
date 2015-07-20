@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/static/jellyblog/css/bootstrap/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/static/jellyblog/css/jelly-custom.css">
     {% endcompress %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" />
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
@@ -56,6 +58,18 @@
                             {% endfor %}
                         {% endif %}
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://facebook.com/hyunmook.k.choi" class="btn btn-social-icon btn-facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/KyunooH" class="btn btn-social-icon btn-twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div><!--/.nav-collapse -->
             </div><!-- containe -->
         {% endblock %} {# navbar #}
@@ -68,7 +82,7 @@
     <div ng-view></div>
 	<!-- script import -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>
@@ -76,6 +90,7 @@
     <script src="/static/jellyblog/js/angular/jellyblog-app.js"></script>
     <script src="/static/jellyblog/js/angular/jellyblog-controller.js"></script>
     {% endcompress %}
+
 </body>
 
 </html>
