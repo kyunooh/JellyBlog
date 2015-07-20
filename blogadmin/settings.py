@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor.fields',
     'compressor',
+    'favicon'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,10 +130,15 @@ GZIP_CONTENT_TYPES = (
 )
 STATIC_URL = '/static/'
 COMPRESS_ROOT = '.jellyblog/static/'
+COMPRESS = True
+COMPRESS_AUTO = True
+COMPRESS_VERSION = True
 COMPRESS_ENABLED = True
 COMPRESS_REBUILD_TIMEOUT = 2592000
 COMPRESS_OFFLINE = True
 COMPRESS_OFFLINE_TIMEOUT = 3153600
+
+FAVICON_PATH = STATIC_URL + 'favicon.ico'
 
 # Append slash setting
 APPEND_SLASH = False
