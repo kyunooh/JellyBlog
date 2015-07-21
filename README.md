@@ -1,10 +1,20 @@
 <h2>도저히 워드프레스를 못쓰겠어서 그냥 제가 블로그를 만들었습니다.</h2>
 
-<p>워드프레스로 블로그를 운영하고 있었는데, 어느 순간부터 워드프레스가 굉장히 무거워졌습니다. 지속적으로 최적화를 하려 했지만,&nbsp;더 이상 가상서버에서 돌릴 수 없겠다라고 판단,&nbsp;결국 그냥 처음부터 다시 만들어 버렸습니다. &nbsp;<strong>젤리 블로그 프로젝트의 목표는 결국 저를 위한 것이며,</strong>&nbsp;<strong><span style="color:rgb(255, 0, 0)">필수 기능과 제가 필요한 기능</span>들만 조금씩 추가하면서&nbsp;발전하는 블로그를 목표</strong>로 하고 있습니다.&nbsp;</p>
+<p>워드프레스로 블로그를 운영하고 있었는데, 어느 순간부터 워드프레스가 굉장히 무거워졌습니다.</p>
+
+<p>지속적으로 최적화를 하려 했지만,&nbsp;더 이상 가상서버에서 돌릴 수 없겠다라고 판단,&nbsp;결국 그냥 처음부터 다시 만들어 버렸습니다. &nbsp;</p>
+
+<p><strong>젤리 블로그 프로젝트의 목표는 결국 저를 위한 것이며,</strong>&nbsp;<strong><span style="color:rgb(255, 0, 0)">필수 기능과 제가 필요한 기능</span>들만 조금씩 추가하면서&nbsp;발전하는 블로그를 목표</strong>로 하고 있습니다.&nbsp;</p>
 
 <h3>사용된 소스는 모두 공개합니다.</h3>
 
-<p>소스는 모두&nbsp;오픈소스로 공개하지만, 아무래도 저 혼자 하는 프로젝트여서,&nbsp;혹 다른분들이 사용하실 때에는 각자에 맞게 커스터마이징이 필요하며,&nbsp;<strong>사실 재사용성을 염두에 두고 만든 프로젝트는 아닙니다.</strong>&nbsp;참고용 정도로만 사용하시길 권합니다 ㅎㅎ (소스코드도 더러운(?) 부분이 좀 많습니다.)</p>
+<p>소스는 모두&nbsp;오픈소스로 공개하지만, 아무래도 저 혼자 하는 프로젝트여서,&nbsp;</p>
+
+<p>혹 다른분들이 사용하실 때에는 각자에 맞게 커스터마이징이 필요하며,</p>
+
+<p><strong>사실 재사용성을 염두에 두고 만든 프로젝트는 아닙니다.</strong>&nbsp;</p>
+
+<p>참고용 정도로만 사용하시길 권합니다 ㅎㅎ (소스코드도 더러운(?) 부분이 좀 많습니다.)</p>
 
 <h3>어떻게 만든겨?</h3>
 
@@ -13,35 +23,71 @@
 <p><a href="https://www.djangoproject.com/">django</a>와 그외 여러가지 모듈(<a href="http://www.pymysql.org/">pymysql</a>,&nbsp;<a href="https://github.com/django-ckeditor/django-ckeditor">ckeditor</a>,&nbsp;<a href="http://django-compressor.readthedocs.org/en/latest/">compressor</a>&nbsp;등등)<br />
 <a href="http://getbootstrap.com/">Bootstrap3</a></p>
 
+<p>&nbsp;</p>
+
 <p>실제 구동되고 있는 블로그 환경은 아래와 같습니다.</p>
 
 <p>Ubuntu(<a href="http://aws.amazon.com/">AWS</a>&nbsp;프리티어)<br />
 <a href="http://www.pypy.org/">pypy</a>&nbsp;2.6.0<br />
 <a href="https://mariadb.org/">MariaDB</a>&nbsp;10.0</p>
 
+<p>&nbsp;</p>
 
-<p>원래는&nbsp;<strong>Python3로 작업하고 있었는데, 특정 모듈에서&nbsp;충돌</strong>이 일어나는 경우가 발생하여 Python2 스펙으로 갈아탔습니다. 또한&nbsp;실제 테스트시에 확실히 체감할 수 있을정도로 빠르게 느껴져서&nbsp;<strong>구동은 pypy</strong>로 결정하였습니다.</p>
+<p>&nbsp;</p>
 
+<p>원래는&nbsp;<strong>Python3로 작업하고 있었는데, 특정 모듈에서&nbsp;충돌</strong>이 일어나는 경우가 발생하여 Python2 스펙으로 갈아탔습니다.</p>
+
+<p>또한&nbsp;실제 테스트시에 확실히 체감할 수 있을정도로 빠르게 느껴져서&nbsp;<strong>구동은 pypy</strong>로 결정하였습니다.</p>
+
+<p>&nbsp;</p>
 
 <h4>갑자기 웬 파이썬?</h4>
 
-<p>사실 제겐 자바가 가장 익숙한 언어지만, JVM이&nbsp;굉장히 메모리를 잡아먹고, 블로그에 사용하기엔 오버스펙이라고 생각되었습니다.. 또 php를 사용하기엔 웹서버 설정등등이 너무 귀찮게 느껴졌습니다. 그래서 전부터 관심은 있었지만 실제로 배워본적은 없든&nbsp;파이썬을 살펴보고, django라는 프레임워크를 조사해봤는데 굉장히 쉽고 빠르면서, 유용하게 느껴져 파이썬을 선택하게 되었습니다. 또한 django는&nbsp;백엔드와 프론트엔드가 분리된 느낌이 없는데, servlet + jsp와는 다른 느낌입니다. 모든게&nbsp;하나가 되어 유연하게 작업하는 느낌이 신선하고&nbsp;재밌습니다. (추가로 파이썬이란 언어는&nbsp;굉장히 실용적이어서, 언어를 처음 배우고 블로그를 완성하기까지 3주정도 소요된것 같습니다.)</p>
+<p>사실 제겐 자바가 가장 익숙한 언어지만, JVM이&nbsp;굉장히 메모리를 잡아먹고,</p>
+
+<p>블로그에 사용하기엔 오버스펙이라고 생각되었습니다.&nbsp;</p>
+
+<p>또 php를 사용하기엔 웹서버 설정등등이 너무 귀찮게 느껴졌습니다.</p>
+
+<p>그래서 전부터 관심은 있었지만 실제로 배워본적은 없든&nbsp;파이썬을 살펴보고,</p>
+
+<p>django라는 프레임워크를 조사해봤는데 굉장히 쉽고 빠르면서, 유용하게 느껴져 파이썬을 선택하게 되었습니다.</p>
+
+<p>또한 django는&nbsp;백엔드와 프론트엔드가 분리된 느낌이 없는데, servlet + jsp와는 다른 느낌입니다.</p>
+
+<p>모든게&nbsp;하나가 되어 유연하게 작업하는 느낌이 신선하고&nbsp;재밌습니다.</p>
+
+<p>(추가로 파이썬이란 언어는&nbsp;굉장히 실용적이어서, 언어를 처음 배우고 블로그를 완성하기까지 3주정도 소요된것 같습니다.)</p>
 
 <h3>앞으로 추가해야할 기능들</h3>
 
-<p>현재 작업된 것들은 사실 &quot;글쓰기/읽기&quot; 정도밖에 없어서 앞으로 해야 할 것들이 많으며, 아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.2까지 목표</strong></p>
+<p>현재 작업된 것들은 사실 &quot;글쓰기/읽기&quot; 정도밖에 없어서 앞으로 해야 할 것들이 많으며,</p>
+
+<p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.2까지 목표</strong></p>
 
 <p>댓글 기능<br />
 블로그 내부 검색 기능<br />
 모바일 버전 최적화<br />
-<strong>페이스북 및 트위터 아이콘 추가</strong><br />
+<br />
 Home 페이지(index) 수정&nbsp;<br />
 검색 관련 최적화(구글 웹마스터용 사이트맵 제작 및 네이버 신디케이션 연동 등등)<br />
-<strong>Favicon 적용&nbsp;</strong><br />
-<strong>소스 리팩토링 등등</strong></p>
+<br />
+&nbsp;</p>
 
-<h3>그외&nbsp;정보</h3>
+<h4>업데이트 기록</h4>
+
+<h5>v0.11</h5>
+
+<p><small><tt>Favicon 적용&nbsp;</tt></small><br />
+<small><tt>소스 리팩토링 등등</tt></small><br />
+<small><tt>페이스북 및 트위터 아이콘 추가</tt></small></p>
+
+<p>&nbsp;</p>
+
+<h4>그외&nbsp;정보</h4>
 
 <p>제작자 : 젤리(최현묵)</p>
+
 <p>이메일 : chm073@gmail.com</p>
+
 <p>프로젝트 GitHub url : &nbsp;https://github.com/kyunooh/JellyBlog</p>
