@@ -26,7 +26,7 @@ class Category(models.Model):
 
     def __str__(self):
         """객체 참조시 카테고리의 이름을 리턴하게끔 수정"""
-        return self.name
+        return self.name.encode('utf-8')
 
     id = models.AutoField(primary_key=True) # 카테고리 id (auto_increment)
     parent = models.ForeignKey('self')      # 상위 카테고리 (자기 참조)
@@ -38,7 +38,7 @@ class Document(models.Model):
     """ 문서 Model """
     def __str__(self):
         """객체 참조시 문서의 제목을 리턴하게끔 수정"""
-        return self.title
+        return self.title.encode('utf-8')
 
     id = models.AutoField(primary_key=True)     # 문서 id (auto_increment)
     category = models.ForeignKey(Category)      # 카테고리 id (Category 참조)
