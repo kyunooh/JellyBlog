@@ -47,3 +47,6 @@ class Document(models.Model):
     time = models.DateTimeField(auto_now=True)  # 작성시간 (자동입력)
     meta_tag = models.CharField(max_length=150) # 검색 최적화를 위한 메타 태그
     view_count = models.IntegerField(default=0, editable=False) # 조회수
+    public_doc = models.BooleanField() # 공개글 여부
+
+    
