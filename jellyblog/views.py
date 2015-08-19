@@ -17,7 +17,7 @@ def index_with_page(request, page):
     모든 문서를 가져와 리스트형태로 바꾼뒤 페이지네이션하여
     해당 페이지의 문서 리스트를 반환한다.
     """
-    document_list = list(Document.objects.all())
+    document_list = list(Document.objects.all().filter(public_doc=True))
     document_list.reverse()
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
@@ -35,7 +35,7 @@ def category_with_page(request, category_id, page):
     선택된 카테고리에 대한 문서를 가져온뒤 페이지네이하여
     해당 페이지의 문서리스트를 반환한다.
     """
-    selectedCategory = Category.objects.get(id=category_id)
+    selectedCategory = Category.objects.get(id=category_id, public_doc=True)
     document_list = []
     if (selectedCategory.parent.id == 1):
         # 카테고리가 상위 카테고리인지 아닌지를 판별 후, 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
