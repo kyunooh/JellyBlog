@@ -35,14 +35,14 @@ def category_with_page(request, category_id, page):
     선택된 카테고리에 대한 문서를 가져온뒤 페이지네이하여
     해당 페이지의 문서리스트를 반환한다.
     """
-    selectedCategory = Category.objects.get(id=category_id, public_doc=True)
+    selectedCategory = Category.objects.get(id=category_id)
     document_list = []
     if (selectedCategory.parent.id == 1):
         # 카테고리가 상위 카테고리인지 아닌지를 판별 후, 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
         children = Category.objects.all().filter(parent=selectedCategory.id)
         for child in children:
             document_list += Document.objects.all().filter(category_id=child.id)
-    document_list += Document.objects.all().filter(category=category_id)
+    document_list += Document.objects.all().filter(category=category_id, public_doc=True)
     document_list.sort(key=id, reverse=True)
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
