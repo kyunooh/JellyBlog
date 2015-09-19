@@ -41,8 +41,19 @@ class Document(models.Model):
     title = models.CharField(max_length=100)    # 제목
     content = RichTextField()                   # 내용, 편집기인 ckeditor를 사용하기 위해 RichTextField()를 사용한다.
     time = models.DateTimeField(auto_now_add=True)  # 작성시간 (자동입력)
+    update_time = models.DateTimeField(auto_now=True) #최종 수정 시간(자동 입력)
     meta_tag = models.CharField(max_length=150) # 검색 최적화를 위한 메타 태그
     view_count = models.IntegerField(default=0, editable=False) # 조회수
     public_doc = models.BooleanField() # 공개글 여부
 
-    
+
+class Note(models.Model):
+    #노트 Model
+    def __str__(self):
+        #객체 참조시 문서의 제목을 리턴하게끔 수정
+        return self.title.encode('utf-8')
+
+    id = models.AutoField(primary_key=True)         # 노트 id(auto_increment)
+    content = models.CharField(max_length=300)      # 노트 내용
+    time = models.DateTimeField(auto_now_add=True)  # 작성시간 (자동입력)
+    update_time = models.DateTimeField(auto_now=True) #최종 수정 시간(자동 입력)

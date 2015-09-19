@@ -45,12 +45,10 @@ def get_documents(paginator, page):
 
 
 def sorted_category():
-    """
-    카테고리를 정렬하기 위한 함수,
-    상위 카테고리는 남겨두고, 하위 카테고리의 경우 상위 카테고리(parent)의 자식(children)으로 집어넣는다.
-
-    추후 리팩토링 예정
-    """
+    #카테고리를 정렬하기 위한 함수,
+    #상위 카테고리는 남겨두고, 하위 카테고리의 경우 상위 카테고리(parent)의 자식(children)으로 집어넣는다.
+    #
+    #추후 리팩토링 예정
     return_category = list(Category.objects.all()) # 전체 카테고리를 불러온뒤 리스트로 변환한다.
     childList = []     # 하위 카테고리를 담을 리스트 생성
     for category in return_category:
