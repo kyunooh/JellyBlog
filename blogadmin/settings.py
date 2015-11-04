@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'blogadmin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jellyblog',
+        'NAME': 'jelly_test',
         'USER': 'root',
         'PASSWORD': 'JellymsBl0g',
         'HOST': 'localhost',
