@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from .models import Category
 from django.db import connection
-from django import PageNotAnInteger
-from django import EmptyPage
+from django.core.paginator import EmptyPage, PageNotAnInteger
 
 """
 최초 접속시 Home 카테고리를 생성하기 위함.
@@ -70,10 +69,10 @@ def sorted_category():
             childList.append(category)
 
     # 카테고리 리스트에서 하위 카테고리의 값들은 삭제
-    for child in childList: 
+    for child in childList:
         return_category.remove(child)
 
     return return_category
 
 # 성능을 위해 카테고리 리스트의 경우 캐싱해서 사용
-categoryList = sorted_category() 
+categoryList = sorted_category()
