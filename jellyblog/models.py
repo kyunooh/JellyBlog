@@ -51,7 +51,7 @@ class Note(models.Model):
     #노트 Model
     def __str__(self):
         #객체 참조시 문서의 제목을 리턴하게끔 수정
-        return self.title.encode('utf-8')
+        return self.content.encode('utf-8')
 
     id = models.AutoField(primary_key=True)         # 노트 id(auto_increment)
     content = models.CharField(max_length=300)      # 노트 내

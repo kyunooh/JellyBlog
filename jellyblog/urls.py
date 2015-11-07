@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^category/(?P<category_id>[0-9]+)/?$', views.category_detail, name='category_detail'), # /category/(category_id)
     url(r'^category/(?P<category_id>[0-9]+)/page/(?P<page>[0-9]+)/?$',
         views.category_with_page, name='category_with_page'), # /category/(category_id)/page/(page_number)
-     url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')), #google chrome favicon fix
+    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')), #google chrome favicon fix
 
+    url(r'^notes/$', views.get_notes, name='get_notes'),
 ]

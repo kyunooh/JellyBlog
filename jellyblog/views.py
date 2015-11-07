@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+from django.core import serializers
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Category, Document
+from django.core.paginator import Paginator
+from .models import Category, Document, Note
 from htmlmin.decorators import minified_response
-from .util import get_page_number_range, get_documents, sorted_category, categoryList, init_category
+from .util import get_page_number_range, get_documents, categoryList, init_category
 
 
 init_category()
@@ -60,3 +62,7 @@ def detail(request, document_id):
     document.view_count += 1
     document.save()
     return render(request, 'jellyblog/detail.html', {'document': document, 'category_list': categoryList})
+
+
+def get_notes(request):
+    return HttpResponse(serializers.serialize('json', Note.objects.all()))
