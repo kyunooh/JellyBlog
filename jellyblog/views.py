@@ -5,13 +5,16 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Category, Document, Note
 from htmlmin.decorators import minified_response
-from .util import get_page_number_range, get_documents, categoryList, init_category
+from .util import get_page_number_range, get_documents,\
+    categoryList, init_category
 
 
 init_category()
 
+
 def index(request):
-    return index_with_page(request,1)
+    return index_with_page(request, 1)
+
 
 @minified_response
 def index_with_page(request, page):
@@ -23,13 +26,19 @@ def index_with_page(request, page):
     document_list.reverse()
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
-    context = {'documents': documents, 'category_list': categoryList, 'page_range': get_page_number_range(
-        paginator, documents)}
+    context = {
+        'documents': documents,
+        'category_list': categoryList,
+        'page_range': get_page_number_range(
+            paginator, documents
+            )
+        }
     return render(request, 'jellyblog/index.html', context)
 
 
 def category_detail(request, category_id):
-    return category_with_page(request,category_id,1)
+    return category_with_page(request, category_id, 1)
+
 
 @minified_response
 def category_with_page(request, category_id, page):
@@ -43,14 +52,23 @@ def category_with_page(request, category_id, page):
         # 카테고리가 상위 카테고리인지 아닌지를 판별 후, 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
         children = Category.objects.all().filter(parent=selectedCategory.id)
         for child in children:
-            document_list += Document.objects.all().filter(category_id=child.id)
-    document_list += Document.objects.all().filter(category=category_id, public_doc=True)
+            document_list += Document.objects.all()\
+                .filter(category_id=child.id)
+    document_list += Document.objects.all().filter(
+        category=category_id, public_doc=True)
     document_list.sort(key=id, reverse=True)
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
-    context = {'documents': documents, 'category_list': categoryList, 'category_id': category_id,
-               'page_range': get_page_number_range(paginator, documents),'category_name' : selectedCategory.name}
+    context = {
+        'documents': documents,
+        'category_list': categoryList,
+        'category_id': category_id,
+        'page_range': get_page_number_range(
+            paginator, documents),
+        'category_name': selectedCategory.name,
+        }
     return render(request, 'jellyblog/category.html', context)
+
 
 @minified_response
 def detail(request, document_id):
@@ -61,7 +79,8 @@ def detail(request, document_id):
     document = get_object_or_404(Document, pk=document_id)
     document.view_count += 1
     document.save()
-    return render(request, 'jellyblog/detail.html', {'document': document, 'category_list': categoryList})
+    return render(request, 'jellyblog/detail.html',
+                  {'document': document, 'category_list': categoryList})
 
 
 def get_notes(request):
