@@ -18,7 +18,7 @@
             {% endif %} {# if document.category.parent.id != 1 #}
             <span><h1>{{ document.title }}</h1></span> {# 글 제목 #}
             <hr> <!-- 글 구분선 -->
-            <span>{% autoescape off %}{{ document.content }}{% endautoescape %}</span><br>{#  #}
+            <span>{% autoescape off %}{{ document.content | linebreaksbr }}{% endautoescape %}</span><br>{#  #}
 
             <p style="text-align: right !important; margin-right: 20px">[Views: {{ document.view_count }}]</p> {# 조회수 표시  #}
         </div>
