@@ -8,13 +8,28 @@ from . import views
 
 urlpatterns = [
     # url 오른쪽의 주석은 각각 예시를 의미
-    url(r'^$', views.index, name='index'),  # /
-    url(r'^page/(?P<page>[0-9]+)/?$', views.index_with_page, name='index_with_page'), # /page/(page_number)
-    url(r'^(?P<document_id>[0-9]+)/?$', views.detail, name='detail'),                 # /(document_id)
-    url(r'^category/(?P<category_id>[0-9]+)/?$', views.category_detail, name='category_detail'), # /category/(category_id)
+    url(r'^$', views.home, name='home'),
+    
+    url(r'^index$', views.index, name='index'),
+    
+    # /page/(page_number)
+    url(r'^page/(?P<page>[0-9]+)/?$',
+        views.index_with_page, name='index_with_page'),
+    
+    # /(document_id)
+    url(r'^(?P<document_id>[0-9]+)/?$', views.detail, name='detail'),
+    
+    # /category/(category_id)
+    url(r'^category/(?P<category_id>[0-9]+)/?$',
+        views.category_detail, name='category_detail'),
+
+    # /category/(category_id)/page/(page_number)
     url(r'^category/(?P<category_id>[0-9]+)/page/(?P<page>[0-9]+)/?$',
-        views.category_with_page, name='category_with_page'), # /category/(category_id)/page/(page_number)
-    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')), #google chrome favicon fix
+        views.category_with_page, name='category_with_page'),
+    
+    # google chrome favicon fix
+    url(r'^favicon.ico/$',
+        lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')),
 
     url(r'^notes/$', views.get_notes, name='get_notes'),
 ]

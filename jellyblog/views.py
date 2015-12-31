@@ -12,6 +12,10 @@ from .util import get_page_number_range, get_documents,\
 init_category()
 
 
+def home(request):
+    return render(request, 'jellyblog/home.html')
+
+
 def index(request):
     return index_with_page(request, 1)
 
