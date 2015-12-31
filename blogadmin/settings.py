@@ -41,11 +41,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jellyblog',
+
     'ckeditor',
     'ckeditor.fields',
     'compressor',
-    'favicon'
+    'favicon',
+
+    'jellyblog',
+    'about_me',
 )
 
 MIDDLEWARE_CLASSES = (
