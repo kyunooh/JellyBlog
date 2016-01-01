@@ -17,8 +17,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
 urlpatterns = [
-    url(r'^ckeditor/', include('ckeditor.urls')),  # django-ckeditor 설정을 사용하기 위함
-    url(r'^admin/', include(admin.site.urls)),  # admin에 접속하기 위한 url
-    url(r'^', include('jellyblog.urls')),  # jellyblog에 접속하기 위한 url
+    # django-ckeditor 설정을 사용하기 위함
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
+    # admin에 접속하기 위한 url
+    url(r'^admin/', include(admin.site.urls)),
+
+    # jellyblog에 접속하기 위한 url
+    url(r'^', include('jellyblog.urls')),
 ]
