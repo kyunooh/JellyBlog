@@ -26,8 +26,7 @@ def index_with_page(request, page):
     모든 문서를 가져와 리스트형태로 바꾼뒤 페이지네이션하여
     해당 페이지의 문서 리스트를 반환한다.
     """
-    document_list = list(Document.objects.all().filter(public_doc=True))
-    document_list.reverse()
+    document_list = Document.objects.all().filter(public_doc=True).order_by('-id')
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
     context = {
@@ -57,7 +56,7 @@ def category_with_page(request, category_id, page):
         children = Category.objects.all().filter(parent=selectedCategory.id)
         for child in children:
             document_list += Document.objects.all()\
-                .filter(category_id=child.id)
+                .filter(category_id=child.id, public_doc=True)
     document_list += Document.objects.all().filter(
         category=category_id, public_doc=True)
     document_list.sort(key=id, reverse=True)
@@ -81,8 +80,7 @@ def detail(request, document_id):
     함수를 호출할때 마다 해당 문서의 조회수를 1올려주고 반환한다.
     """
     document = get_object_or_404(Document, pk=document_id)
-    document.view_count += 1
-    document.save()
+    document.read()
     return render(request, 'jellyblog/detail.html',
                   {'document': document, 'category_list': categoryList})
 

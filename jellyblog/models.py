@@ -47,6 +47,10 @@ class Document(models.Model):
     view_count = models.IntegerField(default=0, editable=False) # 조회수
     public_doc = models.BooleanField() # 공개글 여부
 
+    def read(self):
+        self.view_count += 1
+        self.save()
+
 @python_2_unicode_compatible
 class Note(models.Model):
     #노트 Model
