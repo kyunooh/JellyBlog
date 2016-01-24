@@ -12,12 +12,14 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
     integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
           crossorigin="anonymous">
-    
-    
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.min.css" />
-    <link rel="stylesheet" href="/static/jellyblog/css/jelly-custom.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+    <link rel="stylesheet" href="/static/jellyblog/css/jelly-custom.css">
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
@@ -32,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">젤리의 망상</a>
+                    <a class="navbar-brand" href="{% url 'blog_index' %}">젤리의 망상</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse" ng-controller="NavActiveController">
                     <ul class="nav navbar-nav">
@@ -52,7 +54,7 @@
                                     </li>
                                 {% elif category.id == 1 %} {# Home일 경우 루트로 리다이렉트  #}
                                     <li role="presentation" ng-class="{ active : isActive('') }">
-                                        <a href="/">{{ category.name }}</a>
+                                        <a href="{% url 'blog_index'  %}">{{ category.name }}</a>
                                     </li>
                                 {% else %} {# 하위 카테고리가 존재하지 않는경우 #}
                                     <li role="presentation" ng-class="{ active : isActive('/category/{{ category.id  }}/') }">
@@ -80,10 +82,8 @@
             </div><!-- containe -->
         {% endblock %} {# navbar #}
     </nav><!-- block navbar -->
-    <div id="content" class="row">
-        <div id="left-sidebar" class="col-md-2">
-        </div> <!-- 추후 사이드바에 내용추가를위해 남기어 둠 -->
-        <div id="inner-content" class="col-md-10">{% block content %}{% endblock %}</div>
+    <div id="content" class="container">
+        <div id="inner-content">{% block content %}{% endblock %}</div>
     </div>
     <div ng-view></div>
 	<!-- script import -->

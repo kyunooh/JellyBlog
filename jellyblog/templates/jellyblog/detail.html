@@ -3,7 +3,7 @@
     {% block meta_tag %}{{ document.meta_tag }}{% endblock %} {# 해당 글에 검색을 위한 메타태그 적용 #}
     {% block title %}{{ document.title }} | 젤리의 망상{% endblock %} {# 타이틀 적용 #}
     {% block content %}
-    <div class="container">
+    <div class="container markdown-body">
         <div class="col-md-12">
             {% if document.category.parent.id != 1 %} {# 해당글의 카테고리 표시를 위함 (Home > parent > child)와 같은 방식으로표시 #}
                 <span>
