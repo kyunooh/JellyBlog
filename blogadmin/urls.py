@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from jellyblog import urls as blog_urls
+from about_me import views as about_me_views
 
 urlpatterns = [
     # django-ckeditor 설정을 사용하기 위함
@@ -26,6 +27,9 @@ urlpatterns = [
     # admin에 접속하기 위한 url
     url(r'^admin/', include(admin.site.urls)),
 
+    # about me 접속 url
+    url(r'^about_me/', about_me_views.index, name="about_me"),
     # jellyblog에 접속하기 위한 url
     url(r'^', include(blog_urls)),
+
 ]
