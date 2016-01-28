@@ -119,6 +119,8 @@ STATICFILES_FINDERS = (
 )
 STATIC_URL = '/static/'
 STATIC_ROOT = '.jellyblog/static'
+MEDIA_URL = '/media'
+MEDIA_ROOT os.path.join(BASE_DIR)
 
 FAVICON_PATH = STATIC_URL + 'favicon.ico'
 
