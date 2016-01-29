@@ -212,7 +212,23 @@
                 <p>
                   {{ contact.content }}
                 </p>
-                <p class="social"><a href="#" title="" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" title="" class="twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="gplus"><i class="fa fa-google-plus"></i></a><a href="#" title="" class="instagram"><i class="fa fa-instagram"></i></a><a href="#" title="" class="email"><i class="fa fa-envelope"></i></a></p>
+                <p class="social">
+                  {% if contact.facebook %}
+                    <a href="{{ contact.facebook }}" title="" class="facebook"><i class="fa fa-facebook"></i></a>
+                  {% endif %}
+                  {% if contact.twitter %}
+                    <a href="{{ contact.twitter }}" title="" class="twitter"><i class="fa fa-twitter"></i></a>
+                  {% endif %}
+                  {% if contact.google %}
+                    <a href="{{ contact.google }}" title="" class="gplus"><i class="fa fa-google-plus"></i></a>
+                  {% endif %}
+                  {% if contact.instagram %}
+                  <a href="{{ contact.instagram }}" title="" class="instagram"><i class="fa fa-instagram"></i></a>
+                  {% endif %}
+                  {% if contact.email %}
+                  <a href="{{ contact.email }}" title="" class="email"><i class="fa fa-envelope"></i></a>
+                  {% endif %}
+                </p>
               </div>
             </div>
           </div>
