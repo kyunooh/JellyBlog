@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Home(models.Model):
+    logo = models.ImageField()
     title = models.CharField(max_length=8)
     first_greet = models.CharField(max_length=50)
     middle_greet = models.TextField()
