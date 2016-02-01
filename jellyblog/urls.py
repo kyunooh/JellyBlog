@@ -32,5 +32,5 @@ urlpatterns = [
 
     url(r'^notes/$', views.get_notes, name='get_notes'),
 
-    url(r'^latest/feed/$', LatestFeed),
+    url(r'^latest/feed/$', LatestFeed()),
 ]
