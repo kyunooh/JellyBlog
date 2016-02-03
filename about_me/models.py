@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Home(models.Model):
+    logo = models.ImageField()
     title = models.CharField(max_length=8)
     first_greet = models.CharField(max_length=50)
     middle_greet = models.TextField()
@@ -55,11 +56,11 @@ class ETC(models.Model):
 
 class Contact(models.Model):
     content = models.TextField()
-    facebook = models.CharField(max_length=30)
-    github = models.CharField(max_length=30)
-    google = models.CharField(max_length=30)
-    twitter = models.CharField(max_length=30)
-    instagram = models.CharField(max_length=30)
-    email = models.CharField(max_length=70)
+    facebook = models.CharField(max_length=250)
+    github = models.CharField(max_length=250)
+    google = models.CharField(max_length=250)
+    twitter = models.CharField(max_length=250)
+    instagram = models.CharField(max_length=250)
+    email = models.CharField(max_length=150)
     created_datetime = models.TimeField(auto_now_add=True)
     updated_datetime = models.TimeField(auto_now=True)
