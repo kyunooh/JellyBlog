@@ -49,6 +49,7 @@ INSTALLED_APPS = (
 
     'jellyblog',
     'about_me',
+    'django.contrib.sitemaps',
 )
 
 MIDDLEWARE_CLASSES = (
