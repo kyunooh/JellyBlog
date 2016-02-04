@@ -2,8 +2,17 @@
 from django.conf.urls import url
 from django.conf import settings
 from django.http import HttpResponseRedirect
+from django.contrib.sitemaps.views import sitemap
+
 from jellyblog import views
+
 from .feeds import LatestFeed
+from .sitemaps import BlogSitemap
+
+sitemaps = {
+    'blog' : BlogSitemap,
+}
+
 
 urlpatterns = [
     # url 오른쪽의 주석은 각각 예시를 의미
@@ -33,4 +42,7 @@ urlpatterns = [
     url(r'^notes/$', views.get_notes, name='get_notes'),
 
     url(r'^latest/feed/$', LatestFeed()),
+
+    url(r'^sitemap\.xml$', sitemap, {'siteamps' : sitemaps},
+        name='django.contrib.sitemaps.views.sitemap')
 ]
