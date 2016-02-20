@@ -1,17 +1,8 @@
-{% load compress %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
 <head>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-51933789-1', 'auto');
-      ga('send', 'pageview');
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="{% block meta_tag %}젤리의 망상{% endblock %}" />{# 검색을 위한 메타태그 적용 #}
     <link rel="shortcut icon" href="/static/jellyblog/favicon.ico">
@@ -28,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
-    <link rel="stylesheet" href="/static/jellyblog/css/jelly-custom.css">
+    <link rel="stylesheet" href="{% static "jellyblog/css/jelly-custom.css" %}">
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
@@ -99,10 +90,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>
-    {% compress js%}
-    <script src="/static/jellyblog/js/angular/jellyblog-app.js"></script>
-    <script src="/static/jellyblog/js/angular/jellyblog-controller.js"></script>
-    {% endcompress %}
+
+    <script src="{% static "jellyblog/js/ga.js" %}"></script>
+
 
 </body>
 
