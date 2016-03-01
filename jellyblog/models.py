@@ -11,7 +11,6 @@ class Category(models.Model):
     # 1이 아닌 경우 하위 카테고리로 분류한다.
     # (참고로 1은 사이트 최초 접속시 생성되며 Home 값을 가진다.
     # 상세내용은 views.py의 상단부분과 sorted_category()함수 참고)
-
     id = models.AutoField(primary_key=True)
     parent = models.ForeignKey('self')
     name = models.CharField(max_length=20)
@@ -42,10 +41,10 @@ class Document(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField()
     time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
     meta_tag = models.CharField(max_length=150)
     view_count = models.IntegerField(default=0, editable=False)
     public_doc = models.BooleanField()
+    update_time = models.DateTimeField(auto_now=True)
 
     def read(self):
         self.view_count += 1
