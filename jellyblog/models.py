@@ -50,6 +50,10 @@ class Document(models.Model):
         self.view_count += 1
         self.save()
 
+    @models.permalink
+    def get_absolute_url(self):
+        return 'detail', (), {'document_id': self.id}
+
 @python_2_unicode_compatible
 class Note(models.Model):
     # 노트 Model

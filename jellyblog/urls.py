@@ -10,7 +10,7 @@ from .feeds import LatestFeed
 from .sitemaps import BlogSitemap
 
 sitemaps = {
-    'blog' : BlogSitemap,
+    'blog': BlogSitemap,
 }
 
 
@@ -43,6 +43,6 @@ urlpatterns = [
 
     url(r'^latest/feed/$', LatestFeed()),
 
-    url(r'^sitemap\.xml$', sitemap, {'siteamps' : sitemaps},
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap')
 ]
