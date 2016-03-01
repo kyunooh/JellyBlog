@@ -6,7 +6,6 @@
         <div class="col-md-11">
             {% for document in documents %} {# 페이지의 리스트 불러오기 #}
                 <span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
-                <hr class="title-line">
                 <span>{{ document.content | truncatewords_html:70 | safe }}</span> {# 해당 문서의 내용을 태그가 적용된 상태로 70단어까지 보여주도록 함 #}
                 <hr class="document-line">
             {% endfor %}

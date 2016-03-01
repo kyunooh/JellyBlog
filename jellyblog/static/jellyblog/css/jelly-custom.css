@@ -1,33 +1,7 @@
-/* nav-bar 와 겹치지않게 하기위해 상단 테두리 설정 */
-#content { margin-top : 50px }
-
-/* Flaired edges, by Tomas Theunissen */
-
-
 /* 폰트 적용을 위함 */
 body {
   font-family: "Nanum Gothic"
 }
-
-/* 글 대하여 명확히 구분하기위한선 */
-hr.document-line {
-    height: 30px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
-}
-hr.document-line:before {
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: black;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-}
-
 
 .markdown-body {
     box-sizing: border-box;
