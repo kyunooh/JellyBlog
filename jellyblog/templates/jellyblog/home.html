@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -77,11 +78,7 @@
       div.inform:hover {
         background-color: rgba(77, 182, 172, 1);
       }
-
-
-
     </style>
-
   </head>
   <body>
     <div class="container">
@@ -90,6 +87,6 @@
       <a href="https://www.facebook.com/hyunmook.k.choi"><div class="box facebook_link"><h1 id="responsive_header">Facebook</h1></div></a>
       <a href="{% url 'about_me' %}"><div class="box inform"><h1 id="responsive_header">Inform</h1></div></a>
     </div>
-
+    <script src="{% static "jellyblog/js/ga.js" %}"></script>
   </body>
 </html>
