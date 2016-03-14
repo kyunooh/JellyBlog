@@ -27,6 +27,33 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
+    @classmethod
+    def sorted_category(cls):
+        # 카테고리를 정렬하기 위한 함수,
+        # 상위 카테고리는 남겨두고, 하위 카테고리의 경우 상위 카테고리(parent)의 자식(children)으로 집어넣는다.
+        # 추후 리팩토링 예정
+        # 전체 카테고리를 불러온뒤 리스트로 변환한다.
+        return_category = list(cls.objects.all())
+        childList = []     # 하위 카테고리를 담을 리스트 생성
+        for category in return_category:
+            # 전체 카테고리 리스트를 반복 하면서 상위 카테고리의 경우(parent == 1) 아무처리도 하지 않는다.
+            if (category.parent.id == 1):
+                continue
+            else:
+                # 상위 카테고리 위치를 반환한다.
+                parent_index = return_category.index(category.parent)
+                # 상위 카테고리의 children 리스트에 요소추가
+                return_category[parent_index].children.append(category)
+                # 하위 카테고리 리스트에 담음
+                childList.append(category)
+
+        # 카테고리 리스트에서 하위 카테고리의 값들은 삭제
+        for child in childList:
+            return_category.remove(child)
+
+        return return_category
+
     
 
 
