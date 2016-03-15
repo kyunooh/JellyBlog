@@ -11,12 +11,7 @@ Home 카테고리를 생성하도록 쿼리를 실행한다.
 """
 
 
-def init_category():
-    is_empty = len(Category.objects.all()) == 0
-    if is_empty:
-        category = connection.cursor()
-        category.execute('INSERT INTO jellyblog_category \
-             (name, parent_id) VALUES ("Home", 1)')
+
 
         
 def get_page_number_range(paginator, page):

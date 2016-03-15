@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.db import models
+from django.db import models, connection
 from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible
+
 
 @python_2_unicode_compatible
 class Category(models.Model):
@@ -27,7 +28,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
     @classmethod
     def sorted_category(cls):
         # 카테고리를 정렬하기 위한 함수,
@@ -35,7 +35,7 @@ class Category(models.Model):
         # 추후 리팩토링 예정
         # 전체 카테고리를 불러온뒤 리스트로 변환한다.
         return_category = list(cls.objects.all())
-        childList = []     # 하위 카테고리를 담을 리스트 생성
+        childList = []  # 하위 카테고리를 담을 리스트 생성
         for category in return_category:
             # 전체 카테고리 리스트를 반복 하면서 상위 카테고리의 경우(parent == 1) 아무처리도 하지 않는다.
             if (category.parent.id == 1):
@@ -54,7 +54,13 @@ class Category(models.Model):
 
         return return_category
 
-    
+    @classmethod
+    def init_category(cls):
+        is_empty = len(cls.objects.all()) == 0
+        if is_empty:
+            category = connection.cursor()
+            category.execute('INSERT INTO jellyblog_category \
+                 (name, parent_id) VALUES ("Home", 1)')
 
 
 @python_2_unicode_compatible
@@ -80,6 +86,7 @@ class Document(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return 'detail', (), {'document_id': self.id}
+
 
 @python_2_unicode_compatible
 class Note(models.Model):

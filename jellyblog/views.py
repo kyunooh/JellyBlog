@@ -5,14 +5,14 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Category, Document, Note
 from htmlmin.decorators import minified_response
-from .util import get_page_number_range, get_documents,\
-    categoryList, init_category
+from .util import get_page_number_range, get_documents, \
+    categoryList
 
-
-init_category()
+Category.init_category()
 
 
 def home(request):
+    categoryList = Category.sorted_category()
     return render(request, 'jellyblog/home.html')
 
 
@@ -34,8 +34,8 @@ def index_with_page(request, page):
         'category_list': categoryList,
         'page_range': get_page_number_range(
             paginator, documents
-            )
-        }
+        )
+    }
     return render(request, 'jellyblog/index.html', context)
 
 
@@ -55,7 +55,7 @@ def category_with_page(request, category_id, page):
         # 카테고리가 상위 카테고리인지 아닌지를 판별 후, 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
         children = Category.objects.all().filter(parent=selectedCategory.id)
         for child in children:
-            document_list += Document.objects.all()\
+            document_list += Document.objects.all() \
                 .filter(category_id=child.id, public_doc=True)
     document_list += Document.objects.all().filter(
         category=category_id, public_doc=True)
@@ -69,7 +69,7 @@ def category_with_page(request, category_id, page):
         'page_range': get_page_number_range(
             paginator, documents),
         'category_name': selectedCategory.name,
-        }
+    }
     return render(request, 'jellyblog/category.html', context)
 
 
