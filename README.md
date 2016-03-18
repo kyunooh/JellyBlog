@@ -67,7 +67,7 @@
 <p><strong>글목록 정렬  버그 수정</strong></p>
 <p><strong>about me 페이지 완성</strong></p>
 
-<strong>블로그 내부 검색 기능</strong><br />
+<p>블로그 내부 검색 기능</p><br />
 
 &nbsp;</p>
 
