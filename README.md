@@ -28,7 +28,7 @@
 <p>실제 구동되고 있는 블로그 환경은 아래와 같습니다.</p>
 
 <p>Ubuntu(<a href="http://aws.amazon.com/">AWS</a>&nbsp;프리티어)<br />
-<a href="http://www.pypy.org/">pypy</a>&nbsp;2.6.0<br />
+<a href="http://www.python.org/">python</a>&nbsp;2.7.10<br />
 <a href="https://mariadb.org/">MariaDB</a>&nbsp;10.0</p>
 
 <p>&nbsp;</p>
@@ -37,7 +37,6 @@
 
 <p>원래는&nbsp;<strong>Python3로 작업하고 있었는데, 특정 모듈에서&nbsp;충돌</strong>이 일어나는 경우가 발생하여 Python2 스펙으로 갈아탔습니다.</p>
 
-<p>또한&nbsp;실제 테스트시에 확실히 체감할 수 있을정도로 빠르게 느껴져서&nbsp;<strong>구동은 pypy</strong>로 결정하였습니다.</p>
 
 <p>&nbsp;</p>
 
@@ -63,17 +62,24 @@
 
 <p>현재 작업된 것들은 사실 &quot;글쓰기/읽기&quot; 정도밖에 없어서 앞으로 해야 할 것들이 많으며,</p>
 
-<p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.22까지 목표</strong></p>
+<p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.3까지 목표</strong></p>
 
-<p>댓글 기능<br />
+<p>글목록 정렬  버그 수정</p>
+<p>about me 페이지 완성</p>
+
+<p>0.4 목표</p>
 <strong>블로그 내부 검색 기능</strong><br />
+
+&nbsp;</p>
+
+<h4>업데이트 기록</h4>
+
+<h5>v.0.22</h5>
+<p>댓글 기능<br />
 모바일 버전 최적화<br />
 Home 페이지(index) 수정&nbsp;<br />
 <strong>검색 관련 최적화(구글 웹마스터용 사이트맵 제작 및 네이버 신디케이션 연동 등등)</strong><br />
 <br />
-&nbsp;</p>
-
-<h4>업데이트 기록</h4>
 
 <h5>v.0.21</h5>
 
