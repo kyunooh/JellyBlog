@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jelly's Portfolio</title>
+    <title>젤리의 망상 - About me</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -249,7 +249,6 @@
                     </div>
                     <div class="col-sm-6">
                         <p><strong>2015 - Rye & Catchers</strong>: Java(Backend), javascript(Frontend)</p>
-
                         <p><strong>2015 EzPtTech</strong>: Windows(C#/C++), Android(Java)</p>
                         <p><strong>2014 - 2015 Personal project</strong>:Java(Spring), Javascript(backbone), Python(django), Bootstrap 공부 및 팀 프로젝트 진행</p>
                         <p><strong>2012 - 2014 Samsung SDS</strong>: Java(Spring)</p>
@@ -270,9 +269,11 @@
                 <h2 class="heading">Contact</h2>
                 <div class="row">
                     <div class="col-md-6">
-                        <form id="contact-form" method="post" action="#" class="contact-form">
+                        <form id="contact-form" method="post" action="{% url 'about_me' %}" class="contact-form">
                             <div class="controls">
                                 <div class="form-group">
+
+                                    {% csrf_token %}
                                     <!-- TODO 메시지 기능을 만들어야함 -->
                                     <label for="name">Your Name *</label>
                                     <input type="text" name="name" placeholder="Enter your name"
@@ -285,11 +286,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="surname">Your message for me *</label>
-                                    <textarea rows="4" name="message" placeholder="Enter your message"
+                                    <textarea rows="4" name="content" placeholder="Enter your message"
                                               required="required" class="form-control"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <input type="submit" name="name" value="Send message"
+                                    <input type="submit" name="" value="Send message"
                                            class="btn btn-primary btn-block">
                                 </div>
                             </div>
