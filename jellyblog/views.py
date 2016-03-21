@@ -59,7 +59,7 @@ def category_with_page(request, category_id, page):
                 .filter(category_id=child.id, public_doc=True)
     document_list += Document.objects.all().filter(
         category=category_id, public_doc=True)
-    document_list.sort(key=id, reverse=True)
+    document_list.sort(key=lambda x: x.pk, reverse=True)
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
     context = {
