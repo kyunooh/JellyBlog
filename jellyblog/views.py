@@ -8,11 +8,9 @@ from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents, \
     categoryList
 
-Category.init_category()
-
 
 def home(request):
-    categoryList = Category.sorted_category()
+    Category.init_category()
     return render(request, 'jellyblog/home.html')
 
 
