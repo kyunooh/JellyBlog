@@ -46,10 +46,12 @@ INSTALLED_APPS = (
     'ckeditor.fields',
     'compressor',
     'favicon',
+    'rest_framework',
 
     'jellyblog',
     'about_me',
     'django.contrib.sitemaps',
+
 )
 
 MIDDLEWARE_CLASSES = (
