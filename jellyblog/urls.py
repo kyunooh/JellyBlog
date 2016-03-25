@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.contrib.sitemaps.views import sitemap
@@ -8,6 +8,7 @@ from jellyblog import views
 
 from .feeds import LatestFeed
 from .sitemaps import BlogSitemap
+from .serializer import router
 
 sitemaps = {
     'blog': BlogSitemap,
@@ -44,5 +45,7 @@ urlpatterns = [
     url(r'^latest/feed/$', LatestFeed()),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-        name='django.contrib.sitemaps.views.sitemap')
+        name='django.contrib.sitemaps.views.sitemap'),
+
+    url(r'^api/', include(router.urls))
 ]
