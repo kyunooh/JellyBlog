@@ -22,11 +22,12 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
     <link rel="stylesheet" href="{% static "jellyblog/css/jelly-custom.css" %}">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="{% static "jellyblog/js/ga.js" %}"></script>
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
-<body ng-app="JellyBlog">{# 추후 angularjs 적용을 위하여 app 이름 설정 #}
+<body ng-app="JellyBlog" ng-controller="MainCtrl">{# 추후 angularjs 적용을 위하여 app 이름 설정 #}
     <nav class="navbar navbar-default">
         {% block navbar %}
             <div class="container">
