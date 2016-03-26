@@ -40,8 +40,6 @@ urlpatterns = [
     url(r'^favicon.ico/$',
         lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')),
 
-    url(r'^notes/$', views.get_notes, name='get_notes'),
-
     url(r'^latest/feed/$', LatestFeed()),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},

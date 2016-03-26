@@ -14,4 +14,4 @@ class NoteViewSet(viewsets.ModelViewSet):
 
 
 router = routers.DefaultRouter()
-router.register(r'users', NoteViewSet)
+router.register(r'notes', NoteViewSet)

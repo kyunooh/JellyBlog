@@ -70,6 +70,3 @@ def detail(request, document_id):
     return render(request, 'jellyblog/detail.html',
                   {'document': document, 'category_list': categoryList})
 
-
-def get_notes(request):
-    return HttpResponse(serializers.serialize('json', Note.objects.all()))
