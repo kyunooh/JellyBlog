@@ -84,6 +84,11 @@
             </div><!-- containe -->
         {% endblock %} {# navbar #}
     </nav><!-- block navbar -->
+    <div id="notes">
+        <ul>
+            <li ng-reapet="note in notes">{{ note.content }}</li>
+        </ul>
+    </div>
     <div id="content" class="container">
         <div id="inner-content">{% block content %}{% endblock %}</div>
     </div>
