@@ -9,3 +9,14 @@ body {
     max-width: 980px;
     margin: 0 auto;
 }
+
+.slick-prev {
+    color: #00B0E8;
+}
+.slick-next {
+    color: #00B0E8;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #4582ec;
+}
