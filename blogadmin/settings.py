@@ -128,4 +128,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 FAVICON_PATH = STATIC_URL + 'favicon.ico'
 
 # Append slash setting
-APPEND_SLASH = False
+APPEND_SLASH = True

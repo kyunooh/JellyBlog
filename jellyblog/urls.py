@@ -19,7 +19,7 @@ urlpatterns = [
     # url 오른쪽의 주석은 각각 예시를 의미
     url(r'^$', views.home, name='home'),
 
-    url(r'^index$', views.index, name='blog_index'),
+    url(r'^index/$', views.index, name='blog_index'),
 
     # /page/(page_number)
     url(r'^page/(?P<page>[0-9]+)/?$',
