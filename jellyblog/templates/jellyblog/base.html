@@ -100,21 +100,12 @@
 
 
     <div id="content" class="container">
-        {% verbatim %}
-            <slick id="note" settings="slickConfig" ng-init="noteInit()">
-                <div style="" ng-repeat="note in notes | orderBy: '-id'">
-                    <p style="background:#fff;color:#7c94a3;font-size:14px;line-height:16px;margin:5px;padding:1%;position:relative;text-align:center;">{{ note.content }}</p>
-                </div>
-            </slick>
-        {% endverbatim %}
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div id="inner-content">{% block content %}{% endblock %}</div>
             </div>
         </div>
     </div>
-    <div ng-view></div>
-
 
 </body>
 </html>
