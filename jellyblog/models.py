@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 from django.db import models, connection
-from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible
 
 

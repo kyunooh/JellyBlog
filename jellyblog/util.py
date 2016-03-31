@@ -1,19 +1,7 @@
-# -*- coding: utf-8 -*-
 from .models import Category
-from django.db import connection
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-"""
-최초 접속시 Home 카테고리를 생성하기 위함.
 
-카테고리가 존재여부를 확인후 존재하지 않을시
-Home 카테고리를 생성하도록 쿼리를 실행한다.
-"""
-
-
-
-
-        
 def get_page_number_range(paginator, page):
     # 페이지네이션의 범위를 반환해주는 함수
     # 총 페이지 수가 10개 이하일 경우 1 ~ (총 페이지 수) 보여줌
