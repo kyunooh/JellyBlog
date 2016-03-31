@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -20,13 +20,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
-    <link rel="stylesheet" href="{% static "jellyblog/css/jelly-custom.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+
+    <link rel="stylesheet" href="{% static "jellyblog/css/jelly-custom.css" %}" />
+
+
+    <!-- script import -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-touch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-carousel/1.0.1/angular-carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-slick-carousel/3.1.4/angular-slick.min.js"></script>
 
     <script src="{% static "jellyblog/js/ga.js" %}"></script>
+    <script src="{% static "jellyblog/js/angular/jellyblog-app.js" %}"></script>
     <title>{% block title %}젤리의 망상{% endblock %}</title>
 </head>
 
-<body ng-app="JellyBlog">{# 추후 angularjs 적용을 위하여 app 이름 설정 #}
+<body ng-app="jellyBlog" ng-controller="MainCtrl">{# 추후 angularjs 적용을 위하여 app 이름 설정 #}
     <nav class="navbar navbar-default">
         {% block navbar %}
             <div class="container">
@@ -39,7 +54,7 @@
                     </button>
                     <a class="navbar-brand" href="{% url 'blog_index' %}">젤리의 망상</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse" ng-controller="NavActiveController">
+                <div id="navbar" class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav">
                         {% if category_list %} {# 카테고리 리스트 존재 여부확인 #}
                             {% for category in category_list %}
@@ -48,7 +63,6 @@
                                     <a href="/category/{{ category.id }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         {{ category.name }}<span class="caret"></span>
                                     </a>
-
                                         <ul class="dropdown-menu">
                                             {% for child in category.children %} {# 하위카테고리에 대하여 드롭다운 메뉴생성 #}
                                                 <li><a href="/category/{{ child.id }}">{{ child.name }}</a></li>
@@ -83,13 +97,15 @@
             </div><!-- containe -->
         {% endblock %} {# navbar #}
     </nav><!-- block navbar -->
+
+
     <div id="content" class="container">
-        <div id="inner-content">{% block content %}{% endblock %}</div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div id="inner-content">{% block content %}{% endblock %}</div>
+            </div>
+        </div>
     </div>
-    <div ng-view></div>
-	<!-- script import -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>

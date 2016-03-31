@@ -1,10 +1,10 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jelly's Portfolio</title>
+    <title>젤리의 망상 - About me</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -25,242 +25,330 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
-  <body data-spy="scroll" data-target="#navigation" data-offset="120">
-    <!-- intro-->
-    <section id="intro" style="background-image: url('{{ home.overlay_image.url }}');" class="intro">
-      <div class="overlay"></div>
-      <div class="content">
+</head>
+<body data-spy="scroll" data-target="#navigation" data-offset="120">
+<!-- intro-->
+<section id="intro" style="background-image: url({% static "image/coffee-apple-iphone-laptop-min.jpg" %});"
+         class="intro">
+    <div class="overlay"></div>
+    <div class="content">
         <div class="container clearfix">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-sm-12">
-              <p class="italic">{{ first_greet }}</p>
-              <h1>{{ middle_greet }}</h1>
-              <p class="italic">{{ last_greet }}</p>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <p class="italic">안녕하세요!</p>
+                    <h1>프로그래머 최현묵(Jelly)입니다</h1>
+                    <p class="italic">블로그에 방문해주셔서 감사합니다.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <!-- intro end-->
-    <!-- navbar-->
-    <header class="header">
-      <div class="sticky-wrapper">
+    </div>
+</section>
+<!-- intro end-->
+<!-- navbar-->
+<header class="header">
+    <div class="sticky-wrapper">
         <div role="navigation" class="navbar navbar-default">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-btn btn-sm navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#intro" class="navbar-brand scroll-to"><img src="{{ home.logo.url }}" alt=""></a>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                            class="navbar-btn btn-sm navbar-toggle">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a href="#intro" class="navbar-brand scroll-to"><img src="{% static "image/logo.png" %}" width="120"
+                                                                         alt=""></a>
+                </div>
+                <div id="navigation" class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#intro">Home</a></li>
+                        <li><a href="#about">About </a></li>
+                        <li><a href="#hobby">Hobby</a></li>
+                        <li><a href="#skill">Skill</a></li>
+                        <li><a href="#more">More</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="navigation" class="collapse navbar-collapse navbar-right">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#about">About </a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#text">Text</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-    </header>
-    <!-- /.navbar-->
-    <!-- about-->
-    <section id="about" class="text">
-      <div class="container">
+    </div>
+</header>
+<!-- /.navbar-->
+<!-- about-->
+<section id="about" class="text">
+    <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <h2 class="heading">{{ first_head }}</h2>
-            <p class="lead">{{ second_head }}</p>
-            <p>{{ first_content }}</p>
-            <p>{{ second_content }}</p>
-          </div>
-          <div class="col-md-5 col-md-offset-1">
-            <p><img src="{{ about.image.url }}" alt="" class="img-responsive img-circle"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- about end-->
-    <!-- Services-->
-    <section id="services" style="background-color: #eee">
-      <div class="container">
-        <div class="row services">
-          <div class="col-md-12">
-            <h2 class="heading">Services</h2>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="box">
-                  <div class="icon"><i class="{{ usually.first_icon }}"></i></div>
-                  <h4>{{ usually.first_head }}</h4>
-                  <p>{{ usually.first_content }}</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <div class="icon"><i class="{{ usually.second_icon }}"></i></div>
-                  <h4>{{ usually.second_head }}</h4>
-                  <p>{{ usually.second_content }}</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <div class="icon"><i class="{{ usually.third_icon }}"></i></div>
-                  <h4>{{ usually.third_head }}</h4>
-                  <p> {{ usually.thrid_content}}
-                </div>
-              </div>
+            <div class="col-md-6">
+                <h2 class="heading">About me</h2>
+                <h6 class="lead"><strong>프로그래머입니다.</strong></h6>
+                <p>어렸을 때부터 컴퓨터에 관심이 많아 프로그래머가 되고 싶었습니다. 공부할 길을 몰라서 헤매며 돌고 돌다가, 눈 떠보니 어느샌가 프로그래머가 되었습니다.</p>
+                <p>처음 프로그래머라는 호칭을 받았을 때는 실력도 부족하고, 업무도 프로그래밍과는 거리가 멀어서, 당당하게 프로그래머라고 말하지 못했습니다. 그래도 지금은 프로그래머라고 말할 수 있어서
+                    행복합니다. </p>
+                <p>언제나 항상 부족하다고 생각되어, 항상 '공부해야지!'라고 생각하는데, 항상 안 해서, 항상 부족합니다. 그래도 '공부해야지!'라는 생각을 한다는 것에 위안을 얻고 있습니다.</p>
             </div>
-          </div>
+            <div class="col-md-5 col-md-offset-1">
+                <p><img src="{% static "image/my_face_after.jpg" %}" alt="" class="img-responsive img-circle"></p>
+            </div>
         </div>
-      </div>
-    </section>
-    <!-- Services end-->
+    </div>
+</section>
+<!-- about end-->
 
-    <!-- Portfolio / gallery-->
-    <section id="portfolio" class="gallery">
-      <div class="container clearfix">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-12 col-lg-8">
-                <h2 class="heading">{{ portfolio.first_head }}</h2>
-                <p>{{ portfolio.first_content }}</p>
-                <p>{{ portfolio.second_content }}</p>
-                <p>{{ portfolio.third_content }}</p>
-                <p>{{ portfolio.fourth_content }}</p>
-                <p>{{ portfolio.fifth_content }}</p>
-                <p>{{ portfolio.sixth_content }}</p>
-                <p>{{ portfolio.seventh_content }}</p>
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Portfolio / gallery end-->
-    <!-- text page-->
-    <section id="text" style="background-color: #333;" class="text-page section-inverse">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="heading">Text page</h2>
-            <div class="row">
-              <div class="col-sm-6">
-                <p>{{ etc.first_content }}</p>
-                <p>{{ etc.second_content }}</p>
-              </div>
-              <div class="col-sm-6">
-                <p>{{ etc.third_content }}</p>
-                <p>{{ etc.fourth_content }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- text page end-->
-    <!-- contact-->
-    <section id="contact" style="background-color: #fff;" class="text-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="heading">Contact</h2>
-            <div class="row">
-              <div class="col-md-6">
-                <form id="contact-form" method="post" action="#" class="contact-form">
-                  <div class="controls">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name">Your firstname *</label>
-                          <input type="text" name="name" placeholder="Enter your firstname" required="required" class="form-control">
+
+<!-- Portfolio / gallery-->
+<section id="hobby" style="background-color: #eee">
+    <div class="container">
+        <div class="row services">
+            <div class="col-md-12">
+                <h2 class="heading">Hobby</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <div class="icon"><i class="fa fa-code"></i></div>
+                            <h4>Code</h4>
+                            <p>남는 시간에 최대한 코드를 짜려고 합니다. 여러 가지 오픈소스를 진행하고 있습니다. 아직 '오픈소스에 기여하기'보단, '소스를 오픈(?)'하는 데 집중하고
+                                있습니다.</p>
                         </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="surname">Your lastname *</label>
-                          <input type="text" name="surname" placeholder="Enter your  lastname" required="required" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <div class="icon"><i class="fa fa-music"></i></div>
+                            <h4>Music</h4>
+                            <p>안 어울리지만, 음악을 좋아해서 앨범 단위로 노래를 들을 때가 많습니다. 또 연주도 하고, 가끔 작곡도 합니다. 주로 밴드 음악을 좋아합니다.</p>
                         </div>
-                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="surname">Your email *</label>
-                      <input type="email" name="email" placeholder="Enter your  email" required="required" class="form-control">
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <div class="icon"><i class="fa fa-book"></i></div>
+                            <h4>Reading</h4>
+                            <p>남는 시간에 코드를 짤 수 없으면 책을 읽으려고 노력하고 있습니다. 문학을 읽으려고 하는 데 저도 모르게 기술서적을 읽을 때가 많습니다.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="surname">Your message for us *</label>
-                      <textarea rows="4" name="message" placeholder="Enter your message" required="required" class="form-control"></textarea>
-                    </div>
-                    <div class="text-center">
-                      <input type="submit" name="name" value="Send message" class="btn btn-primary btn-block">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-md-6">
-                <p>
-                  {{ contact.content }}
-                </p>
-                <p class="social">
-                  {% if contact.facebook %}
-                    <a href="{{ contact.facebook }}" title="" class="facebook"><i class="fa fa-facebook"></i></a>
-                  {% endif %}
-                  {% if contact.twitter %}
-                    <a href="{{ contact.twitter }}" title="" class="twitter"><i class="fa fa-twitter"></i></a>
-                  {% endif %}
-                  {% if contact.google %}
-                    <a href="{{ contact.google }}" title="" class="gplus"><i class="fa fa-google-plus"></i></a>
-                  {% endif %}
-                  {% if contact.instagram %}
-                  <a href="{{ contact.instagram }}" title="" class="instagram"><i class="fa fa-instagram"></i></a>
-                  {% endif %}
-                  {% if contact.email %}
-                  <a href="{{ contact.email }}" title="" class="email"><i class="fa fa-envelope"></i></a>
-                  {% endif %}
-                </p>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <div id="map"></div>
-    <footer style="background-color: #111;" class="section-inverse">
-      <div class="container">
+    </div>
+</section>
+
+<!-- Portfolio / gallery end-->
+<!-- Services-->
+<section id="skill" class="gallery" >
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <h2 class="heading">Skill</h2>
+                        <p>주 언어는 자바(Java) 입니다. 제2외국어는 파이썬(Python)입니다. 작은 프로젝트를 여러 개 하다 보니, 여러 가지 언어와 프레임워크를 조금씩 건드렸습니다.
+                            현실은 잡캐이지만, 폴리글랏 프로그래머라고 주장하고 있습니다.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/java.png" %}" title="Java" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="Java"
+                                            data-footer="Java가 첫 프로그래밍 언어는 아니지만, Java를 시작으로 본격적인 프로그래밍을 시작했습니다.
+                                            스프링을 모르던 시절에 생 Servlet/JSP로 코딩을 해가며 첫 웹 프로그래밍을 접했습니다. <br />
+                                            경험해본 Java 관련 기술 : Spring, JSP, Thymeleaf, Hibernate, Mybatis(ibatis), Maven, Gradle, Solr, Android"><img
+                                src="{% static "image/java.png" %}" alt="Java icon image" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/python.png" %}" title="Python" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="Python"
+                                            data-footer="Python을 처음 접한 뒤 생산성에 놀라서 두 번째 메인 언어로 사용하고 있습니다. 회사 업무를 제외한 개인적인 프로젝트는 대부분 파이썬으로 진행합니다.
+                                            실무에서도 일회성이 짙은 프로그래밍은 Python을 사용해서 처리하고 있습니다. 개인적으로 Python 스터디(프로젝트)도 함께하고 있습니다."><img
+                                src="{% static "image/python.png" %}" alt="Python icon image"
+                                class="img-responsive"></a></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/database.png" %}" title="Database"
+                                            data-toggle="lightbox" data-gallery="skill" data-title="Database"
+                                            data-footer="대부분 프로젝트를 진행할 때는 MySQL(MariaDB)를 사용하며, 최근에 postgresql에 관심을 가지고 있습니다. 주로 SQL보다는 DB 엔진에 관한 이해를 높이려고 노력합니다."><img
+                                src="{% static "image/database.png" %}" alt="Database icon image"
+                                class="img-responsive"></a></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <a href="{% static "image/spring.png" %}" title="Spring" data-toggle="lightbox"
+                               data-gallery="skill" data-title="Spring" data-footer="아직까지도 가장 익숙하면서도, 어려운 프레임워크라고 생각됩니다.
+                               때때로 짜증 나지만, 미워할 수 없는 애증의 관계(?)로써 아직도 많이 사용하고 있습니다. 최근 팀 프로젝트에서는 스프링을 통하여 Restful API를 TDD로 구현한 경험이 있습니다. <br />
+                               사용해본 Spring Project: -core, -test, -mybatis, -hibernate, -redis, -mvc, -web, -batch, -security, -web-socket ..."><img
+                                    src="{% static "image/spring.png" %}" alt="" class="img-responsive"></a></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/django.png" %}" title="django" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="Django"
+                                            data-footer="최근 가장 푹 빠진 웹 프레임워크로 여러 가지 프로젝트를 장고로 만들고 있습니다. 또한, 장고로 진행하는 모든 프로젝트는 블로그를 제외하곤, 전부 TDD로 진행하고 있습니다."><img
+                                src="{% static "image/django.png" %}" alt="" class="img-responsive"></a></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/html5.png" %}" title="HTML" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="HTML/CSS"
+                                            data-footer="HTML/CSS는 기본적인 것만 해냅니다. 주로 프트를 개발해야 할 일이 있을 때는, 부트스트랩을 이용해서 개발합니다. (항상 '프런트엔드 잘하고 싶다'를 외칩니다.)"><img
+                                src="{% static "image/html5.png" %}" alt="" class="img-responsive"></a></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/vs.png" %}" title="Windows" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="Windows Programming"
+                                            data-footer="회사에서 윈도우(C#/C++) 서버와 클라이언트를 잠시 건드렸습니다. 하지만 워낙 앱등이어서, 좋아하지는 않고 할 줄 아는 수준입니다."><img src="{% static "image/vs.png" %}" alt=""
+                                                                                       class="img-responsive"></a></div>
+                    </div>
+                    </a>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/js.png" %}" title="Javascript" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="Javascript"
+                                            data-footer="몇 년간 친해지도록 노력하다가, 최근에서야 친해지고 있는 언어입니다. 여러 가지 프레임워크와 라이브러리로 삽질 하고 있으며, 너무 빠르게 발전하여 살짝 무섭기도 합니다. <br />
+                                            경험해본 라이브러리: Jquery, Backbone.js(Marionette), Angular JS, Node.js"><img src="{% static "image/js.png" %}" alt=""
+                                                                                       class="img-responsive"></a></div>
+                    </div>
+                    </a>
+                    <div class="col-sm-4">
+                        <div class="box"><a href="{% static "image/more.png" %}" title="etc" data-toggle="lightbox"
+                                            data-gallery="skill" data-title="etc"
+                                            data-footer="귀가 얇아서 좋다고 하는건 다 한번쯤 써보려고 합니다. (아래는 선호순)<br />
+                                            VCS: git(stash, bitbucket, github), SVN, Perforce <br />
+                                            Issue tracker: JIRA, Trello, Redmine<br />
+                                            OS: OSX, CentOS, Ubuntu, Windows<br />
+                                            Agile: Pair Programming, TDD, XP<br />
+                                            Editor(IDE): IDEA(Jetbrain), Emacs, Atom, Visual Studio, Eclipse, </br>
+                                            Programming Language: Ruby, Scala, C, Haskell, php <br />
+                                            Web Server: Nginx, Apache <br />
+                                            Cloud: AWS, GCE, KT
+                                            Build tool(CI): Jenkins
+                                            "><img src="{% static "image/more.png" %}" alt=""
+                                                                                       class="img-responsive"></a></div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services end-->
+<!-- text page-->
+<section id="more" style="background-color: #333;" class="text-page section-inverse">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading">More</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>블로그에 쓰고 있는 글들은 전부 '제가 표현한 것'이지만,
+                           '저를 표현한다고 생각하지 않는다'는 전제하에 글을 씁니다.
+                           제가 글을 쓸 때의 생각과 그 글을 끝낼 때의 생각조차 다르다고 생각합니다.
+                           글을 봐주실 때는 유의해주시면서 봐주시고, 의견은 언제나 환영입니다.</p>
+                        <p>커피를 좋아해서, 가끔 시간을 내가며 커피를 마시는 평범한 프로그래머입니다.
+                           프로그래밍 자체도 좋아하며, 가끔 프로그램으로 홍익인간을 실현하는 것에 대해 고민합니다.
+                           욕심이 없는 척하지만, 나중에 엄청나게 큰 선박을 타고 여행하면서 일을 하는 꿈을 꾸고 있습니다.
+                           </p>
+                        <p>서울공업고등학교를 졸업하고, 어울리지 않게 소프트웨어쪽으로 취업합니다. 하지만 개발 공부를 깊게하고 싶어서 회사를 나왔습니다. 그리고 뜬금없이 카페 알바를 하며,
+                            공부와 개인적으로 프로젝트를 진행했습니다. 현재는 다시 돈을 받으며(?) 프로그래머로 일하고 있습니다.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>2015 - Rye & Catchers</strong>: Java(Backend), javascript(Frontend)</p>
+                        <p><strong>2015 EzPtTech</strong>: Windows(C#/C++), Android(Java)</p>
+                        <p><strong>2014 - 2015 Personal project</strong>:Java(Spring), Javascript(backbone), Python(django), Bootstrap 공부 및 팀 프로젝트 진행</p>
+                        <p><strong>2012 - 2014 Samsung SDS</strong>: Java(Spring)</p>
+                        <p>현재 파이썬 스터디인 트리플파이(pypypy)를 다같이 진행하고 있으며, 여러가지 프로젝트를 시도하고 있습니다.
+                           모두가 점진적으로 발전하는 모임이 되길 바라고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- text page end-->
+<!-- contact-->
+<section id="contact" style="background-color: #fff;" class="text-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading">Contact</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form id="contact-form" method="post" action="{% url 'about_me' %}" class="contact-form">
+                            <div class="controls">
+                                <div class="form-group">
+
+                                    {% csrf_token %}
+                                    <!-- TODO 메시지 기능을 만들어야함 -->
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" name="name" placeholder="Enter your name"
+                                           required="required" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Your email *</label>
+                                    <input type="email" name="email" placeholder="Enter your email" required="required"
+                                           class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Your message for me *</label>
+                                    <textarea rows="4" name="content" placeholder="Enter your message"
+                                              required="required" class="form-control"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" name="" value="Send message"
+                                           class="btn btn-primary btn-block">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <p>안녕하세요! 궁금하신 점이나 이야기를 나누고 싶으신 분들은 편하게 메시지를 남겨주세요.
+                           저는 신도림역 주변에서 서식중입니다.
+                           서울안에서 맛있는 커피를 사주신다면, 찾아갈 준비도 되어있을 지도... 개발과 관련된 이야기는 언제나 매우 환영입니다.</p>
+                        <p>메시지 기능을 이용하시거나, 아래 버튼을 이용하시면 Facebook 또는 이메일등 다른 방식으로 연락도 가능합니다:D</p>
+                        <p>마지막으로 다시 한번 블로그를 방문해주셔서 감사합니다</p>
+                        <p class="social">
+                            <a href="http://facebook.com/hyunmook.k.choi" title="facebook" class="facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://github.com/kyunooh" title="github" class="github">
+                                <i class="fa fa-github"></i>
+                            </a>
+                            <a href="mailto:chm073@gmail.com" title="" class="email"><i class="fa fa-envelope"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer style="background-color: #111;" class="section-inverse">
+    <div class="container">
         <div class="row copyright">
-          <div class="col-md-6">
-            <p>&copy;2015 - 2016 jellyms.kr / 젤리의 망상</p>
-          </div>
-          <div class="col-md-6">
-            <p class="credit">Template by <a href="http://bootstrapious.com/landing-pages">Bootstrapious &mdash; Bootstrap Landing Pages</a></p>
-            <!-- Please do not remove the backlink to us. It is part of the licence conditions. Thanks for understanding :)
-            -->
-          </div>
+            <div class="col-md-6">
+                <p>&copy;2014-2016 Hyeon-Mook Jerry Choi</p>
+            </div>
+            <div class="col-md-6">
+                <p class="credit">Template by <a href="http://bootstrapious.com/landing-pages">Bootstrapious &mdash;
+                    Bootstrap Landing Pages</a></p>
+                <!-- Please do not remove the backlink to us. It is part of the licence conditions. Thanks for understanding :)
+                -->
+            </div>
         </div>
-      </div>
-    </footer>
-    <!-- Javascript files-->
-    <!-- jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-    <!-- Bootstrap CDN-->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- jQuery Cookie - For Demo Purpose-->
-    <script src="{% static "js/jquery.cookie.js" %}"></script>
-    <!-- Lightbox-->
-    <script src="{% static "js/ekko-lightbox.js" %}"> </script>
-    <!-- Sticky + Scroll To scripts for navbar-->
-    <script src="{% static "js/jquery.sticky.js" %}"></script>
-    <script src="{% static "js/jquery.scrollTo.min.js" %}"></script>
-    <!-- google maps-->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false"></script>
-    <script src="{% static "js/gmaps.js" %}"></script>
-    <!-- main script-->
-    <script src="{% static "js/front.js" %}"></script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-    <script src="{% static "jellyblog/js/ga.js" %}"></script>
-  </body>
+    </div>
+</footer>
+<!-- Javascript files-->
+<!-- jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+<!-- Bootstrap CDN-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- jQuery Cookie - For Demo Purpose-->
+<script src="{% static "js/jquery.cookie.js" %}"></script>
+<!-- Lightbox-->
+<script src="{% static "js/ekko-lightbox.js" %}"></script>
+<!-- Sticky + Scroll To scripts for navbar-->
+<script src="{% static "js/jquery.sticky.js" %}"></script>
+<script src="{% static "js/jquery.scrollTo.min.js" %}"></script>
+<!-- main script-->
+<script src="{% static "js/front.js" %}"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+<script src="{% static "jellyblog/js/ga.js" %}"></script>
+</body>
 </html>

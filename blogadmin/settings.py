@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Django settings for blogadmin project.
 
@@ -46,10 +45,12 @@ INSTALLED_APPS = (
     'ckeditor.fields',
     'compressor',
     'favicon',
+    'rest_framework',
 
     'jellyblog',
     'about_me',
     'django.contrib.sitemaps',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,4 +127,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 FAVICON_PATH = STATIC_URL + 'favicon.ico'
 
 # Append slash setting
-APPEND_SLASH = False
+APPEND_SLASH = True

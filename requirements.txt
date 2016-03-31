@@ -6,3 +6,4 @@ mysqlclient>=1.3.7
 htmlmin>=0.1.10
 django-htmlmin>=0.8
 Pillow>=3.0
+djangorestframework>=3.3.3
