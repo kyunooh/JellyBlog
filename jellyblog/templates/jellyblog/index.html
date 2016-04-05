@@ -2,13 +2,11 @@
 {% block content %}
     {% verbatim %}
     <div class="col-md-12">
-
-        <slick id="note" settings="slickConfig" >
+        <slick id="note" settings="slickConfig" ng-if="noteLoaded">
             <div style="" ng-repeat="note in notes | orderBy: '-id'">
                 <p style="background:#fff;color:#7c94a3;font-size:14px;line-height:16px;margin:5px;padding:1%;position:relative;text-align:center;">{{ note.content }}</p>
             </div>
         </slick>
-
     </div>
     {% endverbatim %}
     {% if documents %} {# documents 존재 확인 #}

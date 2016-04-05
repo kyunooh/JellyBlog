@@ -7,7 +7,7 @@ app.controller("MainCtrl", [
     '$http',
     function($scope, $http) {
         $scope.notes = [];
-
+        $scope.noteLoaded = false;
         $scope.slickConfig = {
             enabled: true,
             autoplay: false,
@@ -26,6 +26,7 @@ app.controller("MainCtrl", [
                 .get("/api/notes/")
                 .then(function successCallback(response) {
                     $scope.notes = response.data;
+                    $scope.noteLoaded = true;
                 });
         };
     }
