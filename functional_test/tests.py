@@ -9,7 +9,7 @@ class MessageTest(unittest.TestCase):
         self.browser.get("http://localhost:8000")
         self.assertIn('젤리의 망상', self.browser.title)
         # inform 을 클릭한다
-        about_me_button = self.browser.find_element_by_id('about_me')
+        about_me_button = self.browser.find_element_by_class_name('box inform')
         # 클릭이후 about_me 페이지로 이동한다.
         about_me_button.click()
         self.assertIn('젤리의 망상 - About me', self.browser.title)
