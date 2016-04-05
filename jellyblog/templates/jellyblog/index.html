@@ -1,14 +1,16 @@
 {% extends "jellyblog/base.html" %}
 {% block content %}
-    <div class="col-md-12">
     {% verbatim %}
-        <slick id="note" settings="slickConfig" ng-init="noteInit()">
+    <div class="col-md-12">
+
+        <slick id="note" settings="slickConfig" >
             <div style="" ng-repeat="note in notes | orderBy: '-id'">
                 <p style="background:#fff;color:#7c94a3;font-size:14px;line-height:16px;margin:5px;padding:1%;position:relative;text-align:center;">{{ note.content }}</p>
             </div>
         </slick>
-    {% endverbatim %}
+
     </div>
+    {% endverbatim %}
     {% if documents %} {# documents 존재 확인 #}
 
         <div class="col-md-12 markdown-body">
@@ -20,7 +22,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row" ng-init="noteInit()">
             <div class="col-md-12 text-center">
                 <ul class="pagination ">
                     {% if documents.has_previous %} {# 앞 페이지가 존재할경우 "<" 버튼 생성 #}
