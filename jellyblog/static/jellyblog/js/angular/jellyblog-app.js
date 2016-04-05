@@ -11,7 +11,7 @@ app.controller("MainCtrl", [
         $scope.slickConfig = {
             enabled: true,
             autoplay: false,
-            draggable: false,
+            draggable: true,
             method: {},
             event: {
                 beforeChange: function (event, slick, currentSlide, nextSlide) {
