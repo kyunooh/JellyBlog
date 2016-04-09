@@ -1,6 +1,5 @@
 import unittest
 from selenium import webdriver
-from about_me.models import Message
 
 
 class MessageTest(unittest.TestCase):
