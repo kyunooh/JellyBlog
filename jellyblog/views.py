@@ -18,7 +18,7 @@ def index(request):
 
 @minified_response
 def index_with_page(request, page):
-    document_list = Document.objects.all().filter(public_doc=True).order_by('-id')
+    document_list = Document.objects.filter(public_doc=True).order_by('-id')
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
     context = {
