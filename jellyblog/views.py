@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.core import serializers
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from .models import Category, Document, Note
+from .models import Category, Document
 from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents, \
     categoryList
