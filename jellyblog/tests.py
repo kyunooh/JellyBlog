@@ -1,7 +1,7 @@
 from django.http import HttpRequest
 from django.test import TestCase
 
-from jellyblog.views import index_with_page
+from jellyblog.views import index
 from .models import Note
 
 
@@ -14,7 +14,7 @@ class NoteViewTest(TestCase):
 
     def test_get_notes(self):
         request = HttpRequest()
-        response = index_with_page(request)
+        response = index(request)
 
         self.assertIn(self.note_content1, response.content.decode())
         self.assertIn(self.note_content2, response.content.decode())
