@@ -1,23 +1,32 @@
+from django.core.urlresolvers import reverse
 from django.http import HttpRequest
 from django.test import TestCase
+from django.test import override_settings
+from django.test.testcases import LiveServerTestCase
 
+from selenium import webdriver
 from jellyblog.views import index
 from .models import Category, Note, Document
 
 
-class NoteViewTest(TestCase):
+class NoteViewTest(LiveServerTestCase):
+    @override_settings(DEBUG=True)
     def setUp(self):
+        self.browser = webdriver.Firefox()
         self.note_content1 = "note test 111"
         self.note_content2 = "note test 222"
         Note.objects.create(content=self.note_content1)
         Note.objects.create(content=self.note_content2)
 
-    def test_get_notes(self):
-        request = HttpRequest()
-        response = index(request)
+    def tearDown(self):
+        self.browser.quit()
 
-        self.assertIn(self.note_content1, response.content.decode())
-        self.assertIn(self.note_content2, response.content.decode())
+    def test_get_notes(self):
+        self.browser.get(self.live_server_url + reverse("blog_index"))
+        page_source = self.browser.page_source
+
+        self.assertIn(self.note_content1, page_source)
+        self.assertIn(self.note_content2, page_source)
 
 
 class DocumentViewTest(TestCase):
