@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 from django.db import models, connection
-from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible
 
 
@@ -52,7 +50,7 @@ class Document(models.Model):
     id = models.AutoField(primary_key=True)
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=100)
-    content = RichTextField()
+    content = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
     meta_tag = models.CharField(max_length=150)
     view_count = models.IntegerField(default=0, editable=False)

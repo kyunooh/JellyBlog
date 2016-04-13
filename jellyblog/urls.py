@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.conf.urls import url, include
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -19,7 +18,7 @@ urlpatterns = [
     # url 오른쪽의 주석은 각각 예시를 의미
     url(r'^$', views.home, name='home'),
 
-    url(r'^index$', views.index, name='blog_index'),
+    url(r'^index/$', views.index, name='blog_index'),
 
     # /page/(page_number)
     url(r'^page/(?P<page>[0-9]+)/?$',
@@ -39,8 +38,6 @@ urlpatterns = [
     # google chrome favicon fix
     url(r'^favicon.ico/$',
         lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')),
-
-    url(r'^notes/$', views.get_notes, name='get_notes'),
 
     url(r'^latest/feed/$', LatestFeed()),
 

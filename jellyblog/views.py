@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
-from django.core import serializers
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from .models import Category, Document, Note
+from .models import Category, Document
 from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents, \
     categoryList
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def home(request):
-    Category.init_category()
+    try:
+        Category.init_category()
+    except Exception:
+        logger.error("Error when init category")
     return render(request, 'jellyblog/home.html')
 
 
@@ -20,7 +25,7 @@ def index(request):
 
 @minified_response
 def index_with_page(request, page):
-    document_list = Document.objects.all().filter(public_doc=True).order_by('-id')
+    document_list = Document.objects.filter(public_doc=True).order_by('-id')
     paginator = Paginator(document_list, 4)
     documents = get_documents(paginator, page)
     context = {
@@ -70,6 +75,3 @@ def detail(request, document_id):
     return render(request, 'jellyblog/detail.html',
                   {'document': document, 'category_list': categoryList})
 
-
-def get_notes(request):
-    return HttpResponse(serializers.serialize('json', Note.objects.all()))

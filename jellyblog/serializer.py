@@ -8,10 +8,10 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'content', 'time', 'update_time')
 
 
-class NoteViewSet(viewsets.ModelViewSet):
+class NoteViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
 
 router = routers.DefaultRouter()
-router.register(r'users', NoteViewSet)
+router.register(r'notes', NoteViewSet)

@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fw!nvf0r%t8mhhg(f17x4!#akg=k&hg4_@o(&h3h70rucn(t#w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "jellyms.kr"]
 
 # django-ckeditor configuration
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
@@ -42,16 +42,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'ckeditor',
-    'ckeditor.fields',
-    'compressor',
     'favicon',
-    'rest_framework',
 
     'jellyblog',
     'about_me',
     'django.contrib.sitemaps',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -128,4 +123,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 FAVICON_PATH = STATIC_URL + 'favicon.ico'
 
 # Append slash setting
-APPEND_SLASH = False
+APPEND_SLASH = True

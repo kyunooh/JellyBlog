@@ -2,9 +2,17 @@
 {% block meta_tag %}{{ category_name }} | 젤리의 망상{% endblock %} {# 카테고리 페이지의 검색용 메타태그 #}
 {% block title %}{{ category_name }} | 젤리의 망상{% endblock %} {# 카테고리 페이지의 타이틀 #}
 {% block content %}
-
+    {% verbatim %}
+    <div class="col-md-12">
+        <slick id="note" settings="slickConfig" ng-if="noteLoaded">
+            <div style="" ng-repeat="note in notes | orderBy: '-id'">
+                <p style="background:#fff;color:#7c94a3;font-size:14px;line-height:16px;margin:5px;padding:1%;position:relative;text-align:center;">{{ note.content }}</p>
+            </div>
+        </slick>
+    </div>
+    {% endverbatim %}
     {% if documents %}{# docuemnts 존재 확인 #}
-        <div class="col-md-11">
+        <div class="col-md-12 markdown-body">
             {% for document in documents %} {# 페이지의 리스트 불러오기 #}
                 <span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
                 <hr class="title-line">
@@ -13,8 +21,8 @@
             {% endfor %}
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-3">
+        <div class="row" ng-init="noteInit()">
+            <div class="col-md-12 text-center">
                 <ul class="pagination ">
                     {% if documents.has_previous %} {# 앞 페이지가 존재할경우 "<" 버튼 생성 #}
                         <li>
@@ -36,7 +44,7 @@
                 </ul>
 
             </div>
-            <div class="col-md-2 col-md-offset-10"> <!-- 전체 페이지수와 현제 페이지 번호를 보여주기 위함 -->
+            <div class="col-md-12 text-center"><!-- 전체 페이지수와 현제 페이지 번호를 보여주기 위함 -->
                 <span class="current">
                     Page <b> {{ documents.number }}</b> of {{ documents.paginator.num_pages }}.
                 </span>
