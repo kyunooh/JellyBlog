@@ -9,7 +9,7 @@ class LatestFeed(Feed):
     description = "젤리의 망상의 피드입니다."
 
     def items(self):
-        return Document.objects.order_by('-time')[:5]
+        return Document.objects.filter(public_doc=True).order_by('-time')[:5]
 
     def item_title(self, item):
         return item.title
