@@ -1,8 +1,6 @@
 from django.db import models, connection
-from django.utils.encoding import python_2_unicode_compatible
 
 
-@python_2_unicode_compatible
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     parent = models.ForeignKey('self')
@@ -41,7 +39,6 @@ class Category(models.Model):
                  (name, parent_id) VALUES ("Home", 1)')
 
 
-@python_2_unicode_compatible
 class Document(models.Model):
     # 문서 Model
     def __str__(self):
@@ -66,7 +63,6 @@ class Document(models.Model):
         return 'detail', (), {'document_id': self.id}
 
 
-@python_2_unicode_compatible
 class Note(models.Model):
     # 노트 Model
     def __str__(self):
