@@ -51,6 +51,6 @@
         </div>
 
     {% else %}{# if documents #}
-        <p>There is no document</p> {# documents가 존재하지 않을경우 호출 #}
+        <p  ng-init="noteInit()">There is no document</p> {# documents가 존재하지 않을경우 호출 #}
     {% endif %}{# if documents #}
 {% endblock %}
