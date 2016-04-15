@@ -12,10 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def home(request):
-    try:
-        Category.init_category()
-    except Exception:
-        logger.error("Error when init category")
+    Category.init_category()
     return render(request, 'jellyblog/home.html')
 
 
