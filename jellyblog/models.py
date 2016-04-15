@@ -32,11 +32,10 @@ class Category(models.Model):
 
     @classmethod
     def init_category(cls):
-        is_empty = len(cls.objects.all()) == 0
+        is_empty = cls.objects.count() == 0
         if is_empty:
             category = connection.cursor()
-            category.execute('INSERT INTO jellyblog_category \
-                 (name, parent_id) VALUES ("Home", 1)')
+            category.execute('INSERT INTO jellyblog_category (name, parent_id) VALUES ("Home", 1)')
 
 
 class Document(models.Model):
