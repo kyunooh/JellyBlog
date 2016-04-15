@@ -47,6 +47,3 @@ class MessageTest(LiveServerTestCase):
             content=self.test_content
         )
         self.assertTrue(message)
-
-        # 메시지를 남기고 브라우저 종료
-        self.browser.quit()
