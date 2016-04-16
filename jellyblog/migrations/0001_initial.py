@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import ckeditor.fields
 
 
 class Migration(migrations.Migration):
@@ -24,7 +23,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=100)),
-                ('content', ckeditor.fields.RichTextField()),
+                ('content', models.TextField()),
                 ('time', models.DateTimeField(auto_now=True)),
                 ('meta_tag', models.CharField(max_length=150)),
                 ('view_count', models.IntegerField(default=0, editable=False)),
