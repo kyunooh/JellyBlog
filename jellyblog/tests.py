@@ -17,6 +17,7 @@ class NoteViewTest(LiveServerTestCase):
             self.username = os.getenv('SAUCE_USERNAME', None)
             self.key = os.getenv('SAUCE_ACCESS_KEY', None)
             hub_url = "%s:%s@localhost:4445" % (self.username, self.key)
+            self.caps['tunnel-identifier'] = os.getenv('TRAVIS_JOB_NUMBER', None)
             self.browser = webdriver.Remote(desired_capabilities=self.caps,
                                            command_executor="http://%s/wd/hub" % hub_url)
         else:
