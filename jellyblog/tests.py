@@ -13,6 +13,7 @@ from .models import Category, Note, Document
 class NoteViewTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
+        self.caps['name'] = 'Testing NoteView'
         if os.getenv('BUILD_ON_TRAVIS', None):
             self.username = os.getenv('SAUCE_USERNAME', None)
             self.key = os.getenv('SAUCE_ACCESS_KEY', None)
