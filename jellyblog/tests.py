@@ -14,8 +14,8 @@ class NoteViewTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
         if os.getenv('BUILD_ON_TRAVIS', None):
-            self.username = os.environ['SAUCE_USERNAME']
-            self.key = os.environ['SAUCE_ACCESS_KEY']
+            self.username = os.getenv('SAUCE_USERNAME', None)
+            self.key = os.getenv('SAUCE_ACCESS_KEY', None)
             hub_url = "%s:%s@localhost:4445" % (self.username, self.key)
             self.browser = webdriver.Remote(desired_capabilities=self.caps,
                                            command_executor="http://%s/wd/hub" % hub_url)
