@@ -9,6 +9,7 @@ install:
 
 before_script:
   - mysql -e 'create database travis_ci_db'
+  - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
   - python manage.py migrate
 
 script:

@@ -1,3 +1,4 @@
+import os
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
 from django.test import TestCase
@@ -12,7 +13,14 @@ from .models import Category, Note, Document
 class NoteViewTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        if os.getenv('BUILD_ON_TRAVIS', None):
+            self.username = os.environ['SAUCE_USERNAME']
+            self.key = os.environ['SAUCE_ACCESS_KEY']
+            hub_url = "%s:%s@localhost:4445" % (self.username, self.key)
+            self.browser = webdriver.Remote(desired_capabilities=self.caps,
+                                           command_executor="http://%s/wd/hub" % hub_url)
+        else:
+            self.browser = webdriver.Firefox()
         self.note_content1 = "note test 111"
         self.note_content2 = "note test 222"
         Note.objects.create(content=self.note_content1)
