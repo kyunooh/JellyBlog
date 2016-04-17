@@ -23,9 +23,6 @@ from jellyblog import urls as blog_urls
 from about_me import views as about_me_views
 
 urlpatterns = [
-    # django-ckeditor 설정을 사용하기 위함
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-
     # admin에 접속하기 위한 url
     url(r'^admin/', include(admin.site.urls)),
 
