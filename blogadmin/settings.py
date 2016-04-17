@@ -82,16 +82,33 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogadmin.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jelly_test',
-        'USER': 'root',
-        'PASSWORD': 'JellymsBl0g',
-        'HOST': 'localhost',
-        'PORT': '3306',
+
+if os.getenv('BUILD_ON_TRAVIS', None):
+    SECRET_KEY = "SecretKeyForUseOnTravis"
+    DEBUG = False
+    TEMPLATE_DEBUG = True
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'travis_ci_db',
+            'USER': 'travis',
+            'PASSWORD': '',
+            'HOST': '127.0.0.1',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'jelly_test',
+            'USER': 'root',
+            'PASSWORD': 'JellymsBl0g',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+
+    }
 
 
 # Internationalization
