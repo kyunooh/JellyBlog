@@ -7,12 +7,18 @@ install:
   - pip install -r requirements.txt
   - pip install -q Django==$DJANGO_VERSION
 
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+
 before_script:
   - mysql -e 'create database travis_ci_db'
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install google-chrome-stable
   - python manage.py migrate
 
 script:
