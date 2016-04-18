@@ -18,7 +18,7 @@ addons:
     - google-chrome-stable
 
 before_script:
-  - mysql -e 'create database travis_ci_db'
+  - mysql -e 'create database jellyblog_travis'
   - python manage.py migrate
 
 script:
