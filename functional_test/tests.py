@@ -9,7 +9,7 @@ from about_me.models import Message
 class MessageTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
-        self.caps['name'] = 'Testing NoteView'
+        self.caps = {'name': 'Testing Message'}
         # 유저는 메인 화면으로 들어와서
         if os.getenv('BUILD_ON_TRAVIS', None):
             self.username = os.getenv('SAUCE_USERNAME', None)
