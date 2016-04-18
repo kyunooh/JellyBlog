@@ -13,14 +13,8 @@ from .models import Category, Note, Document
 class NoteViewTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
-        self.caps = {'name': 'Testing NoteView'}
         if os.getenv('BUILD_ON_TRAVIS', None):
-            self.username = os.getenv('SAUCE_USERNAME', None)
-            self.key = os.getenv('SAUCE_ACCESS_KEY', None)
-            hub_url = "%s:%s@localhost:4445" % (self.username, self.key)
-            self.caps['tunnel-identifier'] = os.getenv('TRAVIS_JOB_NUMBER', None)
-            self.browser = webdriver.Remote(desired_capabilities=self.caps,
-                                           command_executor="http://%s/wd/hub" % hub_url)
+            self.browser = webdriver.Chrome()
         else:
             self.browser = webdriver.Firefox()
         self.note_content1 = "note test 111"

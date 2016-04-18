@@ -9,15 +9,9 @@ from about_me.models import Message
 class MessageTest(LiveServerTestCase):
     @override_settings(DEBUG=True)
     def setUp(self):
-        self.caps = {'name': 'Testing Message'}
         # 유저는 메인 화면으로 들어와서
         if os.getenv('BUILD_ON_TRAVIS', None):
-            self.username = os.getenv('SAUCE_USERNAME', None)
-            self.key = os.getenv('SAUCE_ACCESS_KEY', None)
-            hub_url = "%s:%s@localhost:4445" % (self.username, self.key)
-            self.caps['tunnel-identifier'] = os.getenv('TRAVIS_JOB_NUMBER', None)
-            self.browser = webdriver.Remote(desired_capabilities=self.caps,
-                                           command_executor="http://%s/wd/hub" % hub_url)
+            self.browser = webdriver.Chrome()
         else:
             self.browser = webdriver.Firefox()
         self.test_name = 'functional test name'
