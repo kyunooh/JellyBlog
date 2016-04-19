@@ -6,10 +6,6 @@ from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents, \
     categoryList
 
-import logging
-
-logger = logging.getLogger(__name__)
-
 
 def home(request):
     Category.init_category()

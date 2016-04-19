@@ -1,8 +1,6 @@
-import os
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
 from django.test import TestCase
-from django.test import override_settings
 from django.test.testcases import LiveServerTestCase
 
 from selenium import webdriver
@@ -11,12 +9,8 @@ from .models import Category, Note, Document
 
 
 class NoteViewTest(LiveServerTestCase):
-    @override_settings(DEBUG=True)
     def setUp(self):
-        if os.getenv('BUILD_ON_TRAVIS', None):
-            self.browser = webdriver.Chrome()
-        else:
-            self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox()
         self.note_content1 = "note test 111"
         self.note_content2 = "note test 222"
         Note.objects.create(content=self.note_content1)

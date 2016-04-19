@@ -7,6 +7,9 @@ install:
   - pip install -r requirements.txt
   - pip install -q Django==$DJANGO_VERSION
 
+services:
+  - mysql
+
 sudo: required
 dist: trusty
 
@@ -18,11 +21,12 @@ addons:
     - google-chrome-stable
 
 before_script:
-  - mysql -e 'create database jellyblog_travis'
+  - mysql -e 'create database jellyblog_travis;'
   - python manage.py migrate
 
 script:
-  python manage.py test
+  - python manage.py test functional_test
+  - python manage.py test jellyblog
 
 env:
   global:

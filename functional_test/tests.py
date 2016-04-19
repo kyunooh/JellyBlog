@@ -1,5 +1,3 @@
-import os
-from django.test import override_settings
 from django.test.testcases import LiveServerTestCase
 from selenium import webdriver
 
@@ -7,13 +5,9 @@ from about_me.models import Message
 
 
 class MessageTest(LiveServerTestCase):
-    @override_settings(DEBUG=True)
     def setUp(self):
         # 유저는 메인 화면으로 들어와서
-        if os.getenv('BUILD_ON_TRAVIS', None):
-            self.browser = webdriver.Chrome()
-        else:
-            self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox()
         self.test_name = 'functional test name'
         self.test_email = 'functional@test.email'
         self.test_content = 'functional test message content'
