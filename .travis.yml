@@ -21,7 +21,7 @@ addons:
   firefox: "39.0"
 
 before_script:
-  - mysql -e 'create database jellyblog_travis;'
+  - mysql -u root -e 'create database jellyblog_travis;'
   - python manage.py migrate
 
 script:
