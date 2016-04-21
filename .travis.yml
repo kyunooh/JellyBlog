@@ -18,7 +18,7 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
-  firefox: "39.0"
+  firefox: "45.0.2"
 
 before_script:
   - mysql -u root -e 'create database jellyblog_travis;'
