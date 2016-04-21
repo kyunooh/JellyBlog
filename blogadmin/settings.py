@@ -92,7 +92,7 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'jellyblog_travis',
-            'USER': 'travis',
+            'USER': 'root',
             'PASSWORD': '',
             'HOST': '127.0.0.1',
         }
