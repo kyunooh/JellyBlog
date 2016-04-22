@@ -20,7 +20,7 @@ class NoteViewTest(LiveServerTestCase):
         self.browser.quit()
 
     def test_get_notes(self):
-        self.browser.implicitly_wait(5)
+        self.browser.implicitly_wait(10)
         self.browser.get(self.live_server_url + reverse("blog_index"))
         elem = self.browser.find_element_by_xpath("//*")
         source_code = elem.get_attribute("outerHTML")
