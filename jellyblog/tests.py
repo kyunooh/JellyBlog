@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.test.testcases import LiveServerTestCase
 
 from selenium import webdriver
-from jellyblog.views import index
+from jellyblog.views import index, search_documents
 from .models import Category, Note, Document
 
 
@@ -67,3 +67,43 @@ class DocumentViewTest(TestCase):
         self.assertNotIn(self.test_doc2.content, response.content.decode())
 
 
+class DocumentSearchTest(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super(DocumentSearchTest, cls).setUpClass()
+        Category.init_category()
+
+    def setUp(self):
+        category = Category.objects.get(pk=1)
+        self.searchTestDoc1 = Document.objects.create(
+            category=category,
+            title="Document Search Test Document",
+            content="Search Document Content1 It Would Be Found",
+            meta_tag="searchsearchesarchesarchsearch",
+            public_doc=True
+        )
+
+        self.notFoundDoc1 = Document.objects.create(
+            category=category,
+            title="Not Found Document",
+            content="Search Document Content1 It Would Be Found",
+            meta_tag="searchsearchesarchesarchsearch",
+            public_doc=False
+        )
+
+        self.notFoundDoc2 = Document.objects.create(
+            category=category,
+            title="Not found",
+            content="This Content is not found",
+            meta_tag="notnotnotnotnot foundounfdouynfdounfdounfd",
+            public_doc=True
+        )
+
+    def test_search(self):
+        request = HttpRequest()
+        query = "It Would Be Found"
+        response = search_documents(request, query)
+
+        self.assertIn(self.searchTestDoc1.title, response.content.decode())
+        self.assertNotIn(self.notFoundDoc1.title, response.content.decode())
+        self.assertNotIn(self.notFoundDoc2.title, response.content.decode())

@@ -60,6 +60,10 @@ def category_with_page(request, category_id, page):
     }
     return render(request, 'jellyblog/category.html', context)
 
+@minified_response
+def search_documents(request, query):
+    return render(request, 'jellyblog/search_result.html')
+
 
 @minified_response
 def detail(request, document_id):
