@@ -26,6 +26,7 @@ addons:
 
 before_script:
   - mysql -u root -e 'create database jellyblog_travis;'
+  - python manage.py migrate
   - python manage.py collectstatic --noinput
 
 script:
