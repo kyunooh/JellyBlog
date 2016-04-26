@@ -37,4 +37,5 @@ env:
      - BUILD_ON_TRAVIS=true
   matrix:
     - DJANGO_VERSION=1.8.12 DB=mysql
+    - DJANGO_VERSION=1.9.4 DB=mysql
     - DJANGO_VERSION=1.9.5 DB=mysql
