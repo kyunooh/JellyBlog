@@ -30,7 +30,11 @@ class Migration(migrations.Migration):
                 ('meta_tag', models.CharField(max_length=150)),
                 ('view_count', models.IntegerField(default=0, editable=False)),
                 ('public_doc', models.BooleanField()),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='jellyblog.Category')),
             ],
+        ),
+        migrations.AddField(
+            model_name='Document',
+            name='category',
+            field=models.ForeignKey(to='jellyblog.Category'),
         ),
     ]
