@@ -30,7 +30,3 @@ def get_documents(paginator, page):
     except EmptyPage:
         documents = paginator.page(paginator.num_pages)
     return documents
-
-
-# 성능을 위해 카테고리 리스트의 경우 캐싱해서 사용
-categoryList = Category.sorted_category()
