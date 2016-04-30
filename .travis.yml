@@ -30,12 +30,12 @@ before_script:
   - python manage.py collectstatic --noinput
 
 script:
-  - python manage.py test functional_test
-  - python manage.py test jellyblog
+  - python manage.py test functional_test -v 3
+  - python manage.py test jellyblog -v 3
 
 env:
   global:
-     - BUILD_ON_TRAVIS=true
+    - BUILD_ON_TRAVIS=true
   matrix:
     - DJANGO_VERSION=1.8.12 DB=mysql
     - DJANGO_VERSION=1.9.4 DB=mysql
