@@ -1,7 +1,5 @@
-import django
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
-from django.test import TestCase
 from django.test.testcases import LiveServerTestCase
 
 from selenium import webdriver
