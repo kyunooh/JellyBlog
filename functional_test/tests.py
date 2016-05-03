@@ -19,7 +19,8 @@ class MessageTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
         self.assertIn('젤리의 망상', self.browser.title)
         # inform 을 클릭한다
-        about_me_button = self.browser.find_element_by_css_selector('.box.inform')
+        about_me_button = self.browser.find_element_by_css_selector(
+            '.box.inform')
         # 클릭이후 about_me 페이지로 이동한다.
         about_me_button.click()
         self.assertIn('젤리의 망상 - About me', self.browser.title)
