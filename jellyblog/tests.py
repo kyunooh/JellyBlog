@@ -1,10 +1,11 @@
+import django
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
 from django.test import TestCase
 from django.test.testcases import LiveServerTestCase
 
 from selenium import webdriver
-from jellyblog.views import index, search_documents
+from jellyblog.views import index, search_documents, init_category
 from .models import Category, Note, Document
 
 
@@ -29,11 +30,11 @@ class NoteViewTest(LiveServerTestCase):
         self.assertIn(self.note_content2, index_html)
 
 
-class DocumentViewTest(TestCase):
+class DocumentViewTest(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(DocumentViewTest, cls).setUpClass()
-        Category.init_category()
+        init_category()
 
     def setUp(self):
         category = Category.objects.get(pk=1)
@@ -67,11 +68,11 @@ class DocumentViewTest(TestCase):
         self.assertNotIn(self.test_doc2.content, response.content.decode())
 
 
-class DocumentSearchTest(TestCase):
+class DocumentSearchTest(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(DocumentSearchTest, cls).setUpClass()
-        Category.init_category()
+        init_category()
 
     def setUp(self):
         category = Category.objects.get(pk=1)
