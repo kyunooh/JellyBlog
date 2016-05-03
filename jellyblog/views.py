@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Category, Document
@@ -6,11 +5,17 @@ from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents
 
 
-def home(request):
+def init_category():
     Category.init_category()
+
+
+@minified_response
+def home(request):
+    init_category()
     return render(request, 'jellyblog/home.html')
 
 
+@minified_response
 def index(request):
     return index_with_page(request, 1)
 
@@ -30,6 +35,7 @@ def index_with_page(request, page):
     return render(request, 'jellyblog/index.html', context)
 
 
+@minified_response
 def category_detail(request, category_id):
     return category_with_page(request, category_id, 1)
 
@@ -58,6 +64,7 @@ def category_with_page(request, category_id, page):
         'category_name': selected_category.name,
     }
     return render(request, 'jellyblog/category.html', context)
+
 
 @minified_response
 def search_documents(request, query):
