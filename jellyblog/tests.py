@@ -29,13 +29,9 @@ class NoteViewTest(LiveServerTestCase):
 
 
 class DocumentViewTest(LiveServerTestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(DocumentViewTest, cls).setUpClass()
-        init_category()
-
     def setUp(self):
-        category = Category.objects.get(pk=1)
+        init_category()
+        category = Category.objects.get(name="Home")
         self.test_doc1 = Document.objects.create(
             category=category,
             title="Document Test1",
@@ -67,13 +63,9 @@ class DocumentViewTest(LiveServerTestCase):
 
 
 class DocumentSearchTest(LiveServerTestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(DocumentSearchTest, cls).setUpClass()
-        init_category()
-
     def setUp(self):
-        category = Category.objects.get(pk=1)
+        init_category()
+        category = Category.objects.get(name="Home")
         self.searchTestDoc1 = Document.objects.create(
             category=category,
             title="Document Search Test Document",
