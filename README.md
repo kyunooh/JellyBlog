@@ -64,14 +64,14 @@
 
 <p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.3까지 목표</strong></p>
 
-<p><strong>글목록 정렬  버그 수정</strong></p>
-<p><strong>about me 페이지 완성</strong></p>
-
-<p>블로그 내부 검색 기능</p><br />
+<p><strong>블로그 내부 검색 기능</strong></p><br />
 
 &nbsp;</p>
 
 <h4>업데이트 기록</h4>
+<h5>v.0.3</h5>
+<p>글목록 정렬  버그 수정</p>
+<p>about me 페이지 완성</p>
 
 <h5>v.0.22</h5>
 <p>댓글 기능<br />
