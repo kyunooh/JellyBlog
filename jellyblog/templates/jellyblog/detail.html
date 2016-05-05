@@ -16,7 +16,10 @@
             {% else %} {# 상위 카테고리인 글의 경우 #}
                 <span><h6><a href="/">Home</a> > <a
                         href="/category/{{ document.category.id }}"> {{ document.category.name }} </a></h6></span>
-            {% endif %} {# if document.category.parent.id != 1 #}
+                {% endif %} {# if document.category.parent.id != 1 #}
+                
+                <h5>최초 작성 : {{ document.time | date:"Y-m-d" }} /  최종 수정 : {{
+                document.update_time | date:"Y-m-d" }}</h5>
             <span><h1>{{ document.title }}</h1></span> {# 글 제목 #}
             <hr> <!-- 글 구분선 -->
             <span>{% autoescape off %}{{ document.content | linebreaks }}{% endautoescape %}</span><br>{#  #}
