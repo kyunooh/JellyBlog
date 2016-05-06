@@ -68,7 +68,12 @@ def category_with_page(request, category_id, page):
 
 @minified_response
 def search_documents(request, query):
-    return render(request, 'jellyblog/search_result.html')
+    documents = Document.search_document(query)
+    context = {
+        'documents' : documents,
+        'category_list' : Category.sorted_category()
+    }
+    return render(request, 'jellyblog/index.html', context)
 
 
 @minified_response

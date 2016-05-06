@@ -1,5 +1,5 @@
 from django.db import models, connection
-
+from django.db.models import Q
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
@@ -60,6 +60,12 @@ class Document(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return 'detail', (), {'document_id': self.id}
+
+    @classmethod
+    def search_document(cls, query):
+        if len(query) == 0:
+            return None
+        return cls.objects.filter(Q(title__icontains=query) | Q(content__icontains=query) & Q(public_doc=True))
 
 
 class Note(models.Model):
