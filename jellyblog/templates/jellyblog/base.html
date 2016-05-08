@@ -67,10 +67,7 @@
                                             {% endfor %}
                                         </ul>
                                     </li>
-                                {% elif category.id == 1 %} {# Home일 경우 루트로 리다이렉트  #}
-                                    <li role="presentation" ng-class="{ active : isActive('') }">
-                                        <a href="{% url 'blog_index'  %}">{{ category.name }}</a>
-                                    </li>
+                                {% elif category.id == 1 %} {# Home은 안보이도록 함  #}
                                 {% else %} {# 하위 카테고리가 존재하지 않는경우 #}
                                     <li role="presentation" ng-class="{ active : isActive('/category/{{ category.id  }}/') }">
                                         <a href="/category/{{ category.id }}">{{ category.name }}</a>
