@@ -5,7 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from jellyblog import views
 
-from .feeds import LatestFeed
+from .feeds import LatestFeed, AllPublickFeed
 from .sitemaps import BlogSitemap
 from .serializer import router
 
@@ -41,6 +41,8 @@ urlpatterns = [
         lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')),
 
     url(r'^latest/feed/$', LatestFeed()),
+
+    url(r'^public/feed/$', AllPublickFeed()),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
