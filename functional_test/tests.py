@@ -88,10 +88,10 @@ class SearchTest(LiveServerTestCase):
         blog_button.click()
         self.assertIn("젤리의 망상", self.browser.title)
 
-        search_box = self.browser.find_element_by_id("query")
+        search_box = self.browser.find_element_by_id("search_query")
         search_box.send_keys("It Would Be Found")
 
-        search_button = self.browser.find_element_by_id("search")
+        search_button = self.browser.find_element_by_id("search_box")
         search_button.click()
 
         elem = self.browser.find_element_by_xpath("//*")
