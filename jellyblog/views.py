@@ -47,7 +47,8 @@ def category_with_page(request, category_id, page):
     selected_category = Category.objects.get(id=category_id)
     document_list = []
     if selected_category.parent.id == 1:
-        # 카테고리가 상위 카테고리인지 아닌지를 판별 후, 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
+        # 카테고리가 상위 카테고리인지 아닌지를 판별 후,
+        # 상위 카테고리일 경우엔 하위 카테고리의 문서 리스트를 추가함
         children = Category.objects.all().filter(parent=selected_category.id)
         for child in children:
             document_list += Document.objects.all() \
@@ -85,5 +86,6 @@ def detail(request, document_id):
     document = get_object_or_404(Document, pk=document_id)
     document.read()
     return render(request, 'jellyblog/detail.html',
-                  {'document': document, 'category_list': Category.sorted_category()})
+                  {'document': document,
+                   'category_list': Category.sorted_category()})
 

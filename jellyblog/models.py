@@ -1,6 +1,7 @@
 from django.db import models, connection
 from django.db.models import Q
 
+
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     parent = models.ForeignKey('self')
@@ -65,7 +66,9 @@ class Document(models.Model):
     def search_document(cls, query):
         if len(query) == 0:
             return None
-        return cls.objects.filter(Q(title__icontains=query) | Q(content__icontains=query) & Q(public_doc=True))
+        return cls.objects.filter(Q(title__icontains=query)
+                                  | Q(content__icontains=query)
+                                  & Q(public_doc=True))
 
 
 class Note(models.Model):
