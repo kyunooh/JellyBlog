@@ -78,7 +78,9 @@ def search_documents(request):
             'documents' : documents,
             'category_list' : Category.sorted_category()
         }
-        return render(request, 'jellyblog/index.html', context)
+        return render(request, 'jellyblog/search_result.html', context)
+    else:
+        return render(request, 'jellyblog/search_result.html')
 
 
 @minified_response
