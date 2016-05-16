@@ -36,7 +36,8 @@ class Category(models.Model):
         is_empty = cls.objects.count() == 0
         if is_empty:
             with connection.cursor() as cs:
-                cs.execute('INSERT INTO jellyblog_category (name, parent_id) VALUES ("Home", 1)')
+                cs.execute('INSERT INTO jellyblog_category \
+                             (name, parent_id) VALUES ("Home", 1)')
 
 
 class Document(models.Model):
