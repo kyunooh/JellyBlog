@@ -84,7 +84,8 @@ class SearchTest(LiveServerTestCase):
 
     def test_search_doc(self):
         self.browser.get(self.live_server_url)
-        blog_button = self.browser.find_element_by_css_selector('.box.blog_link')
+        blog_button = self.browser.find_element_by_css_selector(
+            '.box.blog_link')
         blog_button.click()
         self.assertIn("젤리의 망상", self.browser.title)
 
