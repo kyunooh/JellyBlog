@@ -92,8 +92,8 @@ class DocumentSearchTest(LiveServerTestCase):
 
     def test_search(self):
         request = HttpRequest()
-        query = "It Would Be Found"
-        response = search_documents(request, query)
+        request.POST["search_query"] = "It Would Be Found"
+        response = search_documents(request)
 
         self.assertIn(self.searchTestDoc1.title, response.content.decode())
         self.assertNotIn(self.notFoundDoc1.title, response.content.decode())

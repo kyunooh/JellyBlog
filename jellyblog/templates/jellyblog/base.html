@@ -79,7 +79,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left"
                               role="search"
-                              action="{% url 'search_document' %}" method="post">
+                              action="{% url 'search_documents' %}" method="post">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <input type="text" class="form-control" id="search_query" placeholder="Search">
                             </div>

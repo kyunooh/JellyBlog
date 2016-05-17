@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+
+from jellyblog.forms import SearchForm
 from .models import Category, Document
 from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents
@@ -68,19 +70,17 @@ def category_with_page(request, category_id, page):
 
 
 @minified_response
-def search_document(request, query):
-    return search_document_with_page(request, query, 1)
-
-
-def search_document_with_page(request, query, page):
-    document_list = Document.search_document(query)
-    paginator = Paginator(document_list, 4)
-    documents = get_documents(paginator, page)
-    context = {
-        'documents': documents,
-        'category_list': Category.sorted_category() 
-    }
-    return render(request, 'jellyblog/index.html', context)
+def search_documents(request):
+    form = SearchForm(request.POST)
+    if form.is_valid():
+        documents = Document.search_document(form.cleaned_data['search_query'])
+        context = {
+            'documents' : documents,
+            'category_list' : Category.sorted_category()
+        }
+        return render(request, 'jellyblog/search_result.html', context)
+    else:
+        return render(request, 'jellyblog/search_result.html')
 
 
 @minified_response

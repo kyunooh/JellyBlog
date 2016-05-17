@@ -20,7 +20,7 @@ urlpatterns = [
     # blog의 첫 페이지를 보여준다.
     url(r'^index/$', views.index, name='blog_index'),
     # 검색 결과를 보여준다.
-    url(r'^search/$', views.search_documents, name='search_documents')
+    url(r'^search/$', views.search_documents, name='search_documents'),
     # /page/(page_number)
     url(r'^page/(?P<page>[0-9]+)/?$',
         views.index_with_page, name='index_with_page'),
