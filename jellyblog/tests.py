@@ -84,7 +84,7 @@ class DocumentSearchTest(LiveServerTestCase):
 
         self.notFoundDoc2 = Document.objects.create(
             category=category,
-            title="Not found",
+            title="It's not public doc",
             content="This Content is not found",
             meta_tag="notnotnotnotnot foundounfdouynfdounfdounfd",
             public_doc=True
@@ -97,4 +97,11 @@ class DocumentSearchTest(LiveServerTestCase):
 
         self.assertIn(self.searchTestDoc1.title, response.content.decode())
         self.assertNotIn(self.notFoundDoc1.title, response.content.decode())
+        self.assertNotIn(self.notFoundDoc2.title, response.content.decode())
+
+    def test_not_fount_when_not_public_doc(self):
+        request = HttpRequest()
+        query = "It's not public doc"
+        response = search_documents(request, query)
+
         self.assertNotIn(self.notFoundDoc2.title, response.content.decode())
