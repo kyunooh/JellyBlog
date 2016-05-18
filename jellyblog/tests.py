@@ -74,17 +74,25 @@ class DocumentSearchTest(LiveServerTestCase):
             public_doc=True
         )
 
+        self.notPublicDoc = Document.objects.create(
+            category=category,
+            title="It's not Public doc",
+            content="It is not found cause, this is not public",
+            meta_tag="metametametametametametamteamteatmeatm",
+            public_doc=False
+        )
+
         self.notFoundDoc1 = Document.objects.create(
             category=category,
             title="Not Found Document",
-            content="Search Document Content1 It Would Be Found",
+            content="This content is not found",
             meta_tag="searchsearchesarchesarchsearch",
             public_doc=False
         )
 
         self.notFoundDoc2 = Document.objects.create(
             category=category,
-            title="It's not public doc",
+            title="Not found notnot found",
             content="This Content is not found",
             meta_tag="notnotnotnotnot foundounfdouynfdounfdounfd",
             public_doc=True
@@ -104,4 +112,4 @@ class DocumentSearchTest(LiveServerTestCase):
         query = "It's not public doc"
         response = search_documents(request, query)
 
-        self.assertNotIn(self.notFoundDoc2.title, response.content.decode())
+        self.assertNotIn(self.notPublicDoc.title, response.content.decode())
