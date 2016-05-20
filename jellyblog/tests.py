@@ -110,6 +110,7 @@ class DocumentSearchTest(LiveServerTestCase):
     def test_not_fount_when_not_public_doc(self):
         request = HttpRequest()
         query = "It's not public doc"
+        request.POST["search_query"] = query
         response = search_documents(request)
 
         self.assertNotIn(self.notPublicDoc.title, response.content.decode())
