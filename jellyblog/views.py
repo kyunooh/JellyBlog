@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.conf import settings
+
 from .models import Category, Document
 from htmlmin.decorators import minified_response
 from .util import get_page_number_range, get_documents, \
@@ -9,7 +11,7 @@ from .util import get_page_number_range, get_documents, \
 
 def home(request):
     Category.init_category()
-    return render(request, 'jellyblog/home.html')
+    return render(request, 'jellyblog/home.html', {'test': settings.TEST})
 
 
 def index(request):
@@ -26,7 +28,9 @@ def index_with_page(request, page):
         'category_list': categoryList,
         'page_range': get_page_number_range(
             paginator, documents
-        )
+        ),
+        'test': settings.TEST
+
     }
     return render(request, 'jellyblog/index.html', context)
 
@@ -57,6 +61,7 @@ def category_with_page(request, category_id, page):
         'page_range': get_page_number_range(
             paginator, documents),
         'category_name': selected_category.name,
+        'test': settings.TEST
     }
     return render(request, 'jellyblog/category.html', context)
 
@@ -66,5 +71,5 @@ def detail(request, document_id):
     document = get_object_or_404(Document, pk=document_id)
     document.read()
     return render(request, 'jellyblog/detail.html',
-                  {'document': document, 'category_list': categoryList})
+                  {'document': document, 'category_list': categoryList, 'test': settings.TEST})
 

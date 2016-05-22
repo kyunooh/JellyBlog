@@ -347,6 +347,10 @@
 <!-- main script-->
 <script src="{% static "js/front.js" %}"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-<script src="{% static "jellyblog/js/ga.js" %}"></script>
+{% if test %}
+    <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
+{% else %}
+    <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
+{% endif %}
 </body>
 </html>

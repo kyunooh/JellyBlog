@@ -5,7 +5,11 @@
     <meta name="google-site-verification" content="sD88W4tSBLNW75Qlh1odUgmLJXzaKXIHYcyoPn5IQ0I" />
     <title>젤리의 망상</title>
     <link rel="stylesheet" href="{% static "jellyblog/css/home.css" %}">
-  <script src="{% static "jellyblog/js/ga.js" %}"></script>
+    {% if test %}
+        <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
+    {% else %}
+        <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
+    {% endif %}
   </head>
   <body>
     <div class="container">

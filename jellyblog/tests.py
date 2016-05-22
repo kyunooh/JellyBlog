@@ -23,10 +23,10 @@ class NoteViewTest(LiveServerTestCase):
         self.browser.implicitly_wait(10)
         self.browser.get(self.live_server_url + reverse("blog_index"))
         elem = self.browser.find_element_by_xpath("//*")
-        source_code = elem.get_attribute("outerHTML")
+        index_html = elem.get_attribute("outerHTML")
 
-        self.assertIn(self.note_content1, source_code)
-        self.assertIn(self.note_content2, source_code)
+        self.assertIn(self.note_content1, index_html)
+        self.assertIn(self.note_content2, index_html)
 
 
 class DocumentViewTest(TestCase):
