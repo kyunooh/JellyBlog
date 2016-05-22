@@ -1,0 +1,58 @@
+{% extends "jellyblog/base.html" %}
+{% block content %}
+    {% verbatim %}
+    <div class="col-md-12">
+        <slick id="note" settings="slickConfig" ng-if="noteLoaded">
+            <div style="" ng-repeat="note in notes | orderBy: '-id'">
+                <p style="background:#fff;color:#7c94a3;font-size:14px;line-height:16px;margin:5px;padding:1%;position:relative;text-align:center;">{{ note.content }}</p>
+            </div>
+        </slick>
+    </div>
+    {% endverbatim %}
+    {% if documents %} {# documents 존재 확인 #}
+
+        <div class="col-md-12 markdown-body">
+            {% for document in documents %} {# 페이지의 리스트 불러오기 #}
+                <span><h1><a href="/{{ document.id }}">{{ document.title }}</a></h1></span>
+                <span>{{ document.content | truncatewords_html:70 | safe }}</span> {# 해당 문서의 내용을 태그가 적용된 상태로 70단어까지 보여주도록 함 #}
+                <hr class="document-line">
+            {% endfor %}
+        </div>
+
+
+        <div class="row" ng-init="noteInit()">
+            <div class="col-md-12 text-center">
+                <ul class="pagination ">
+                    {% if documents.has_previous %} {# 앞 페이지가 존재할경우 "<" 버튼 생성 #}
+                        <li>
+                            <a href="/page/{{ documents.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&lt;</span>
+                            </a>
+                        </li>
+                    {% endif %} {# if documents.has_previous #}
+                    {% for number in page_range %} {# 페이지 범위 만큼 페이지네이션 #}
+                        <li><a href="/page/{{ number }}">{{ number }}</a></li>
+                    {% endfor %}
+                    {% if documents.has_next %} {# 뒷 페이지가 존재할 경우 ">" 버튼 생성 #}
+                        <li>
+                            <a href="/page/{{ documents.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                        </li>
+                    {% endif %} {#if document.has_next #}
+                </ul>
+
+            </div>
+            <div class="col-md-12 text-center"> <!-- 전체 페이지수와 현제 페이지 번호를 보여주기 위함 -->
+                <span class="current">
+                    Page <b> {{ documents.number }}</b> of {{ documents.paginator.num_pages }}.
+                </span>
+            </div>
+        </div>
+
+    {% else %}{# if documents #}
+        <p  ng-init="noteInit()">검색 결과가 없습니다. 검색어를
+    확인하여, 다시 검색해주세요. 검색어가 너무 짧거나 긴 경우 검색이
+    안될 수 있습니다.</p> {# documents가 존재하지 않을경우 호출 #}
+    {% endif %}{# if documents #}
+{% endblock %}

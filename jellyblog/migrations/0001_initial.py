@@ -2,9 +2,11 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+    initial = True
 
     dependencies = [
     ]
@@ -15,7 +17,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=20)),
-                ('parent', models.ForeignKey(to='jellyblog.Category')),
+                ('parent', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='jellyblog.Category')),
             ],
         ),
         migrations.CreateModel(
@@ -28,7 +30,11 @@ class Migration(migrations.Migration):
                 ('meta_tag', models.CharField(max_length=150)),
                 ('view_count', models.IntegerField(default=0, editable=False)),
                 ('public_doc', models.BooleanField()),
-                ('category', models.ForeignKey(to='jellyblog.Category')),
             ],
+        ),
+        migrations.AddField(
+            model_name='Document',
+            name='category',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='jellyblog.Category'),
         ),
     ]

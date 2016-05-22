@@ -1,4 +1,5 @@
 from django.db import models, connection
+from django.db.models import Q
 
 
 class Category(models.Model):
@@ -34,8 +35,9 @@ class Category(models.Model):
     def init_category(cls):
         is_empty = cls.objects.count() == 0
         if is_empty:
-            category = connection.cursor()
-            category.execute('INSERT INTO jellyblog_category (name, parent_id) VALUES ("Home", 1)')
+            with connection.cursor() as cs:
+                cs.execute('INSERT INTO jellyblog_category \
+                             (name, parent_id) VALUES ("Home", 1)')
 
 
 class Document(models.Model):
@@ -60,6 +62,14 @@ class Document(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return 'detail', (), {'document_id': self.id}
+
+    @classmethod
+    def search_document(cls, query):
+        if len(query) == 0:
+            return None
+        return cls.objects.filter((
+            Q(title__icontains=query) | Q(content__icontains=query))
+            & Q(public_doc=True))
 
 
 class Note(models.Model):

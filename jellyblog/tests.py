@@ -1,10 +1,9 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
-from django.test import TestCase
 from django.test.testcases import LiveServerTestCase
 
 from selenium import webdriver
-from jellyblog.views import index
+from jellyblog.views import index, search_documents, init_category
 from .models import Category, Note, Document
 
 
@@ -20,7 +19,7 @@ class NoteViewTest(LiveServerTestCase):
         self.browser.quit()
 
     def test_get_notes(self):
-        self.browser.implicitly_wait(10)
+        self.browser.implicitly_wait(3)
         self.browser.get(self.live_server_url + reverse("blog_index"))
         elem = self.browser.find_element_by_xpath("//*")
         index_html = elem.get_attribute("outerHTML")
@@ -29,14 +28,10 @@ class NoteViewTest(LiveServerTestCase):
         self.assertIn(self.note_content2, index_html)
 
 
-class DocumentViewTest(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(DocumentViewTest, cls).setUpClass()
-        Category.init_category()
-
+class DocumentViewTest(LiveServerTestCase):
     def setUp(self):
-        category = Category.objects.get(pk=1)
+        init_category()
+        category = Category.objects.get(name="Home")
         self.test_doc1 = Document.objects.create(
             category=category,
             title="Document Test1",
@@ -67,3 +62,55 @@ class DocumentViewTest(TestCase):
         self.assertNotIn(self.test_doc2.content, response.content.decode())
 
 
+class DocumentSearchTest(LiveServerTestCase):
+    def setUp(self):
+        init_category()
+        category = Category.objects.get(name="Home")
+        self.searchTestDoc1 = Document.objects.create(
+            category=category,
+            title="Document Search Test Document",
+            content="Search Document Content1 It Would Be Found",
+            meta_tag="searchsearchesarchesarchsearch",
+            public_doc=True
+        )
+
+        self.notPublicDoc = Document.objects.create(
+            category=category,
+            title="It's not Public doc",
+            content="It is not found cause, this is not public",
+            meta_tag="metametametametametametamteamteatmeatm",
+            public_doc=False
+        )
+
+        self.notFoundDoc1 = Document.objects.create(
+            category=category,
+            title="Not Found Document",
+            content="This content is not found",
+            meta_tag="searchsearchesarchesarchsearch",
+            public_doc=False
+        )
+
+        self.notFoundDoc2 = Document.objects.create(
+            category=category,
+            title="Not found notnot found",
+            content="This Content is not found",
+            meta_tag="notnotnotnotnot foundounfdouynfdounfdounfd",
+            public_doc=True
+        )
+
+    def test_search(self):
+        request = HttpRequest()
+        request.POST["search_query"] = "It Would Be Found"
+        response = search_documents(request)
+
+        self.assertIn(self.searchTestDoc1.title, response.content.decode())
+        self.assertNotIn(self.notFoundDoc1.title, response.content.decode())
+        self.assertNotIn(self.notFoundDoc2.title, response.content.decode())
+
+    def test_not_fount_when_not_public_doc(self):
+        request = HttpRequest()
+        query = "It's not public doc"
+        request.POST["search_query"] = query
+        response = search_documents(request)
+
+        self.assertNotIn(self.notPublicDoc.title, response.content.decode())

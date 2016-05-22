@@ -5,7 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from jellyblog import views
 
-from .feeds import LatestFeed
+from .feeds import LatestFeed, AllPublickFeed
 from .sitemaps import BlogSitemap
 from .serializer import router
 
@@ -17,9 +17,10 @@ sitemaps = {
 urlpatterns = [
     # url 오른쪽의 주석은 각각 예시를 의미
     url(r'^$', views.home, name='home'),
-
+    # blog의 첫 페이지를 보여준다.
     url(r'^index/$', views.index, name='blog_index'),
-
+    # 검색 결과를 보여준다.
+    url(r'^search/$', views.search_documents, name='search_documents'),
     # /page/(page_number)
     url(r'^page/(?P<page>[0-9]+)/?$',
         views.index_with_page, name='index_with_page'),
@@ -40,6 +41,8 @@ urlpatterns = [
         lambda x: HttpResponseRedirect(settings.STATIC_URL+'ico/favicon.ico')),
 
     url(r'^latest/feed/$', LatestFeed()),
+
+    url(r'^public/feed/$', AllPublickFeed()),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),

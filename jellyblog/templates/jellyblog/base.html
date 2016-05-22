@@ -71,10 +71,7 @@
                                             {% endfor %}
                                         </ul>
                                     </li>
-                                {% elif category.id == 1 %} {# Home일 경우 루트로 리다이렉트  #}
-                                    <li role="presentation" ng-class="{ active : isActive('') }">
-                                        <a href="{% url 'blog_index'  %}">{{ category.name }}</a>
-                                    </li>
+                                {% elif category.id == 1 %} {# Home은 안보이도록 함  #}
                                 {% else %} {# 하위 카테고리가 존재하지 않는경우 #}
                                     <li role="presentation" ng-class="{ active : isActive('/category/{{ category.id  }}/') }">
                                         <a href="/category/{{ category.id }}">{{ category.name }}</a>
@@ -84,6 +81,15 @@
                         {% endif %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left"
+                              role="search"
+                              action="{% url 'search_documents' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search_query" name="search_query"placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default" id="search_box"><i class="fa fa-search"></i></button>
+                        </form>
                         <li>
                             <a href="/" class="btn">
                                 <i class="fa fa-home"></i>
