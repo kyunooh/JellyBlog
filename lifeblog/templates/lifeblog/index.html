@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>젤리의 망상</title>
+    {% if test %}
+        <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
+    {% else %}
+        <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
+    {% endif %}
+  </head>
+  <body>
+    {% if documents %}
+    {% for document in documents %}
+    
+    {% endfor %}
+    {% endif %}
+  </body>
+</html>
