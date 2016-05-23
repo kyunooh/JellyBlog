@@ -44,11 +44,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sitemaps',
+
     'favicon',
 
     'jellyblog',
     'about_me',
-    'django.contrib.sitemaps',
+    'lifeblog',
 )
 
 MIDDLEWARE_CLASSES = (
