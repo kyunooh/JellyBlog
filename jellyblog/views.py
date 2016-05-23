@@ -78,8 +78,8 @@ def search_documents(request):
     if form.is_valid():
         documents = Document.search_document(form.cleaned_data['search_query'])
         context = {
-            'documents' : documents,
-            'category_list' : Category.sorted_category()
+            'documents': documents,
+            'category_list': Category.sorted_category()
         }
         return render(request, 'jellyblog/search_result.html', context)
     else:
@@ -93,5 +93,4 @@ def detail(request, document_id):
     return render(request, 'jellyblog/detail.html',
                   {'document': document,
                    'category_list': Category.sorted_category(),
-                   'test': settings.TEST}
-                  )
+                   'test': settings.TEST})
