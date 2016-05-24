@@ -1,20 +1,24 @@
-from django.test import LiveServerTestCase
+from django.test import LiveServerTestCase, Client
 from .models import Document
 
 
 class DocumentTest(LiveServerTestCase):
     def setUp(self):
-        test_public_doc = Document.objects.create(
+        self.test_public_doc = Document.objects.create(
             title="DocumentTest Title",
             content="DocumentTest Content content",
             meta_tag="metametametametametametametameta",
             public_doc=True)
         
-        test_private_doc = Document.objects.create(
+        self.test_private_doc = Document.objects.create(
             title="DocumentTest private",
             content="DocumentTest Content content",
             meta_tag="metametametametametametametameta",
             public_doc=False)
 
     def test_public_doc(self):
-        pass
+        c = Client()
+        response = c.get("/lifeblog/")
+        self.assertEquals(200, response.status_code)
+        self.assertIn(self.test_public_doc.title, response.content)
+        self.assertNotIn(self.test_private_doc.title, response.content)
