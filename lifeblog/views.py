@@ -15,7 +15,11 @@ class DocumentList(ListView):
 
     
 class DocumentDetail(DetailView):
-    model = Document
+    queryset = Document.objects.all()
+
+    def get_object(self, **kwargs):
+        object = super(DocumentDetail, self).get_object(**kwargs)
+        return object
 
     def get_context_data(self, **kwargs):
         context = super(DocumentDetail, self).get_context_data(**kwargs)

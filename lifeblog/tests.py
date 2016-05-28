@@ -22,3 +22,9 @@ class DocumentTest(LiveServerTestCase):
         self.assertEquals(200, response.status_code)
         self.assertIn(self.test_public_doc.title, response.content)
         self.assertNotIn(self.test_private_doc.title, response.content)
+
+    def test_document_detail(self):
+        c = Client()
+        response = c.get("/lifeblog/1")
+        self.assertEquals(200, response.status_code)
+        self.assertIn(self.test_public_doc.title, response.content)
