@@ -9,9 +9,9 @@
     {% endif %}
   </head>
   <body>
-    {% if documents %}
-    {% for document in documents %}
-    <h1>{{ document.title }}</h1>
+    {% if object_list %}
+    {% for document in object_list %}
+        <a href="{% url 'lifeblog-document-detail' document.pk %}"><h1>{{ document.title }}</h1></a>
     {% endfor %}
     {% endif %}
   </body>
