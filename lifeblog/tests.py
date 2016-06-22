@@ -19,13 +19,12 @@ class DocumentTest(LiveServerTestCase):
     def test_public_doc(self):
         c = Client()
         response = c.get("/lifeblog/")
-        self.assertEquals(200, response.status_code)
         self.assertIn(self.test_public_doc.title, response.content.decode())
         self.assertNotIn(
             self.test_private_doc.title, response.content.decode())
 
     def test_document_detail(self):
         c = Client()
-        response = c.get("/lifeblog/1")
+        response = c.get("/lifeblog/" + self.test_public_doc.pk)
         self.assertEquals(200, response.status_code)
         self.assertIn(self.test_public_doc.title, response.content.decode())
