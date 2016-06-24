@@ -5,13 +5,16 @@ from .models import Document
 
 
 class DocumentList(ListView):
-    queryset = Document.objects.filter(pulbic_doc=True)
+    queryset = Document
     template_name = 'lifeblog/index.html'
 
     def get_context_data(self, **kwargs):
         context = super(DocumentList, self).get_context_data(**kwargs)
         context['test'] = settings.TEST
         return context
+
+    def get_queryset(self):
+        return Document.objects.filter(public_doc=True)
 
     
 class DocumentDetail(DetailView):
