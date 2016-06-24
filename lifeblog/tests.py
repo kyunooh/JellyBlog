@@ -25,6 +25,6 @@ class DocumentTest(LiveServerTestCase):
 
     def test_document_detail(self):
         c = Client()
-        response = c.get("/lifeblog/" + self.test_public_doc.pk)
+        response = c.get("/lifeblog/" + str(self.test_public_doc.pk))
         self.assertEquals(200, response.status_code)
         self.assertIn(self.test_public_doc.title, response.content.decode())
