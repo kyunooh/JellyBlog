@@ -5,7 +5,7 @@ from .models import Document
 
 
 class DocumentList(ListView):
-    model = Document
+    queryset = Document.objects.filter(pulbic_doc=True)
     template_name = 'lifeblog/index.html'
 
     def get_context_data(self, **kwargs):
