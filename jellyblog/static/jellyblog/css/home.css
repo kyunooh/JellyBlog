@@ -1,9 +1,10 @@
 
       html, body, .container {
+          margin: 0;
       height: 100%;
       min-height: 100%;
       text-align: center;
-      font-size: 3vw;
+      font-size: 2vw;
       }
 
       h1.responsive_header {
@@ -18,21 +19,16 @@
       div.box:hover {
         font-size: 150%;
       }
-      div.blogbox {
-          float:left;
-          width: 50%;
-          height: 50%;
-          margin-left: auto;
-          margin-right:auto;
-      }
+
       a {
         color: #000000;
       }
 
       div.blog_link {
-        height: 50%;
-        width:100%;
-        margit:0;
+        float: left;
+        height: 33%;
+        width:50%;
+        margin:0;
         background-color: rgba(77, 208, 255, 0.7);
       }
 
@@ -41,20 +37,21 @@
       }
 
       div.lifeblog {
-        height: 50%;
-        width:100%;
-        margit:0;
+        float:left;
+        margin-top: auto;
+        height: 33%;
+        width: 50%;
+        margin:0;
         background-color: rgba(77, 182, 172, 0.7);
       }
       div.lifeblog:hover {
         background-color: rgba(77, 182, 172, 1);
       }
 
-
       div.github_link {
         float: right;
         width: 50%;
-        height: 50%;
+        height: 33%;
         margin-left: auto;
         margin-right:auto;
         background-color: rgba(255, 213, 79, 0.7);
@@ -67,7 +64,7 @@
       div.facebook_link {
         float: left;
         width: 50%;
-        height: 50%;
+        height: 67%;
         margin-left: auto;
         margin-right:auto;
         background-color: rgba(240, 98, 146, 0.7);
@@ -76,21 +73,14 @@
         background-color: rgba(240, 98, 146, 1);
       }
 
-
-
-
       div.inform {
         float: right;
         width: 50%;
-        height: 50%;
+        height: 34%;
         margin-left: auto;
         margin-right:auto;
         background-color: rgba(77, 182, 172, 0.7);
       }
       div.inform:hover {
-        background-color: rgba(77, 182, 172, 1);
+          background-color: rgba(77, 182, 172, 1);
       }
-
-      
-
-      
