@@ -5,9 +5,12 @@
       min-height: 100%;
       text-align: center;
       font-size: 2vw;
+          color: #ffffff;
       }
 
       h1.responsive_header {
+                    color: #ffffff;
+
         position : relative;
         top: 35%;
         left: 50%;
@@ -29,11 +32,11 @@
         height: 50%;
         width:50%;
         margin:0;
-        background-color: rgba(77, 208, 255, 0.7);
+      background-color: rgba(242, 97, 1, 0.8);
       }
 
       div.blog_link:hover {
-        background-color: rgba(77, 208, 255, 1);
+        background-color: rgba(242, 97, 1, 1);
       }
 
       div.lifeblog {
@@ -42,10 +45,10 @@
         height: 33%;
         width: 50%;
         margin:0;
-        background-color: rgba(77, 182, 172, 0.7);
+        background-color: rgba(157, 238, 140, 0.8);
       }
       div.lifeblog:hover {
-        background-color: rgba(77, 182, 172, 1);
+        background-color: rgba(157, 238, 140, 1);
       }
 
       div.github_link {
@@ -54,7 +57,7 @@
         height: 33%;
         margin-left: auto;
         margin-right:auto;
-        background-color: rgba(55, 55, 55, 0.7);
+        background-color: rgba(55, 55, 55, 0.8);
       }
 
       div.github_link:hover {
@@ -67,7 +70,7 @@
         height: 50%;
         margin-left: auto;
         margin-right:auto;
-        background-color: rgba(59, 89, 152, 0.7);
+        background-color: rgba(59, 89, 152, 0.8);
       }
       div.facebook_link:hover {
         background-color: rgba(59, 89, 152, 1);
@@ -79,8 +82,8 @@
         height: 34%;
         margin-left: auto;
         margin-right:auto;
-        background-color: rgba(77, 182, 172, 0.7);
+        background-color: rgba(145, 190, 212, 0.8);
       }
       div.inform:hover {
-          background-color: rgba(77, 182, 172, 1);
+          background-color: rgba(145, 190, 212, 1);
       }
