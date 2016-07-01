@@ -62,10 +62,10 @@
 
 <p>현재 작업된 것들은 사실 &quot;글쓰기/읽기&quot; 정도밖에 없어서 앞으로 해야 할 것들이 많으며,</p>
 
-<p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.3까지 목표</strong></p>
+<p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.4까지 목표</strong></p>
 
 <p><strong>블로그 내부 검색 기능</strong></p><br />
-
+<p><strong>생활 블로그와 기술 블로그 분리</strong></p></br>
 &nbsp;</p>
 
 <h4>업데이트 기록</h4>
