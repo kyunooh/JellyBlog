@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ document.title }}</title>
+    <meta name="description" content="{{ document.meta_tag }}" /> 
 </head>
 <body>
+<h1>{{ document.title }}</h1>
+{% autoescape off %}
 {{ document.content }}
+{% endautoescape %}
 </body>
 </html>
