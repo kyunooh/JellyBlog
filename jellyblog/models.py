@@ -53,6 +53,7 @@ class Document(models.Model):
     meta_tag = models.CharField(max_length=150)
     view_count = models.IntegerField(default=0, editable=False)
     public_doc = models.BooleanField()
+    thumbnail = models.ImageField()
     update_time = models.DateTimeField(auto_now=True)
 
     def read(self):
