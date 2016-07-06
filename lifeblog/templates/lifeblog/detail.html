@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ document.title }}</title>
-    <meta name="description" content="{{ document.meta_tag }}" /> 
+    <meta name="description" content="{{ document.meta_tag }}" />
+    {% if test %}
+        <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
+    {% else %}
+        <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
+    {% endif %}
 </head>
 <body>
-<h1>{{ document.title }}</h1>
-{% autoescape off %}
-{{ document.content }}
-{% endautoescape %}
+  <h1>{{ document.title }}</h1>
+  {% autoescape off %}
+    {{ document.content }}
+  {% endautoescape %}
 </body>
 </html>
