@@ -11,6 +11,9 @@
     {% endif %}
 </head>
 <body>
+  <section>
+    <a onclick="javascript:history.back();">뒤로가기</a>
+  </section>
   <h1>{{ document.title }}</h1>
   {% autoescape off %}
     {{ document.content }}
