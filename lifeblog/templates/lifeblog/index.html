@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 <html>
   <head>
     <title>젤리의 망상</title>
@@ -9,6 +10,9 @@
     {% endif %}
   </head>
   <body>
+  <section>
+    <a onclick="javascript:history.back();">뒤로가기</a>
+  </section>
     {% if object_list %}
     {% for document in object_list %}
         <a href="{% url 'lifeblog-document-detail' document.pk %}"><h1>{{ document.title }}</h1></a>
