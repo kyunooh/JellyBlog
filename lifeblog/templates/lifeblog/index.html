@@ -1,22 +1,8 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>젤리의 망상</title>
-    {% if test %}
-        <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
-    {% else %}
-        <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
-    {% endif %}
-  </head>
-  <body>
-  <section>
-    <a onclick="javascript:history.back();">뒤로가기</a>
-  </section>
+{% extends "base.html" %}
+{% block content %}
     {% if object_list %}
     {% for document in object_list %}
         <a href="{% url 'lifeblog-document-detail' document.pk %}"><h1>{{ document.title }}</h1></a>
     {% endfor %}
     {% endif %}
-  </body>
-</html>
+{% endblock %}
