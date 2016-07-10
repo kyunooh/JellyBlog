@@ -1,23 +1,7 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ document.title }}</title>
-    <meta name="description" content="{{ document.meta_tag }}" />
-    {% if test %}
-        <script src="{% static "jellyblog/js/ga-UA-78086496-1.js" %}"></script>
-    {% else %}
-        <script src="{% static "jellyblog/js/ga-UA-51933789-1.js" %}"></script>
-    {% endif %}
-</head>
-<body>
-  <section>
-    <a onclick="javascript:history.back();">뒤로가기</a>
-  </section>
+{% extends "lifeblog/base.html" %}
+{% block content %}
   <h1>{{ document.title }}</h1>
   {% autoescape off %}
     {{ document.content }}
   {% endautoescape %}
-</body>
-</html>
+{% endblock %}  
