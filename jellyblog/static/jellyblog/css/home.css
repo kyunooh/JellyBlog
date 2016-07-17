@@ -1,89 +1,88 @@
+html, body, .container {
+  font-family: sans-serif;
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    text-align: center;
+    font-size: 2vw;
+    color: #ffffff;
+}
 
-      html, body, .container {
-          margin: 0;
-      height: 100%;
-      min-height: 100%;
-      text-align: center;
-      font-size: 2vw;
-          color: #ffffff;
-      }
+h1.responsive_header {
+  color: #ffffff;
+  position : relative;
+  top: 35%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
 
-      h1.responsive_header {
-                    color: #ffffff;
+div.box:hover {
+  font-size: 150%;
+}
 
-        position : relative;
-        top: 35%;
-        left: 50%;
-        -moz-transform: translateX(-50%) translateY(-50%);
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-      }
+a {
+  color: #000000;
+}
 
-      div.box:hover {
-        font-size: 150%;
-      }
+div.blog_link {
+  float: left;
+  height: 50%;
+  width:50%;
+  margin:0;
+background-color: rgba(242, 97, 1, 0.8);
+}
 
-      a {
-        color: #000000;
-      }
+div.blog_link:hover {
+  background-color: rgba(242, 97, 1, 1);
+}
 
-      div.blog_link {
-        float: left;
-        height: 50%;
-        width:50%;
-        margin:0;
-      background-color: rgba(242, 97, 1, 0.8);
-      }
+div.lifeblog {
+  float:left;
+  margin-top: auto;
+  height: 33%;
+  width: 50%;
+  margin:0;
+  background-color: rgba(157, 238, 140, 0.8);
+}
+div.lifeblog:hover {
+  background-color: rgba(157, 238, 140, 1);
+}
 
-      div.blog_link:hover {
-        background-color: rgba(242, 97, 1, 1);
-      }
+div.github_link {
+  float: right;
+  width: 50%;
+  height: 33%;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: rgba(55, 55, 55, 0.8);
+}
 
-      div.lifeblog {
-        float:left;
-        margin-top: auto;
-        height: 33%;
-        width: 50%;
-        margin:0;
-        background-color: rgba(157, 238, 140, 0.8);
-      }
-      div.lifeblog:hover {
-        background-color: rgba(157, 238, 140, 1);
-      }
+div.github_link:hover {
+  background-color: rgba(55, 55, 55, 1);
+}
 
-      div.github_link {
-        float: right;
-        width: 50%;
-        height: 33%;
-        margin-left: auto;
-        margin-right:auto;
-        background-color: rgba(55, 55, 55, 0.8);
-      }
+div.facebook_link {
+  float: left;
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: rgba(59, 89, 152, 0.8);
+}
+div.facebook_link:hover {
+  background-color: rgba(59, 89, 152, 1);
+}
 
-      div.github_link:hover {
-        background-color: rgba(55, 55, 55, 1);
-      }
-
-      div.facebook_link {
-        float: left;
-        width: 50%;
-        height: 50%;
-        margin-left: auto;
-        margin-right:auto;
-        background-color: rgba(59, 89, 152, 0.8);
-      }
-      div.facebook_link:hover {
-        background-color: rgba(59, 89, 152, 1);
-      }
-
-      div.inform {
-        float: right;
-        width: 50%;
-        height: 34%;
-        margin-left: auto;
-        margin-right:auto;
-        background-color: rgba(145, 190, 212, 0.8);
-      }
-      div.inform:hover {
-          background-color: rgba(145, 190, 212, 1);
-      }
+div.inform {
+  float: right;
+  width: 50%;
+  height: 34%;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: rgba(145, 190, 212, 0.8);
+}
+div.inform:hover {
+    background-color: rgba(145, 190, 212, 1);
+}
