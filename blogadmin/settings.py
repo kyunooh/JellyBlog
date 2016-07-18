@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'jellyblog',
     'about_me',
     'lifeblog',
+    'static_post',
 )
 
 MIDDLEWARE_CLASSES = (

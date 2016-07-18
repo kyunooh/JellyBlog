@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 from jellyblog import urls as blog_urls
 from lifeblog import urls as lifeblog_urls
+from static_post import urls as static_post_urls
 
 from about_me import views as about_me_views
 
@@ -33,6 +34,8 @@ urlpatterns = [
 
     # life blog 접속 url
     url(r'^lifeblog/', include(lifeblog_urls)),
+
+    url(r'^static-post/', include(static_post_urls)),
 
     # jellyblog에 접속하기 위한 url
     url(r'^', include(blog_urls)),
