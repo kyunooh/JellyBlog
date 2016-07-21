@@ -1,0 +1,303 @@
+<!-- html HypeText Markup Language -->
+<!-- HyperText 한 문서에서 다른 문서로 이동이 가능한 텍스트 -->
+<!-- Markup Language 문서나 데이터의 구조를 명기하는 언어 -->
+<!doctype html>
+<!-- doctype 여러가지 html 버전이 있기 때문에, 어떤 버전의 HTML을 사용할 것인지 명시해줍니다. -->
+
+<html>
+<!-- html의 문서의 가장 기본적인 태그이고요 문서의 시작과 끝에 여는 태그와 닫는 태그로 구성됩니다. -->
+<head>
+    <!-- 보통 브라우저에게 알려주는 정보들을 명기합니다. -->
+    <meta charset="utf-8">
+    <!-- meta 태그는 작성되고 있는 HTML 문서 자체의 정보들을 명기합니다. -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>장고걸스 세미나</title>
+    <!-- title 말 그대로 문서의 제목입니다. -->
+    <meta name="title" content="HTML과 CSS의 기본과 활용">
+    <meta name="author" content="최현묵">
+    <meta name="keywords" content="장고걸스, 세미나, HTML, CSS" />
+    <meta name="description" content="장고걸스 세미나를 위한 HTML 문서 입니다. 발표 제목은 HTML과 CSS의 활용입니다. 발표를 잘하고 싶습니다." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        /* style  태그 안에는 보통 css와 같은 스타일시트의 내용이 들어옵니다. */
+        body {
+            background-color: rgba(155, 155, 0, 0.2);
+        }
+    </style>
+    <link rel="stylesheet" href="djangogirls.css" charset="utf-8">
+    <!-- link 태그는 외부 자원을 연결해주는 데 사용됩니다. 스타일시트를 링크하는데 많이 사용합니다.  -->
+    <script>
+        //alert("안녕하세요! 만나서 반갑습니다.");
+        <!-- 자바스크립트 코드를 적어줍니다 -->
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+
+    <!-- 보통 이런식으로 외부에 파일을 가져와서 사용합니다. -->
+</head>
+<body>
+<!-- 보통 실제 유저에게 보여지는 정보들을 적어줍니다. -->
+    <div class="page-wrapper">
+        <!-- division의 약자로 가장 일반적인 구획을 나눌 때 사용하는 태그입니다. -->
+        <div class="footer">
+
+        </div>
+        <article>
+            <div class="slide">
+                <h1>HTML과 CSS의 기본과 활용</h1>
+                <h3 style="padding-top: 5px;">HTML과 CSS로 HTML과 CSS를 보면서 배워봅시다.</h3>
+                <!-- heading 태그 제목 또는 주제등을 표현하는 태그입니다. -->
+                <p>
+                <!-- p 태그 paragraph 약자로써 문단 또는 단락을 나눌 때 사용합니다. -->
+                    안녕하세요. 7월 장고걸스 세미나를 하게 된 최현묵 입니다.
+                </p>
+            </div>
+
+            <div class="slide">
+                <h2>
+                    HTML
+                </h2>
+            </div>
+
+            <div class="slide">
+                <h3>HTML은 무엇인가요?</h3>
+                <p>
+                    HTML은 HyperText Markup Language의 약자입니다.
+                </p>
+            </div>
+
+            <div class="slide">
+                <h4>HyperText</h4>
+                <p>
+                    HyperText는 한 문서에서 다른 문서로 이동이 가능한 텍스트를 의미합니다.
+                </p>
+            </div>
+
+            <div class="slide">
+                <h4>Markup Language</h4>
+                <p>
+                    Markup Language는 문서나 데이터의 구조를 명기하는 언어입니다.
+                </p>
+            </div>
+
+            <div class="slide">
+                <h2>HTML의 기본 구조</h2>
+            </div>
+            <div class="slide">
+                <h3>doctype</h3>
+                <p>
+                    <pre><code class="html">&lt;!doctype html&gt;</code></pre>위와 같은 형태로 최상단에 선언 되는 doctype은 여러가지 html 버전이 있기 때문에, 어떤 버전의 HTML을 사용할 것인지 명시해줍니다.
+                </p>
+            </div>
+            <div class="slide">
+                <h3>html</h3>
+                <p>
+                    <pre><code class="html">&lt;html&gt; ... &lt;/html&gt;</code></pre> 와 같은 형태로 문서를 감싸줍니다.
+                </p>
+            </div>
+            <div class="slide">
+                <h3>head</h3>
+                <p>
+                    <pre><code class="html">&lt;head&gt; ... &lt;/head&gt;</code></pre> html 태그와 마찬가지로 이런형식으로 감싸집니다. 기본적으로 html의 대부분 태그는 이런식으로 감싸진다는 걸 기억하세요. (예외도 존재합니다.) head 태그는 보통 컴퓨터에게 알려주는 정보들을 명기합니다.
+                </p>
+            </div>
+            <div class="slide">
+                <h4>meta</h4>
+                <p>meta 태그는 작성되고 있는 HTML 문서 자체의 정보들을 명기합니다. </p>
+                <p><img src="meta.png" alt="여러가지 메타 태그들이 나열 되어있다."></p>
+            </div>
+            <div class="slide">
+                <h4>style</h4>
+                style  태그 안에는 보통 css와 같은 스타일시트의 내용이 들어옵니다.
+                <p style="padding: 0px;">
+<pre><code class="html" style="font-size: 1vw;">
+&lt;style type="text/css"&gt;<br>
+/* 주석은 요렇게! */<br>
+<strong>body</strong> {<br>
+    background-color: rgba(155, 155, 0, 0.2);<br>
+}<br>
+&lt;/style&gt;
+</code></pre></p>
+            </div>
+            <div class="slide">
+                <h4>link</h4>
+                <p>link 태그는 외부 자원을 연결해주는 데 사용됩니다. 스타일시트를 링크하는데 많이 사용합니다.</p>
+                <p><pre><code class="html">&lt;link rel="stylesheet" href="/css/djangogirls.css"&gt;</code></pre></p>
+            </div>
+
+            <div class="slide">
+                <h4>script</h4>
+                <p>
+                    스크립트 코드를 적기 위해 사용합니다.
+                </p>
+<pre><code class="html">
+&lt;script&gt;
+    alert("안녕하세요! 만나서 반갑습니다.");
+&lt;/script&gt;
+</code></pre>
+                <p>
+                    보통은 아래와 같이 외부의 코드를 불러와서 사용합니다.
+                </p>
+                <p>
+<pre><code class="html">&lt;script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" &gt;&lt;/script&gt;</code></pre>
+                </p>
+            </div>
+            <div class="slide">
+                <h3>body</h3>
+                <p>보통 실제 유저에게 보여지는 정보들을 적어줍니다. 지금 여러분이 보시고 있는 화면도 body 태그의 내용이에요!</p>
+            </div>
+            <div class="slide">
+                <h4>div</h4>
+                <p>div 태그는 가장 많이 쓰이는 태그 중 하나입니다. division의 약자이고, html 내에서 블록(?)을 구분할 때 쓰입니다.</p>
+            </div>
+            <div class="slide">
+                <h4>span</h4>
+                <p>span 태그는 inline 블록 태그입니다. div의 경우 같은 라인이 바로 구분되지만 한 라인에서 블록을 구분 할 수 있습니다. inline 태그라는 속성을 가지고 있기 때문에, span 태그 안에 div 태그를 집어넣을 수 없습니다. 물론 반대의 경우는 가능합니다.</p>
+            </div>
+            <div class="slide">
+                <h4>heading(h1 ... h6)</h4>
+                <p>heading 태그는 보통 제목을 표시할 때 많이 사용합니다. &lt;h1&gt;와 같은 형태로 표현하며, 아래와 같이 6가지로 표현됩니다.</p>
+                <p style="padding: 0px;">
+                  <h1 style="padding: 0px; margin:10px;">안녕하세요. 저는 h1입니다.</h1>
+                  <h2 style="padding: 0px; margin:10px;">안녕하세요. 저는 h2입니다.</h2>
+                  <h3 style="padding: 0px; margin:10px;">안녕하세요. 저는 h3입니다.</h3>
+                  <h4 style="padding: 0px; margin:10px;">안녕하세요. 저는 h4입니다.</h4>
+                  <h5 style="padding: 0px; margin:10px;">안녕하세요. 저는 h5입니다.</h5>
+                  <h6 style="padding: 0px; margin:10px;">안녕하세요. 저는 h6입니다.</h6>
+                </p>
+            </div>
+            <div class="slide">
+                <h4>p</h4>
+                <p>p 태그는 paragraph의 약자로 문단 또는 단락을 나눌 때 사용됩니다.</p>
+            </div>
+            <div class="slide">
+                <h4>a 태그</h4>
+                <p>a 태그는 anchor의 약자로 보통 다른 문서 또는 위치와 연결(link)할 때 많이 사용됩니다.</p>
+                <code class="html">&lt;a href="http://www.djangogirlsseoul.org/meltingpot-seminar-july/"&gt;django girls 7월 세미나&lt;/a&gt;</code>
+                <p>위 코드는 아래와 같이 보여집니다.</p>
+                <p><a href="http://www.djangogirlsseoul.org/meltingpot-seminar-july/">django girls 7월 세미나</a></p>
+                <!-- a 태그는 다른 문서 또는 위치와 연결할 때 사용합니다. -->
+            </div>
+            <div class="slide">
+                <h4>ul, ol, li</h4>
+                <p>위 태그들은 리스트를 표현할 때 사용합니다. li 태그는 리스트의 아이템 요소 입니다.</p>
+<pre><code class="html">&lt;ul&gt;
+&lt;li&gt;첫번째 입니다.&lt;/li&gt;
+&lt;li&gt;두번째 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+            </div>
+            <div class="slide">
+                <h4>ul(unordered list)</h4>
+                <p>순서가 없는 리스트로 아래와 같이 표현됩니다.</p>
+                <p>
+                  <ul>
+                    <li>첫번째 입니다.</li>
+                    <li>두번째 입니다.</li>
+                    <li>세번째 입니다.</li>
+                    <li>네번째 입니다.</li>
+                  </ul>
+                </p>
+            </div>
+            <div class="slide">
+                <h4>ol(ordered list)</h4>
+                <p>순서가 없는 리스트로 아래와 같이 표현됩니다.</p>
+                <p>
+                  <ol>
+                    <li>첫번째 입니다.</li>
+                    <li>두번째 입니다.</li>
+                    <li>세번째 입니다.</li>
+                    <li>네번째 입니다.</li>
+                  </ol>
+                </p>
+            </div>
+            <div class="slide">
+                <h3>빈 태그(empty tag)</h4>
+                <p>내용이 필요없는 태그들은 빈 태그라고 불립니다.</p>
+            </div>
+            <div class="slide">
+                <h4>br</h4>
+                <pre>
+                  <code class="html">강제로 줄바꿈을&lt;br&gt;할수 있는&lt;br&gt;태그입니다.</code>
+                </pre>
+                <p>
+                  강제로 줄바꿈을<br>할수 있는<br>태그입니다. 하지만 권장되지 않는 태그로서 사용을 자제 하는 것이 좋습니다.
+                </p>
+            </div>
+            <div class="slide">
+                <h4>img</h4>
+                <p>img 태그는 이미지를 표현하는데 사용합니다. src 속성에 주소(url)를 입력하면 됩니다.</p>
+                <pre><code class="html">&lt;img src="img_src.png" alt="본 발표자료의 첫 화면입니다." /&gt;</code></pre>
+                <img src="img_src.png" alt="본 발표자료의 첫 화면입니다." width="50%" />
+            </div>
+            <div class="slide">
+                <h4>input</h4>
+                <p>input 태그는 사용자의 입력을 받을 수 있는 태그입니다.</p>
+                <pre><code>&lt;input type="text" name="name" value=""&gt;</code></pre>
+                <input type="text" name="name" value="">
+            </div>
+            <div class="slide">
+              <h2>그 외의 태그들</h2>
+              <p>button, table 관련(th, thead, td, tbody 등), 리스트 (dl, dt, dd), section, header, footer, code 등등 </p>
+              <p>제가 말씀드린 태그 외에도 굉장히 많은 태그들이 존재합니다.</p>
+              <p>하지만 모든 태그들을 다 외울 필요는 없습니다.</p>
+            </div>
+            <div class="slide">
+              <h2>알면 좋은 사이트</h2>
+            </div>
+            <div class="slide">
+              <h3>W3C</h3>
+              <p>
+                <a href="http://www.w3.org">http://www.w3.org</a>
+              </p>
+              <p>W3C(World Wide Web Consortium)는 월드 와이드 웹을 위한 표준을 개발하고 장려하는 조직으로 팀 버너스 리를 중심으로 1994년 10월에 설립되었다. W3C는 회원기구, 정직원, 공공기관이 협력하여 웹 표준을 개발하는 국제 컨소시엄이다. W3C의 설립취지는 웹의 지속적인 성장을 도모하는 프로토콜과 가이드라인을 개발하여 월드 와이드 웹의 모든 잠재력을 이끌어 내는 것이다.</p>
+            </div>
+            <div class="slide">
+              <h3>W3C validator</h3>
+              <p><a href="https://validator.w3.org">https://validator.w3.org</a></p>
+            </div>
+            <div class="slide">
+              <h2>MDN</h2>
+              <p>
+                <a href="https://developer.mozilla.org/ko/">https://developer.mozilla.org/ko/</a>
+              </p>
+            </div>
+            <div class="slide">
+              <h2>W3School은 가급적 사용하지 말기!</h2>
+            </div>
+            <div class="slide">
+              <h1>감사합니다.</h1>
+              <p>본인 발표자료 참고를 허가해주신
+              우아한 형제들의 <a href="http://techhtml.github.io">조은</a>님</p>
+              <p>장고걸스 운영진 여러분</p>
+              <p>끝까지 잘 들어주신 여러분들께도 감사합니다.</p>
+            </div>
+        </article>
+    </div>
+
+
+    <script>
+      var slides = $(".slide");
+      for(var i = 0; i < slides.length; i++) {
+        var slide = slides.get(i);
+        slide.setAttribute("id", "slide" + i);
+        slide.setAttribute("onclick", "moveDiv(\"slide" + (i+1) + "\")");
+      }
+
+      var moveDiv = function(divName) {
+        $('html,body').animate({
+           scrollTop: $("#" + divName).offset().top
+        });
+      };
+
+
+      $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+
+    </script>
+</body>
+</html>
