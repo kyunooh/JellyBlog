@@ -1,5 +1,4 @@
 selenium>=2.53.1
-setuptools>=24
 django>=1.8
 django-compressor>=1.6
 django-favicon>=0.1
