@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!-- html HypeText Markup Language -->
 <!-- HyperText 한 문서에서 다른 문서로 이동이 가능한 텍스트 -->
 <!-- Markup Language 문서나 데이터의 구조를 명기하는 언어 -->
@@ -24,7 +25,7 @@
             background-color: rgba(155, 155, 0, 0.2);
         }
     </style>
-    <link rel="stylesheet" href="djangogirls.css" charset="utf-8">
+    <link rel="stylesheet" href="{% static "static_post/django_girls_july_seminar/css/djangogirls.css"  %}" charset="utf-8">
     <!-- link 태그는 외부 자원을 연결해주는 데 사용됩니다. 스타일시트를 링크하는데 많이 사용합니다.  -->
     <script>
         //alert("안녕하세요! 만나서 반갑습니다.");
