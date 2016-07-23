@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+html, body div.page-wrapper, article{
+    font-family:  'Nanum Gothic', 'Open-Sans', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    font-size: 2.4vw;
+}
+
+div.slide  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100vh;
+    text-align: center;
+}
+div#slide01 {
+  background-color : white;
+  color: black;
+}
+div.slide > h1,
+div.slide > h2,
+div.slide > h3,
+div.slide > h4,
+div.slide > h5,
+div.slide > h6 {
+  padding-top: 10vh;
+}
+
+a {
+color: #abffff}
