@@ -1,6 +1,12 @@
 {% extends "jellyblog/base.html" %}
 {% if document %} {# 정상적인 접근인지 확인하기 위함  #}
     {% block meta_tag %}{{ document.meta_tag }}{% endblock %} {# 해당 글에 검색을 위한 메타태그 적용 #}
+
+    {% block ogMetaTitle %}{{ document.title }}{% endblock %}
+
+    {% block ogMetaDescription %}{{ document.meta_tag }}{% endblock %}
+
+
     {% block title %}{{ document.title }} | 젤리의 망상{% endblock %} {# 타이틀 적용 #}
     {% block content %}
     <div class="container markdown-body">
