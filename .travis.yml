@@ -36,6 +36,7 @@ script:
   - python manage.py test functional_test -v 3
   - python manage.py test lifeblog -v 3
   - python manage.py test jellyblog -v 3
+  - python manage.py test static_post -v 3
 
 env:
   global:
