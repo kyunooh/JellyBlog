@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kyunooh/JellyBlog.svg?branch=master)](https://travis-ci.org/kyunooh/JellyBlog)
+
 <h2>도저히 워드프레스를 못쓰겠어서 그냥 제가 블로그를 만들었습니다.</h2>
 
 <p>워드프레스로 블로그를 운영하고 있었는데, 어느 순간부터 워드프레스가 굉장히 무거워졌습니다.</p>
