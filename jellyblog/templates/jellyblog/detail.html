@@ -19,7 +19,7 @@
             {% else %} {# 상위 카테고리인 글의 경우 #}
                 <span><h6><a href="/">Home</a> > <a
                         href="/category/{{ document.category.id }}"> {{ document.category.name }} </a></h6></span>
-                {% endif %} {# if document.category.parent.id != 1 #}
+            {% endif %} {# if document.category.parent.id != 1 #}
                 
                 <h5>최초 작성 : {{ document.time | date:"Y-m-d" }} /  최종 수정 : {{ document.update_time | date:"Y-m-d" }}</h5>
             <span><h1>{{ document.title }}</h1></span> {# 글 제목 #}
@@ -29,18 +29,42 @@
             <p style="text-align: right !important; margin-right: 20px">[Views: {{ document.view_count }}]</p> {# 조회수 표시  #}
         </div>
     </div>
+
+        <!-- TODO 주소 변경 스크립트추가필요 -->
+
+
+	<div class="fb-share-button" data-href="http://localhost:8000/2" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2F2&amp;src=sdkpreparse">Share</a></div>
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+    var uid = window.location.href.split('?')[0].split('#')[0];
+    $("#fb-share-button").attr("data-href", uid);
+        (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
     <div id="disqus_thread"></div>
     <script>
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
-
     s.src = '//jellyms.disqus.com/embed.js';
-
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <div id="fb-root"></div>
+    <script>
+
+    </script>
     {% endblock %}
     {#content#}
 {% endif %}
