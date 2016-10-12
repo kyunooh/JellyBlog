@@ -18,8 +18,6 @@
 
 <p>참고용 정도로만 사용하시길 권합니다 ㅎㅎ (소스코드도 더러운(?) 부분이 좀 많습니다.)</p>
 
-<h3>어떻게 만든겨?</h3>
-
 <p>블로그에 사용된 소스 라이브러리(프레임워크)는 아래와 같으며</p>
 
 <p><a href="https://www.djangoproject.com/">django</a>와 그외 여러가지 모듈(<a href="http://www.pymysql.org/">pymysql</a>,&nbsp;<a href="https://github.com/django-ckeditor/django-ckeditor">ckeditor</a>,&nbsp;<a href="http://django-compressor.readthedocs.org/en/latest/">compressor</a>&nbsp;등등)<br />
@@ -30,7 +28,7 @@
 <p>실제 구동되고 있는 블로그 환경은 아래와 같습니다.</p>
 
 <p>Ubuntu(<a href="http://aws.amazon.com/">AWS</a>&nbsp;프리티어)<br />
-<a href="http://www.python.org/">python</a>&nbsp;2.7.10<br />
+<a href="http://www.python.org/">python</a>&nbsp;3.4.4<br />
 <a href="https://mariadb.org/">MariaDB</a>&nbsp;10.0</p>
 
 <p>&nbsp;</p>
