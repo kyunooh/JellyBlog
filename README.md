@@ -35,9 +35,6 @@
 
 <p>&nbsp;</p>
 
-<p>원래는&nbsp;<strong>Python3로 작업하고 있었는데, 특정 모듈에서&nbsp;충돌</strong>이 일어나는 경우가 발생하여 Python2 스펙으로 갈아탔습니다.</p>
-
-
 <p>&nbsp;</p>
 
 <h4>갑자기 웬 파이썬?</h4>
