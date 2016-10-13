@@ -6,7 +6,12 @@
     {% block ogImage %}{{ document.thumbnail }}{% endblock %}
     {% block title %}{{ document.title }} | 젤리의 망상{% endblock %} {# 타이틀 적용 #}
     {% block content %}
+    {% if document.is_markdown %}
     <div class="container markdown-body">
+    {% endif %}
+    {% if not document.is_markdown %}
+    <div class="container">
+    {% endif %}
         <div class="col-md-12">
             {% if document.category.parent.id != 1 %} {# 해당글의 카테고리 표시를 위함 (Home > parent > child)와 같은 방식으로표시 #}
                 <span>

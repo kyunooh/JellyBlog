@@ -55,6 +55,7 @@ class Document(models.Model):
     public_doc = models.BooleanField()
     thumbnail = models.ImageField(null=True, upload_to="thumnail_img/")
     update_time = models.DateTimeField(auto_now=True)
+    is_markdown = models.BooleanField(defualt=True)
 
     def read(self):
         self.view_count += 1
