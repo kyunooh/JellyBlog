@@ -48,6 +48,7 @@ INSTALLED_APPS = (
 
     'favicon',
 
+    'blogadmin',
     'jellyblog',
     'about_me',
     'lifeblog',
