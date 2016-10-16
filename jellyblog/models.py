@@ -56,6 +56,7 @@ class Document(models.Model):
     thumbnail = models.ImageField(null=True, upload_to="thumnail_img/")
     update_time = models.DateTimeField(auto_now=True)
     is_markdown = models.BooleanField()
+    linebreaks = models.BooleanField()
 
     def read(self):
         self.view_count += 1
