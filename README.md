@@ -59,6 +59,7 @@
 <p>현재 작업된 것들은 사실 &quot;글쓰기/읽기&quot; 정도밖에 없어서 앞으로 해야 할 것들이 많으며,</p>
 
 <p>아래는 그 목록입니다.&nbsp;<strong>bold 처리한 것은 v0.5까지 목표</strong></p>
+<p><strong>웹표준 짱짱 준수 (W3C Validator 및 조은님 검증기 통과)</strong></p>
 <p><strong>최종 수정 시간 에러 수정</strong></p>
 <p><strong>메인 san serif적용</strong></p>
 <p><strong>포스트 썸네일 메타태그 적용</strong></p>
