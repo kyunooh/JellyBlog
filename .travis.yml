@@ -14,7 +14,9 @@ install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
   - pip install -q Django==$DJANGO_VERSION
-
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+  - tar -xzvf geckodriver-v0.11.1-linux64.tar.gz
+  - PATH=$PATH:/home/travis/build/kyunooh/JellyBlog
 
 dist: trusty
 sudo: required
@@ -24,7 +26,9 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
+    - wget
   firefox: "48.0.1"
+  
 
 before_script:
   - mysql -u root -e 'create database jellyblog_travis;'
