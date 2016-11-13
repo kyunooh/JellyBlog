@@ -1,7 +1,9 @@
 {% extends "lifeblog/base.html" %}
 {% block content %}
+<article>
   <h1>{{ document.title }}</h1>
   {% autoescape off %}
     {{ document.content }}
   {% endautoescape %}
+</article>  
 {% endblock %}  
