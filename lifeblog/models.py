@@ -15,6 +15,7 @@ class Document(models.Model):
     view_count = models.IntegerField(default=0, editable=False)
     public_doc = models.BooleanField()
     update_time = models.DateTimeField(auto_now=True)
+    is_markdown = models.BooleanField()
 
     def read(self):
         self.view_count += 1

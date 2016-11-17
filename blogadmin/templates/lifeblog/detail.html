@@ -1,9 +1,21 @@
 {% extends "lifeblog/base.html" %}
 {% block content %}
+<section>
+    <a href="{% url "lifeblog-document-detail" %}">목록으로</a>
+</section>
 <article>
+{% if document.is_markdown  %}
+    <div class="markdown-body">
+      <h1>{{ document.title }}</h1>
+      {% autoescape off %}
+        {{ document.content }}
+      {% endautoescape %}
+    </div>
+{% else %}
   <h1>{{ document.title }}</h1>
   {% autoescape off %}
     {{ document.content }}
   {% endautoescape %}
+{% endif %}
 </article>  
 {% endblock %}  

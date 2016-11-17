@@ -4,14 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %} 젤리의 망상 - 일상블로그 {% endblock %}</title>
-  <meta name="description" content="{% block metatag %}젤리의 일상에
-                                    대해서 적는 블로그입니다.{% endblock %}" />
+  <meta name="description" content="{% block metatag %}젤리의 일상에 대해서 적는 블로그입니다.{% endblock %}" />
   <link rel="stylesheet" href="{% static "lifeblog/custom.css" %}" />
 </head>
 <body>
-  <section>
-    <a href="#" onclick="javascript:history.back();">뒤로가기</a>
-  </section>
   {% block content %}
   {% endblock %}
     {% if test %}

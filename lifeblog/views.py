@@ -25,4 +25,3 @@ class DocumentDetail(DetailView):
         context = super(DocumentDetail, self).get_context_data(**kwargs)
         context['test'] = settings.TEST
         return context
-        
