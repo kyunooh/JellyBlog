@@ -1,21 +1,33 @@
 {% extends "lifeblog/base.html" %}
+
+{% block head %}
+    {% if document.is_markdown  %}
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.4.1/github-markdown.min.css" />
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <section>
-    <a href="{% url "lifeblog-document-detail" %}">목록으로</a>
+    <a href="{% url "lifeblog-index" %}">목록으로</a>
 </section>
-<article>
+
 {% if document.is_markdown  %}
-    <div class="markdown-body">
-      <h1>{{ document.title }}</h1>
-      {% autoescape off %}
-        {{ document.content }}
-      {% endautoescape %}
-    </div>
+    <article class="markdown-body">
 {% else %}
-  <h1>{{ document.title }}</h1>
-  {% autoescape off %}
-    {{ document.content }}
-  {% endautoescape %}
+    <article>
 {% endif %}
-</article>  
-{% endblock %}  
+    <h1>{{ document.title }}</h1>
+    {% autoescape off %}
+      {{ document.content }}
+    {% endautoescape %}
+</article>
+{% endblock %}
