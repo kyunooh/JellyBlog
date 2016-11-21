@@ -18,9 +18,9 @@
 {% endblock %}
 
 {% block content %}
-<section>
+<div>
     <a href="{% url "lifeblog-index" %}">목록으로</a>
-</section>
+</div>
 
 {% if document.is_markdown  %}
     <article class="markdown-body">
