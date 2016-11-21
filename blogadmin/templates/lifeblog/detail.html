@@ -1,6 +1,7 @@
 {% extends "lifeblog/base.html" %}
 
 {% block head %}
+    <meta name="description" content="{{ document.meta_tag }}" />
     {% if document.is_markdown  %}
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.4.1/github-markdown.min.css" />
         <style>
