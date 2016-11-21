@@ -1,8 +1,8 @@
 {% extends "lifeblog/base.html" %}
 {% block content %}
-    <section>
+    <div>
         <a href="{% url "home" %}">홈으로</a>
-    </section>
+    </div>
     {% if object_list %}
     {% for document in object_list %}
         <a href="{% url 'lifeblog-document-detail' document.pk %}"><h1>{{ document.title }}</h1></a>
