@@ -9,8 +9,8 @@
 
     <meta property="fb:app_id" content="1463722037207288" />
     <meta property="og:title" content="{% block ogMetaTitle %}젤리의 망상{% endblock %}"/>
-    <meta property="og:url" content="http://jellyms.kr" />
-	<meta property="og:type" content="article"/>
+    <meta property="og:url" content="{% block ogUrl %}http://jellyms.kr{% endblock %}" />
+    <meta property="og:type" content="article"/>
     <meta property="og:description" content="{% block ogMetaDescription %}안녕하세요. 젤리의 망상입니다.{% endblock %}"/>
 
     <meta property="og:image" content="http://jellyms.kr/static/{% block ogImage %}jellyblog/images/default_og_image.png{% endblock %}" />
